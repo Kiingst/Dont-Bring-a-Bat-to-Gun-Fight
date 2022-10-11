@@ -5,6 +5,7 @@ export (int) var health
 var roll_On_cooldown = false
 signal take_damage
 var alive = true
+export (int) var Length_from_player
 
 
 
@@ -24,6 +25,9 @@ func Player_Control(delta):
 		move_vec.x -= 1
 	if Input.is_action_pressed("Move_Right"):
 		move_vec.x += 1
+	if Input.is_action_pressed("Swing"):
+		$Player_Weapon/AnimationPlayer.play("Swing")
+		
 	if Input.is_action_just_pressed("Roll"):
 		if roll_On_cooldown == false:
 			MOVE_SPEED += roll_speed 
@@ -35,8 +39,10 @@ func Player_Control(delta):
 	move_and_collide(move_vec * MOVE_SPEED * delta)
 	
 	var look_vec = get_global_mouse_position() - global_position
+	$Player_Weapon/Player_Weapon.offset.x = Length_from_player
+	$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
+	$Player_Weapon/Player_Weapon/KinematicBody2D.position.x = Length_from_player
 	$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
-	
 
 
 func _physics_process(delta):
@@ -54,4 +60,3 @@ func _on_Cooldown_timeout():
 	#Roll taken off cooldown
 	roll_On_cooldown = false
 	print(roll_On_cooldown)
-	print("fixed")

@@ -1,11 +1,34 @@
-extends "res://enemy/Enemy.gd"
+extends KinematicBody2D
+var bullet_speed = 100
+var waittimer = Timer.new()
+export (int) var health
+export (int) var MOVE_SPEED
+var On_Cooldown = false
+signal fire 
+signal death
+#signal kill
+export (PackedScene) var bullet
 
+onready var player = get_parent().get_node("Player")
+
+func _physics_process(delta):
+	
+	control(delta)
+
+
+func move_to_player(delta):
+	var vec_to_player = player.global_position - global_position
+	vec_to_player = vec_to_player.normalized()
+	move_and_collide(vec_to_player * MOVE_SPEED * delta)
+	
+
+func kill():
+	queue_free()
 
 var Current_Frame = 0
 
 
 var Locked_On = false
-var Is_Jumping = true
 var x = 0
 
 func _ready():
@@ -21,15 +44,10 @@ func control(delta):
 	vec_to_player = vec_to_player.normalized()
 	$gun.global_rotation = atan2(vec_to_player.y, vec_to_player.x)
 	
-	if Locked_On == false :
-		$AnimatedSprite.playing = true
-		if Is_Jumping == true: 
+	if Locked_On == false : 
 			move_to_player(delta)
-		
 	elif Locked_On == true :
-		fire()
-		if $AnimatedSprite.frame == 0:
-			$AnimatedSprite.playing = false
+			fire()
 
 	if health <= 0:
 		kill()
@@ -57,14 +75,6 @@ func fire():
 		#print("Bullet position",b.global_position)
 
 #funcs that link to certain nodes of node
-func _on_AnimatedSprite_frame_changed():
-	match $AnimatedSprite.frame:
-		1:
-			Is_Jumping = true
-		4:
-			Is_Jumping = false
-		_:
-			pass
 
 
 func _on_Shooting_Range_area_entered(area):
