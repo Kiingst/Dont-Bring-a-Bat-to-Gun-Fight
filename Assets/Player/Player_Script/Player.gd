@@ -24,20 +24,20 @@ func Player_Control(delta):
 		move_vec.x -= 1
 	if Input.is_action_pressed("Move_Right"):
 		move_vec.x += 1
-	if Input.is_action_just_pressed("Shoot"):
-		pass
 	if Input.is_action_just_pressed("Roll"):
 		if roll_On_cooldown == false:
 			MOVE_SPEED += roll_speed 
 			$Roll.start()
 			roll_On_cooldown = true
-			$Roll/Roll_Cooldown.start()
+			$Roll/Cooldown.start()
 	
 	move_vec = move_vec.normalized()
 	move_and_collide(move_vec * MOVE_SPEED * delta)
 	
 	var look_vec = get_global_mouse_position() - global_position
 	$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
+	
+
 
 func _physics_process(delta):
 	if alive == false:
@@ -48,11 +48,9 @@ func _physics_process(delta):
 func _on_Roll_timeout():
 	#Stops Roll & restes move speed
 	MOVE_SPEED = 300
-	$Roll.stop()
 
 
 func _on_Cooldown_timeout():
 	#Roll taken off cooldown
 	roll_On_cooldown = false
-	$Roll/Roll_Cooldown.stop()
 	print(roll_On_cooldown)
