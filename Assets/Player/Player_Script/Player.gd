@@ -54,3 +54,4 @@ func _on_Cooldown_timeout():
 	#Roll taken off cooldown
 	roll_On_cooldown = false
 	print(roll_On_cooldown)
+	print("fixed")
