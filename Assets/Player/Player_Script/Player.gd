@@ -26,7 +26,8 @@ func Player_Control(delta):
 	if Input.is_action_pressed("Move_Right"):
 		move_vec.x += 1
 	if Input.is_action_pressed("Swing"):
-		$Player_Weapon/AnimationPlayer.play("Swing")
+		#$Player_Weapon/AnimationPlayer.play("Swing")
+		pass
 		
 	if Input.is_action_just_pressed("Roll"):
 		if roll_On_cooldown == false:
@@ -39,10 +40,10 @@ func Player_Control(delta):
 	move_and_collide(move_vec * MOVE_SPEED * delta)
 	
 	var look_vec = get_global_mouse_position() - global_position
-	$Player_Weapon/Player_Weapon.offset.x = Length_from_player
-	$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
-	$Player_Weapon/Player_Weapon/KinematicBody2D.position.x = Length_from_player
-	$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
+	#$Player_Weapon/Player_Weapon.offset.x = Length_from_player
+	#$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
+	#$Player_Weapon/Player_Weapon/StaticBody2D.position.x = Length_from_player
+	#$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
 
 
 func _physics_process(delta):
