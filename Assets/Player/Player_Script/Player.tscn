@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Player/Player_Script/Player_Weapon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Player/Player_Script/Player.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -31,6 +32,8 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( -0.5, 1.5 )
 shape = SubResource( 2 )
+
+[node name="Player_Weapon" parent="." instance=ExtResource( 2 )]
 
 [connection signal="timeout" from="Roll" to="." method="_on_Roll_timeout"]
 [connection signal="timeout" from="Roll/Cooldown" to="." method="_on_Cooldown_timeout"]

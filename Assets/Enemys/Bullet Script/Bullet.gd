@@ -42,6 +42,6 @@ func _process(delta):
 
 
 func _on_Hit_Area_area_entered(area):
-	if "Bat" in area.name:
+	if "Hit" in area.name:
 		var kill = false
 		startAng(position, rotation)

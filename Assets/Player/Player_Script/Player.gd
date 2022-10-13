@@ -6,12 +6,14 @@ var roll_On_cooldown = false
 signal take_damage
 var alive = true
 export (int) var Length_from_player
+var swing = 1
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+	
 
 func Player_Control(delta):
 	#Movement logic
@@ -26,9 +28,7 @@ func Player_Control(delta):
 	if Input.is_action_pressed("Move_Right"):
 		move_vec.x += 1
 	if Input.is_action_pressed("Swing"):
-		#$Player_Weapon/AnimationPlayer.play("Swing")
 		pass
-		
 	if Input.is_action_just_pressed("Roll"):
 		if roll_On_cooldown == false:
 			MOVE_SPEED += roll_speed 
@@ -40,11 +40,23 @@ func Player_Control(delta):
 	move_and_collide(move_vec * MOVE_SPEED * delta)
 	
 	var look_vec = get_global_mouse_position() - global_position
-	#$Player_Weapon/Player_Weapon.offset.x = Length_from_player
-	#$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
+	
+	$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
+	$Player_Weapon/Player_Weapon.offset.x = Length_from_player
 	#$Player_Weapon/Player_Weapon/StaticBody2D.position.x = Length_from_player
-	#$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
+	$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
 
+
+func _input(event):
+	if event.is_action_pressed("Swing"):
+		if swing == 1:
+			$Player_Weapon/AnimationPlayer.play("Swing1")
+			print(swing)
+			swing += 1
+		elif swing == 2:
+			$Player_Weapon/AnimationPlayer.play("Swing2")
+			print(swing)
+			swing = 1
 
 func _physics_process(delta):
 	if alive == false:
