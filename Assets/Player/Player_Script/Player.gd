@@ -40,12 +40,30 @@ func Player_Control(delta):
 	move_and_collide(move_vec * MOVE_SPEED * delta)
 	
 	var look_vec = get_global_mouse_position() - global_position
+	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
+	print(look_ang)
 	
-	$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
-	$Player_Weapon/Player_Weapon.offset.x = Length_from_player
+	
+	if look_ang > -45 && look_ang <= 0:
+		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(Length_from_player, 0)
+	elif look_ang >= 0 && look_ang <= 45:
+		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(Length_from_player, 0)
+	elif look_ang > 45 && look_ang <= 135:
+		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, Length_from_player)
+	elif look_ang > 135 && look_ang <= 180:
+		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(-1 * Length_from_player, 0)
+	elif look_ang >= -180 && look_ang <= -135:
+		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(-1 * Length_from_player, 0)
+	elif look_ang > -135 && look_ang <= -45:
+		 $Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, -1 * Length_from_player)
+	elif look_ang > 225 && look_ang < 315:
+		pass
+	
+	#$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
+	#$Player_Weapon/Player_Weapon.offset.x = Length_from_player
 	#$Player_Weapon/Player_Weapon/StaticBody2D.position.x = Length_from_player
-	$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
-
+	#$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
+	
 
 func _input(event):
 	if event.is_action_pressed("Swing"):
