@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/necromancer_run_anim_f0.png-9a61d0c808e3288249906621348a3e47.stex"
+path="res://.import/sprite_06.png-9b8111fdf09fa3bd630cae9dfda134af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Player_Models/necromancer_run_anim_f0.png"
-dest_files=[ "res://.import/necromancer_run_anim_f0.png-9a61d0c808e3288249906621348a3e47.stex" ]
+source_file="res://Assets/Player/Player_Models/ok/sprite_06.png"
+dest_files=[ "res://.import/sprite_06.png-9b8111fdf09fa3bd630cae9dfda134af.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

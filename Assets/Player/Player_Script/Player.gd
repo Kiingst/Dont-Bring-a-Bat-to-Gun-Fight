@@ -7,7 +7,9 @@ signal take_damage
 var alive = true
 export (int) var Length_from_player
 var swing = 1
-
+var side = 1
+onready var animation_tree = get_node("AnimationTree")
+onready var animation_mode = animation_tree.get("parameters/playback")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,23 +43,35 @@ func Player_Control(delta):
 	
 	var look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
-	print(look_ang)
-	
 	
 	if look_ang > -45 && look_ang <= 0:
-		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(Length_from_player, 0)
+		side = 1
 	elif look_ang >= 0 && look_ang <= 45:
-		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(Length_from_player, 0)
+		side = 1
 	elif look_ang > 45 && look_ang <= 135:
-		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, Length_from_player)
+		side = 2
 	elif look_ang > 135 && look_ang <= 180:
-		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(-1 * Length_from_player, 0)
+		side = 3
 	elif look_ang >= -180 && look_ang <= -135:
-		$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(-1 * Length_from_player, 0)
+		side = 3
 	elif look_ang > -135 && look_ang <= -45:
-		 $Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, -1 * Length_from_player)
-	elif look_ang > 225 && look_ang < 315:
-		pass
+		side = 4
+	
+	match side:
+		1:
+			#$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(Length_from_player, 0)
+			$Player_Weapon/Player_Weapon.position = Vector2(Length_from_player, 0)
+		2:
+			#$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, Length_from_player)
+			$Player_Weapon/Player_Weapon.position = Vector2(0, Length_from_player)
+		3:
+			#$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(-1 * Length_from_player, 0)
+			$Player_Weapon/Player_Weapon.position = Vector2(-1 * Length_from_player, 0)
+		4:
+			#Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, -1 * Length_from_player)
+			$Player_Weapon/Player_Weapon.position = Vector2(0, -1 * Length_from_player)
+	
+
 	
 	#$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
 	#$Player_Weapon/Player_Weapon.offset.x = Length_from_player

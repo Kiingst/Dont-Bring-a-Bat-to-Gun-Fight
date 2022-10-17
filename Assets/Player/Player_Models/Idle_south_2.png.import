@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/necromancer_run_anim_f3.png-53e63c9bd1703339e7564305cb9f8152.stex"
+path="res://.import/Idle_south_2.png-12bd4b7cd6f4cd8b52d79cac810836cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Player_Models/necromancer_run_anim_f3.png"
-dest_files=[ "res://.import/necromancer_run_anim_f3.png-53e63c9bd1703339e7564305cb9f8152.stex" ]
+source_file="res://Assets/Player/Player_Models/Idle_south_2.png"
+dest_files=[ "res://.import/Idle_south_2.png-12bd4b7cd6f4cd8b52d79cac810836cd.stex" ]
 
 [params]
 
