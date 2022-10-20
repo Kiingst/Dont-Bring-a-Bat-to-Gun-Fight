@@ -10,12 +10,16 @@ var swing = 1
 var side = 1
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
+onready var Weapon_animation_tree = $Player_Weapon/AnimationTree
+onready var Weapon_animation_mode = Weapon_animation_tree.get("parameters/playback")
+onready var swing_left = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing_Left")
 
+
+var moving = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	
 
 func Player_Control(delta):
 	#Movement logic
@@ -37,12 +41,16 @@ func Player_Control(delta):
 			$Roll.start()
 			roll_On_cooldown = true
 			$Roll/Cooldown.start()
-	
 	move_vec = move_vec.normalized()
-	move_and_collide(move_vec * MOVE_SPEED * delta)
+	var animation_vec = Vector2()
+	
+	
+	
+	
 	
 	var look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
+	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	
 	if look_ang > -45 && look_ang <= 0:
 		side = 1
@@ -59,36 +67,53 @@ func Player_Control(delta):
 	
 	match side:
 		1:
-			#$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(Length_from_player, 0)
-			$Player_Weapon/Player_Weapon.position = Vector2(Length_from_player, 0)
-		2:
-			#$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, Length_from_player)
-			$Player_Weapon/Player_Weapon.position = Vector2(0, Length_from_player)
-		3:
-			#$Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(-1 * Length_from_player, 0)
+			#right
+			animation_vec = move_vec
 			$Player_Weapon/Player_Weapon.position = Vector2(-1 * Length_from_player, 0)
+			if move_vec.x == -1:
+				animation_vec.x = move_vec.x * -1
+			else:
+				animation_vec = move_vec
+		2:
+			#up
+			#animation_vec = move_vec
+			#$Player_Weapon/Player_Weapon.position = Vector2(0, -1 * Length_from_player)
+			pass
+		3:
+			#left
+			if move_vec.x == 1:
+				animation_vec.x = move_vec.x * -1
+			else:
+				animation_vec = move_vec
+			$Player_Weapon/Player_Weapon.position = Vector2(Length_from_player, 0)
 		4:
-			#Player_Weapon/Player_Weapon/Hit_Area.position = Vector2(0, -1 * Length_from_player)
-			$Player_Weapon/Player_Weapon.position = Vector2(0, -1 * Length_from_player)
+			##down
+			#animation_vec = move_vec
+			#$Player_Weapon/Player_Weapon.position = Vector2(0, Length_from_player)
+			pass
 	
-
 	
-	#$Player_Weapon/Player_Weapon/Hit_Area.position.x = Length_from_player
-	#$Player_Weapon/Player_Weapon.offset.x = Length_from_player
-	#$Player_Weapon/Player_Weapon/StaticBody2D.position.x = Length_from_player
-	#$Player_Weapon.global_rotation = atan2(look_vec.y, look_vec.x)
+	if move_vec == Vector2.ZERO:
+		animation_mode.travel("Idle")
+	else:
+		animation_mode.travel("Walking")
+		animation_tree.set("parameters/Walking/blend_position", animation_vec)
+		animation_tree.set("parameters/Idle/blend_position", animation_vec)
+		move_and_collide(move_vec * MOVE_SPEED * delta)
 	
 
 func _input(event):
 	if event.is_action_pressed("Swing"):
-		if swing == 1:
-			$Player_Weapon/AnimationPlayer.play("Swing1")
-			print(swing)
-			swing += 1
-		elif swing == 2:
-			$Player_Weapon/AnimationPlayer.play("Swing2")
-			print(swing)
-			swing = 1
+		match side:
+			1:
+				Weapon_animation_mode.travel("Gungeon_Charge_Left")
+			2:
+				pass
+			3:
+				pass
+			4:
+				pass
+
 
 func _physics_process(delta):
 	if alive == false:
@@ -105,3 +130,25 @@ func _on_Cooldown_timeout():
 	#Roll taken off cooldown
 	roll_On_cooldown = false
 	print(roll_On_cooldown)
+
+
+
+
+
+func _on_Player_Weapon_Done(anim_name):
+	match anim_name:
+		"Idle":
+			print("done")
+			pass
+		"Gungeon_Charge_Left":
+			var track_id = swing_left.find_track("Player_Weapon:position")
+			var key_id = swing_left.track_find_key(1, 0.2, false)
+			swing_left.track_set_key_value(track_id, key_id, $Cross_Hair/Position2D.global_position)
+			Weapon_animation_mode.travel("Gungeon_Swing_Left")
+		"Gungeon_Charge_Right":
+			pass
+		"Gungeon_Swing_Left":
+			Weapon_animation_mode.travel("Idle")
+		"Gungeon_Swing_Right":
+			pass
+	

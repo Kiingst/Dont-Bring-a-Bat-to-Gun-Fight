@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Weapon_Bat.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Player/Player_Script/Player_Weapon.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 2.5
@@ -9,6 +10,7 @@ height = 14.0
 
 [sub_resource type="Animation" id=8]
 resource_name = "Gungeon_Charge_Left"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player_Weapon:rotation_degrees")
 tracks/0/interp = 1
@@ -16,7 +18,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.4 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 10.0, 20.0 ]
@@ -28,7 +30,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -14, -14 ), Vector2( -20, -14 ) ]
@@ -46,8 +48,48 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "Gungeon_Charge_Right"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player_Weapon:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -10.0, -20.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player_Weapon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 14, -14 ), Vector2( 20, -14 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player_Weapon:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
 [sub_resource type="Animation" id=7]
-resource_name = "Gungeon_Swing"
+resource_name = "Gungeon_Swing_Left"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player_Weapon:z_index")
 tracks/0/interp = 1
@@ -67,10 +109,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( -20, -14 ), Vector2( -20, -14 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Player_Weapon:rotation_degrees")
@@ -79,10 +121,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 20.0, 90.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Player_Weapon/Hit_Area/area:disabled")
@@ -107,10 +149,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 20, 20 ), Vector2( -20, -20 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Player_Weapon:rotation_degrees")
@@ -267,16 +309,44 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Gungeon_Charge_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Gungeon_Charge_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Gungeon_Swing_Left"
+
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id=10]
+states/Gungeon_Charge_Left/node = SubResource( 15 )
+states/Gungeon_Charge_Left/position = Vector2( 734, 26 )
+states/Gungeon_Charge_Right/node = SubResource( 16 )
+states/Gungeon_Charge_Right/position = Vector2( 790, 165 )
+states/Gungeon_Swing_Left/node = SubResource( 17 )
+states/Gungeon_Swing_Left/position = Vector2( 1110, 44 )
 states/Idle/node = SubResource( 13 )
-states/Idle/position = Vector2( 506, 86 )
+states/Idle/position = Vector2( 484, 86 )
+transitions = [ "Idle", "Gungeon_Charge_Left", SubResource( 18 ), "Gungeon_Charge_Left", "Gungeon_Swing_Left", SubResource( 19 ), "Idle", "Gungeon_Charge_Right", SubResource( 20 ), "Gungeon_Swing_Left", "Idle", SubResource( 21 ) ]
+start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 [node name="Player_Weapon" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -296,8 +366,10 @@ shape = SubResource( 5 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.25
 anims/Gungeon_Charge_Left = SubResource( 8 )
-anims/Gungeon_Swing = SubResource( 7 )
+anims/Gungeon_Charge_Right = SubResource( 14 )
+anims/Gungeon_Swing_Left = SubResource( 7 )
 anims/Idle = SubResource( 9 )
 anims/RESET = SubResource( 2 )
 anims/Swing1 = SubResource( 3 )
@@ -308,3 +380,8 @@ tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 11 )
+
+[node name="ChargeTime" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
