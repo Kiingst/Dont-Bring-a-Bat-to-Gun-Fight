@@ -333,7 +333,7 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=10]
 states/Gungeon_Charge_Left/node = SubResource( 15 )
-states/Gungeon_Charge_Left/position = Vector2( 734, 26 )
+states/Gungeon_Charge_Left/position = Vector2( 737, 26 )
 states/Gungeon_Charge_Right/node = SubResource( 16 )
 states/Gungeon_Charge_Right/position = Vector2( 790, 165 )
 states/Gungeon_Swing_Left/node = SubResource( 17 )
@@ -381,7 +381,12 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 11 )
 
-[node name="ChargeTime" type="Timer" parent="."]
+[node name="Left_ChargeTime" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
+
+[node name="Right_ChargeTime" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Left_ChargeTime" to="." method="_on_ChargeTime_timeout"]
+[connection signal="timeout" from="Right_ChargeTime" to="." method="_on_Right_ChargeTime_timeout"]

@@ -45,7 +45,7 @@ func Player_Control(delta):
 	var animation_vec = Vector2()
 	
 	
-	
+	print($Cross_Hair/Position2D.position)
 	
 	
 	var look_vec = get_global_mouse_position() - global_position
@@ -107,6 +107,7 @@ func _input(event):
 		match side:
 			1:
 				Weapon_animation_mode.travel("Gungeon_Charge_Left")
+				$Player_Weapon/Left_ChargeTime.start()
 			2:
 				pass
 			3:
@@ -136,18 +137,21 @@ func _on_Cooldown_timeout():
 
 
 func _on_Player_Weapon_Done(anim_name):
+	print(anim_name)
 	match anim_name:
 		"Idle":
 			print("done")
 			pass
 		"Gungeon_Charge_Left":
+			print("starting Swing")
 			var track_id = swing_left.find_track("Player_Weapon:position")
 			var key_id = swing_left.track_find_key(1, 0.2, false)
-			swing_left.track_set_key_value(track_id, key_id, $Cross_Hair/Position2D.global_position)
+			swing_left.track_set_key_value(track_id, key_id, $Cross_Hair/Position2D.position)
 			Weapon_animation_mode.travel("Gungeon_Swing_Left")
 		"Gungeon_Charge_Right":
 			pass
 		"Gungeon_Swing_Left":
+			print("done swinging")
 			Weapon_animation_mode.travel("Idle")
 		"Gungeon_Swing_Right":
 			pass

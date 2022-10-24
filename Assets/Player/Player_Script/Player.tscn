@@ -388,7 +388,6 @@ offset = Vector2( 250, 0 )
 
 [node name="Position2D" type="Position2D" parent="Cross_Hair"]
 position = Vector2( 250, 0 )
-scale = Vector2( 1.00224, 1 )
 
 [node name="Player_Weapon" parent="." instance=ExtResource( 2 )]
 
