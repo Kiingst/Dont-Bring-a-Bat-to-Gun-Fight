@@ -386,6 +386,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Right_ChargeTime" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Left_ChargeTime" to="." method="_on_ChargeTime_timeout"]

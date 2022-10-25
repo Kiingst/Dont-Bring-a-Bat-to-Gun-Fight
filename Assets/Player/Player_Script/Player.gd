@@ -45,8 +45,8 @@ func Player_Control(delta):
 	var animation_vec = Vector2()
 	
 	
-	print($Cross_Hair/Position2D.position)
-	
+	#print($Cross_Hair/Position2D.position)
+	$Cross_Hair/Position2D/Cross_Hair.global_position = $Cross_Hair/Position2D.global_position
 	
 	var look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
@@ -146,7 +146,10 @@ func _on_Player_Weapon_Done(anim_name):
 			print("starting Swing")
 			var track_id = swing_left.find_track("Player_Weapon:position")
 			var key_id = swing_left.track_find_key(1, 0.2, false)
-			swing_left.track_set_key_value(track_id, key_id, $Cross_Hair/Position2D.position)
+			swing_left.track_set_key_value(track_id, key_id, $Cross_Hair/Position2D.global_position)
+			print("Swinging at")
+			var w = swing_left.track_get_key_value(track_id, key_id)
+			print(w)
 			Weapon_animation_mode.travel("Gungeon_Swing_Left")
 		"Gungeon_Charge_Right":
 			pass

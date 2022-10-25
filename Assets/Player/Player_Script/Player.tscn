@@ -382,12 +382,14 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walking/blend_position = Vector2( 0, 0 )
 
 [node name="Cross_Hair" type="Sprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 15 )
 offset = Vector2( 250, 0 )
 
 [node name="Position2D" type="Position2D" parent="Cross_Hair"]
-position = Vector2( 250, 0 )
+position = Vector2( 248, 0 )
+
+[node name="Cross_Hair" type="Sprite" parent="Cross_Hair/Position2D"]
+texture = ExtResource( 5 )
 
 [node name="Player_Weapon" parent="." instance=ExtResource( 2 )]
 
