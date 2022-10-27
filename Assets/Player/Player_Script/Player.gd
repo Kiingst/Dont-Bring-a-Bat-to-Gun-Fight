@@ -46,11 +46,13 @@ func Player_Control(delta):
 	
 	
 	#print($Cross_Hair/Position2D.position)
-	$Cross_Hair/Position2D/Cross_Hair.global_position = $Cross_Hair/Position2D.global_position
+	
+	$Cross_Hair2.global_position = $Cross_Hair/Position2D.position
 	
 	var look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
-	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
+	#$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
+	$Player_Weapon.position = look_vec.normalized() * -20
 	
 	if look_ang > -45 && look_ang <= 0:
 		side = 1
@@ -65,34 +67,33 @@ func Player_Control(delta):
 	elif look_ang > -135 && look_ang <= -45:
 		side = 4
 	
+	#Set correct animation for bat position
 	match side:
 		1:
 			#right
-			animation_vec = move_vec
-			$Player_Weapon/Player_Weapon.position = Vector2(-1 * Length_from_player, 0)
 			if move_vec.x == -1:
 				animation_vec.x = move_vec.x * -1
 			else:
 				animation_vec = move_vec
 		2:
 			#up
-			#animation_vec = move_vec
-			#$Player_Weapon/Player_Weapon.position = Vector2(0, -1 * Length_from_player)
-			pass
+			if move_vec.y == -1:
+				animation_vec.y = move_vec.y * -1
+			else:
+				animation_vec = move_vec
 		3:
 			#left
 			if move_vec.x == 1:
 				animation_vec.x = move_vec.x * -1
 			else:
 				animation_vec = move_vec
-			$Player_Weapon/Player_Weapon.position = Vector2(Length_from_player, 0)
 		4:
-			##down
-			#animation_vec = move_vec
-			#$Player_Weapon/Player_Weapon.position = Vector2(0, Length_from_player)
-			pass
-	
-	
+			#Down
+			if move_vec.y == 1:
+				animation_vec.y = move_vec.y * -1
+			else:
+				animation_vec = move_vec
+	#Change Walking Animation
 	if move_vec == Vector2.ZERO:
 		animation_mode.travel("Idle")
 	else:
@@ -101,6 +102,7 @@ func Player_Control(delta):
 		animation_tree.set("parameters/Idle/blend_position", animation_vec)
 		move_and_collide(move_vec * MOVE_SPEED * delta)
 	
+
 
 func _input(event):
 	if event.is_action_pressed("Swing"):
@@ -132,8 +134,9 @@ func _on_Cooldown_timeout():
 	roll_On_cooldown = false
 	print(roll_On_cooldown)
 
-
-
+func Weapon_Pos(delta):
+	pass
+	
 
 
 func _on_Player_Weapon_Done(anim_name):
@@ -146,7 +149,9 @@ func _on_Player_Weapon_Done(anim_name):
 			print("starting Swing")
 			var track_id = swing_left.find_track("Player_Weapon:position")
 			var key_id = swing_left.track_find_key(1, 0.2, false)
-			swing_left.track_set_key_value(track_id, key_id, $Cross_Hair/Position2D.global_position)
+			var look_vec = get_global_mouse_position() - global_position
+			
+			swing_left.track_set_key_value(track_id, key_id, look_vec.normalized() * 20)
 			print("Swinging at")
 			var w = swing_left.track_get_key_value(track_id, key_id)
 			print(w)
