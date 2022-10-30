@@ -150,8 +150,9 @@ func _on_Player_Weapon_Done(anim_name):
 			var track_id = swing_left.find_track("Player_Weapon:position")
 			var key_id = swing_left.track_find_key(1, 0.2, false)
 			var look_vec = get_global_mouse_position() - global_position
+			var keyvalue = look_vec.normalized() * 100
 			
-			swing_left.track_set_key_value(track_id, key_id, look_vec.normalized() * 20)
+			swing_left.track_set_key_value(track_id, key_id, keyvalue)
 			print("Swinging at")
 			var w = swing_left.track_get_key_value(track_id, key_id)
 			print(w)
