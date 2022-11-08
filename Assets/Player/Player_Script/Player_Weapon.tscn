@@ -90,6 +90,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "Gungeon_Swing_Left"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player_Weapon:z_index")
 tracks/0/interp = 1
@@ -123,20 +124,8 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 20.0, 90.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Player_Weapon/Hit_Area/area:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 20.0, 90.0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -165,6 +154,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player_Weapon/Hit_Area/area:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -385,9 +386,7 @@ parameters/playback = SubResource( 11 )
 wait_time = 2.0
 one_shot = true
 
-[node name="Right_ChargeTime" type="Timer" parent="."]
-wait_time = 2.0
+[node name="Swing" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Left_ChargeTime" to="." method="_on_ChargeTime_timeout"]
-[connection signal="timeout" from="Right_ChargeTime" to="." method="_on_Right_ChargeTime_timeout"]

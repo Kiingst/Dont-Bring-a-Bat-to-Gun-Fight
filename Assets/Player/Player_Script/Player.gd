@@ -13,6 +13,7 @@ onready var animation_mode = animation_tree.get("parameters/playback")
 onready var Weapon_animation_tree = $Player_Weapon/AnimationTree
 onready var Weapon_animation_mode = Weapon_animation_tree.get("parameters/playback")
 onready var swing_left = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing_Left")
+var swing_ready = false
 
 
 var moving = false
@@ -108,8 +109,11 @@ func _input(event):
 	if event.is_action_pressed("Swing"):
 		match side:
 			1:
-				Weapon_animation_mode.travel("Gungeon_Charge_Left")
-				$Player_Weapon/Left_ChargeTime.start()
+				if swing_ready == false:
+					Weapon_animation_mode.travel("Gungeon_Charge_Left")
+					$Player_Weapon/Left_ChargeTime.start()
+				else:
+					swing()
 			2:
 				pass
 			3:
@@ -122,6 +126,17 @@ func _physics_process(delta):
 	if alive == false:
 		return
 	Player_Control(delta)
+	
+func swing():
+	var track_id = swing_left.find_track("Player_Weapon:position")
+	var key_id = swing_left.track_find_key(1, 0.2, false)
+	var look_vec = get_global_mouse_position() - global_position
+	var keyvalue = look_vec.normalized() * 50
+	swing_left.track_set_key_value(track_id, key_id, keyvalue)
+	print("Swinging at")
+	var w = swing_left.track_get_key_value(track_id, key_id)
+	print(w)
+	Weapon_animation_mode.travel("Gungeon_Swing_Left")
 
 
 func _on_Roll_timeout():
@@ -146,17 +161,8 @@ func _on_Player_Weapon_Done(anim_name):
 			print("done")
 			pass
 		"Gungeon_Charge_Left":
-			print("starting Swing")
-			var track_id = swing_left.find_track("Player_Weapon:position")
-			var key_id = swing_left.track_find_key(1, 0.2, false)
-			var look_vec = get_global_mouse_position() - global_position
-			var keyvalue = look_vec.normalized() * 100
-			
-			swing_left.track_set_key_value(track_id, key_id, keyvalue)
-			print("Swinging at")
-			var w = swing_left.track_get_key_value(track_id, key_id)
-			print(w)
-			Weapon_animation_mode.travel("Gungeon_Swing_Left")
+			print("ready to swing")
+			swing_ready = true
 		"Gungeon_Charge_Right":
 			pass
 		"Gungeon_Swing_Left":
