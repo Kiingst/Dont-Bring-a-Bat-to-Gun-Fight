@@ -383,7 +383,7 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walking/blend_position = Vector2( 0, 0 )
 
 [node name="Cross_Hair" type="Sprite" parent="."]
-visible = false
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 15 )
 offset = Vector2( 250, 0 )
 
@@ -392,10 +392,6 @@ position = Vector2( 248, 0 )
 
 [node name="Player_Weapon" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -15 )
-
-[node name="Cross_Hair2" type="Sprite" parent="."]
-position = Vector2( 132, 79 )
-texture = ExtResource( 5 )
 
 [connection signal="timeout" from="Roll" to="." method="_on_Roll_timeout"]
 [connection signal="timeout" from="Roll/Cooldown" to="." method="_on_Cooldown_timeout"]

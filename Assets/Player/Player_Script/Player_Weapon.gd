@@ -17,8 +17,7 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	
-		emit_signal("Done", anim_name)
+	emit_signal("Done", anim_name)
 
 
 func _on_ChargeTime_timeout():
@@ -27,3 +26,7 @@ func _on_ChargeTime_timeout():
 
 func _on_Right_ChargeTime_timeout():
 	emit_signal("Done", "Gungeon_Charge_Right")
+
+
+func _on_Swing_timeout():
+	emit_signal("Done", "Gungeon_Swing_Left")

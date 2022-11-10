@@ -14,6 +14,7 @@ onready var Weapon_animation_tree = $Player_Weapon/AnimationTree
 onready var Weapon_animation_mode = Weapon_animation_tree.get("parameters/playback")
 onready var swing_left = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing_Left")
 var swing_ready = false
+var isSwinging = false
 
 
 var moving = false
@@ -48,12 +49,13 @@ func Player_Control(delta):
 	
 	#print($Cross_Hair/Position2D.position)
 	
-	$Cross_Hair2.global_position = $Cross_Hair/Position2D.position
 	
 	var look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
-	#$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
-	$Player_Weapon.position = look_vec.normalized() * -20
+	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
+	
+	if swing_ready == false :
+		$Player_Weapon.position = look_vec.normalized() * -20
 	
 	if look_ang > -45 && look_ang <= 0:
 		side = 1
@@ -111,8 +113,8 @@ func _input(event):
 			1:
 				if swing_ready == false:
 					Weapon_animation_mode.travel("Gungeon_Charge_Left")
-					$Player_Weapon/Left_ChargeTime.start()
 				else:
+					print("swingfuncisrunning")
 					swing()
 			2:
 				pass
@@ -128,14 +130,13 @@ func _physics_process(delta):
 	Player_Control(delta)
 	
 func swing():
-	var track_id = swing_left.find_track("Player_Weapon:position")
-	var key_id = swing_left.track_find_key(1, 0.2, false)
+	isSwinging = true
 	var look_vec = get_global_mouse_position() - global_position
-	var keyvalue = look_vec.normalized() * 50
-	swing_left.track_set_key_value(track_id, key_id, keyvalue)
-	print("Swinging at")
-	var w = swing_left.track_get_key_value(track_id, key_id)
-	print(w)
+	var keyvaluepos = look_vec.normalized() * 50
+	var keyvaluerot = rad2deg(look_vec.angle()) + 90
+	ChangeAnimationValue(swing_left, "Player_Weapon:position", 0.2, keyvaluepos)
+	ChangeAnimationValue(swing_left, "Player_Weapon:rotation_degrees", 0.2, keyvaluerot)
+	print(keyvaluerot)
 	Weapon_animation_mode.travel("Gungeon_Swing_Left")
 
 
@@ -152,10 +153,14 @@ func _on_Cooldown_timeout():
 func Weapon_Pos(delta):
 	pass
 	
-
+func ChangeAnimationValue(Animationname, trackname, time, keyvalue):
+	var track_id = Animationname.find_track(trackname)
+	var key_id = Animationname.track_find_key(track_id, time, false)
+	Animationname.track_set_key_value(track_id, key_id, keyvalue)
+	
+	
 
 func _on_Player_Weapon_Done(anim_name):
-	print(anim_name)
 	match anim_name:
 		"Idle":
 			print("done")
@@ -167,6 +172,8 @@ func _on_Player_Weapon_Done(anim_name):
 			pass
 		"Gungeon_Swing_Left":
 			print("done swinging")
+			isSwinging = false
+			swing_ready = false
 			Weapon_animation_mode.travel("Idle")
 		"Gungeon_Swing_Right":
 			pass

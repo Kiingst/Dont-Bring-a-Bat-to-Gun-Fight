@@ -47,6 +47,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("Left_ChargeTime")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "Gungeon_Charge_Right"
@@ -126,6 +140,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 20.0, 90.0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Swing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -383,10 +411,15 @@ active = true
 parameters/playback = SubResource( 11 )
 
 [node name="Left_ChargeTime" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
 [node name="Swing" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Left_ChargeTime" to="." method="_on_ChargeTime_timeout"]
+[connection signal="timeout" from="Swing" to="." method="_on_Swing_timeout"]
