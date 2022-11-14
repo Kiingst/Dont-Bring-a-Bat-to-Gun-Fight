@@ -30,3 +30,5 @@ func _on_Right_ChargeTime_timeout():
 
 func _on_Swing_timeout():
 	emit_signal("Done", "Gungeon_Swing_Left")
+
+
