@@ -469,7 +469,7 @@ states/Idle/node = SubResource( 13 )
 states/Idle/position = Vector2( 484, 86 )
 transitions = [ "Idle", "Gungeon_Charge_Left", SubResource( 18 ), "Gungeon_Charge_Left", "Gungeon_Swing_Left", SubResource( 19 ), "Idle", "Gungeon_Charge_Right", SubResource( 20 ), "Gungeon_Swing_Left", "Gungeon_Followthrough_Left", SubResource( 23 ), "Gungeon_Followthrough_Left", "Idle", SubResource( 24 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 0, -42.8443 )
+graph_offset = Vector2( 405.45, -50.7193 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
