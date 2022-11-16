@@ -247,7 +247,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "Walk_West"
 length = 0.8
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player_Model:texture")
 tracks/0/interp = 1
@@ -344,7 +343,6 @@ position = Vector2( -1, 3 )
 shape = SubResource( 2 )
 
 [node name="Player_Model" type="Sprite" parent="."]
-position = Vector2( -1, -9 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
@@ -380,7 +378,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 7 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/Walking/blend_position = Vector2( 0, 0 )
+parameters/Walking/blend_position = Vector2( 0.246139, 0.974249 )
 
 [node name="Cross_Hair" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )

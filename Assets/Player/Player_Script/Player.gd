@@ -45,7 +45,6 @@ func Player_Control(delta):
 			roll_On_cooldown = true
 			$Roll/Cooldown.start()
 	move_vec = move_vec.normalized()
-	var animation_vec = Vector2()
 	
 	
 	#print($Cross_Hair/Position2D.position)
@@ -72,38 +71,13 @@ func Player_Control(delta):
 		side = 4
 	
 	#Set correct animation for bat position
-	match side:
-		1:
-			#right
-			if move_vec.x == -1:
-				animation_vec.x = move_vec.x * -1
-			else:
-				animation_vec = move_vec
-		2:
-			#up
-			if move_vec.y == -1:
-				animation_vec.y = move_vec.y * -1
-			else:
-				animation_vec = move_vec
-		3:
-			#left
-			if move_vec.x == 1:
-				animation_vec.x = move_vec.x * -1
-			else:
-				animation_vec = move_vec
-		4:
-			#Down
-			if move_vec.y == 1:
-				animation_vec.y = move_vec.y * -1
-			else:
-				animation_vec = move_vec
 	#Change Walking Animation
 	if move_vec == Vector2.ZERO:
 		animation_mode.travel("Idle")
 	else:
 		animation_mode.travel("Walking")
-		animation_tree.set("parameters/Walking/blend_position", animation_vec)
-		animation_tree.set("parameters/Idle/blend_position", animation_vec)
+		animation_tree.set("parameters/Walking/blend_position", look_vec.normalized() )
+		animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
 		move_and_collide(move_vec * MOVE_SPEED * delta)
 	
 
@@ -132,7 +106,7 @@ func _physics_process(delta):
 func swing():
 	isSwinging = true
 	var look_vec = get_global_mouse_position() - global_position
-	var keyvaluepos = look_vec.normalized() * 60
+	var keyvaluepos = look_vec.normalized() * Length_from_player
 	var keyvaluerot = (rad2deg(look_vec.angle()) + 90) - 360
 	print(keyvaluerot)
 	ChangeAnimationValue(swing_left, "Player_Weapon:position", 0.2, keyvaluepos)
@@ -168,7 +142,6 @@ func ChangeAnimationValue(Animationname, trackname, time, keyvalue):
 func _on_Player_Weapon_Done(anim_name):
 	match anim_name:
 		"Idle":
-			print("done")
 			pass
 		"Gungeon_Charge_Left":
 			print("ready to swing")

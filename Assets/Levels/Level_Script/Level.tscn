@@ -24,6 +24,6 @@ health = 2
 MOVE_SPEED = 100
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-Length_from_player = 14
+Length_from_player = 60
 
 [connection signal="fire" from="Enemy_Type_2" to="." method="_on_Enemy_Type_2_fire"]
