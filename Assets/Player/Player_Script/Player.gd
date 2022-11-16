@@ -6,13 +6,13 @@ var roll_On_cooldown = false
 signal take_damage
 var alive = true
 export (int) var Length_from_player
-var swing = 1
+var side_swing
 var side = 1
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 onready var Weapon_animation_tree = $Player_Weapon/AnimationTree
 onready var Weapon_animation_mode = Weapon_animation_tree.get("parameters/playback")
-onready var swing_left = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing_Left")
+onready var swing = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing")
 onready var follow_thr = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Followthrough_Left")
 var swing_ready = false
 var isSwinging = false
@@ -70,6 +70,7 @@ func Player_Control(delta):
 	elif look_ang > -135 && look_ang <= -45:
 		side = 4
 	
+	print(side)
 	#Set correct animation for bat position
 	#Change Walking Animation
 	if move_vec == Vector2.ZERO:
@@ -89,11 +90,16 @@ func _input(event):
 				if swing_ready == false:
 					Weapon_animation_mode.travel("Gungeon_Charge_Left")
 				else:
+					side_swing = 1
 					swing()
 			2:
 				pass
 			3:
-				pass
+				if swing_ready == false:
+					Weapon_animation_mode.travel("Gungeon_Charge_Right")
+				else:
+					side_swing = 3
+					swing()
 			4:
 				pass
 
@@ -109,14 +115,14 @@ func swing():
 	var keyvaluepos = look_vec.normalized() * Length_from_player
 	var keyvaluerot = (rad2deg(look_vec.angle()) + 90) - 360
 	print(keyvaluerot)
-	ChangeAnimationValue(swing_left, "Player_Weapon:position", 0.2, keyvaluepos)
-	ChangeAnimationValue(swing_left, "Player_Weapon:rotation_degrees", 0.2, keyvaluerot)
+	ChangeAnimationValue(swing, "Player_Weapon:position", 0.2, keyvaluepos)
+	ChangeAnimationValue(swing, "Player_Weapon:rotation_degrees", 0.2, keyvaluerot)
 	var keyvaluefollow = keyvaluepos
 	keyvaluefollow.x -= 20
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0.2 , keyvaluefollow)
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0 , keyvaluerot)
 	print(keyvaluerot)
-	Weapon_animation_mode.travel("Gungeon_Swing_Left")
+	Weapon_animation_mode.travel("Left_Anticipation")
 
 
 func _on_Roll_timeout():

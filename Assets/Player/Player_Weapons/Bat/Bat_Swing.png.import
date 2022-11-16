@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bat_Mad.png-3a0910a0cb6519f2e7af28df399ef1a8.stex"
+path="res://.import/Bat_Swing.png-379c76dd7cff76dc8af504f46f4d736f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/Bat_Mad.png"
-dest_files=[ "res://.import/Bat_Mad.png-3a0910a0cb6519f2e7af28df399ef1a8.stex" ]
+source_file="res://Assets/Player/Player_Weapons/Bat/Bat_Swing.png"
+dest_files=[ "res://.import/Bat_Swing.png-379c76dd7cff76dc8af504f46f4d736f.stex" ]
 
 [params]
 
