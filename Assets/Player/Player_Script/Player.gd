@@ -70,7 +70,6 @@ func Player_Control(delta):
 	elif look_ang > -135 && look_ang <= -45:
 		side = 4
 	
-	print(side)
 	#Set correct animation for bat position
 	#Change Walking Animation
 	if move_vec == Vector2.ZERO:
@@ -90,6 +89,7 @@ func _input(event):
 				if swing_ready == false:
 					Weapon_animation_mode.travel("Gungeon_Charge_Left")
 				else:
+					swing_ready = false
 					side_swing = 1
 					swing()
 			2:
@@ -100,6 +100,7 @@ func _input(event):
 				else:
 					side_swing = 3
 					swing()
+					swing_ready = false
 			4:
 				pass
 
@@ -111,18 +112,21 @@ func _physics_process(delta):
 	
 func swing():
 	isSwinging = true
+	
 	var look_vec = get_global_mouse_position() - global_position
 	var keyvaluepos = look_vec.normalized() * Length_from_player
 	var keyvaluerot = (rad2deg(look_vec.angle()) + 90) - 360
-	print(keyvaluerot)
 	ChangeAnimationValue(swing, "Player_Weapon:position", 0.2, keyvaluepos)
 	ChangeAnimationValue(swing, "Player_Weapon:rotation_degrees", 0.2, keyvaluerot)
 	var keyvaluefollow = keyvaluepos
 	keyvaluefollow.x -= 20
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0.2 , keyvaluefollow)
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0 , keyvaluerot)
-	print(keyvaluerot)
-	Weapon_animation_mode.travel("Left_Anticipation")
+	match side:
+		1:
+			Weapon_animation_mode.travel("Left_Anticipation")
+		3:
+			Weapon_animation_mode.travel("Right_Anticipation")
 
 
 func _on_Roll_timeout():
