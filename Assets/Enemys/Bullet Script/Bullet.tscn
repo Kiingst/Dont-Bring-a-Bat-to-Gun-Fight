@@ -10,7 +10,7 @@ bounce = 1.0
 radius = 7.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 6.5, 2.5 )
+extents = Vector2( 13.5, 6 )
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 8
@@ -20,19 +20,21 @@ script = ExtResource( 1 )
 Bullet_Speed = 100
 Bullet_lifetime = 3
 
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Hit_Area" type="Area2D" parent="."]
+[node name="Enemy_Attack" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Attack"]
+position = Vector2( 0.5, 0 )
 shape = SubResource( 2 )
 
 [node name="Lifetime" type="Timer" parent="."]
 
-[node name="Sprite" type="Sprite" parent="."]
-rotation = 1.5708
-texture = ExtResource( 2 )
-
-[connection signal="area_entered" from="Hit_Area" to="." method="_on_Hit_Area_area_entered"]
+[connection signal="area_entered" from="Enemy_Attack" to="." method="_on_Hit_Area_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

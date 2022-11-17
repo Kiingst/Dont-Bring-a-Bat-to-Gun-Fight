@@ -105,7 +105,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "damage_animation"
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Sprite:modulate")
 tracks/0/interp = 1
@@ -113,10 +113,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00259902, 0.0334799, 0.161896, 0.205466, 0.345347, 0.399466 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.00460625, 0.104408, 0.201642 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Color( 1, 1, 1, 0.882353 ), Color( 1, 0, 0, 0.882353 ), Color( 1, 1, 1, 0.882353 ), Color( 1, 0, 0, 0.882353 ), Color( 1, 1, 1, 0.882353 ), Color( 1, 0, 0, 0.882353 ) ]
+"values": [ Color( 1, 0, 0, 0.882353 ), Color( 1, 0, 0, 0.882353 ), Color( 1, 0, 0, 0.882353 ) ]
 }
 
 [sub_resource type="Animation" id=11]
