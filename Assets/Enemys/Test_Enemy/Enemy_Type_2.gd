@@ -14,7 +14,6 @@ onready var animation_mode = animation_tree.get("parameters/playback")
 onready var player = get_parent().get_node("Player")
 
 func _physics_process(delta):
-	print(health)
 	if alive == true:
 		control(delta)
 
@@ -59,10 +58,11 @@ func control(delta):
 		
 
 func take_damage(damage):
+	animation_mode.travel("damage_animation")
 	MOVE_SPEED -= 10
 	health -= damage
 	$HealthBar.visible = true
-	animation_mode.travel("take damage")
+	print("enemy took damage")
 	
 
 func fire():
