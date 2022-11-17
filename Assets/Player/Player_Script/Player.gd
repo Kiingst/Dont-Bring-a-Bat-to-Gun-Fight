@@ -6,13 +6,13 @@ var roll_On_cooldown = false
 signal take_damage
 var alive = true
 export (int) var Length_from_player
-var side_swing
 var side = 1
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 onready var Weapon_animation_tree = $Player_Weapon/AnimationTree
 onready var Weapon_animation_mode = Weapon_animation_tree.get("parameters/playback")
-onready var swing = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing")
+onready var swing_left = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing")
+onready var swing_right = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing_Right")
 onready var follow_thr = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Followthrough_Left")
 var swing_ready = false
 var isSwinging = false
@@ -90,16 +90,14 @@ func _input(event):
 					Weapon_animation_mode.travel("Gungeon_Charge_Left")
 				else:
 					swing_ready = false
-					side_swing = 1
-					swing()
+					swing(swing_left)
 			2:
 				pass
 			3:
 				if swing_ready == false:
 					Weapon_animation_mode.travel("Gungeon_Charge_Right")
 				else:
-					side_swing = 3
-					swing()
+					swing(swing_right)
 					swing_ready = false
 			4:
 				pass
@@ -110,7 +108,7 @@ func _physics_process(delta):
 		return
 	Player_Control(delta)
 	
-func swing():
+func swing(swing):
 	isSwinging = true
 	
 	var look_vec = get_global_mouse_position() - global_position

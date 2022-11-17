@@ -1,18 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Temp_frames/weapon_knife.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Enemys/Test_Enemy/Enemy_Type_2.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Temp_frames/goblin_idle_anim_f0.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Enemys/Bullet Script/Bullet.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 14, 12 )
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 85.0
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 20.5, 18 )
+[sub_resource type="CircleShape2D" id=5]
+radius = 12.5
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -22,6 +19,143 @@ animations = [ {
 "speed": 13.0
 } ]
 
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Death"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "normal"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "take damge"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/Death/node = SubResource( 13 )
+states/Death/position = Vector2( 520, 66.25 )
+states/normal/node = SubResource( 14 )
+states/normal/position = Vector2( 280.625, 66.6875 )
+"states/take damge/node" = SubResource( 15 )
+"states/take damge/position" = Vector2( 280.5, -33.5 )
+transitions = [ "normal", "take damge", SubResource( 16 ), "normal", "Death", SubResource( 17 ), "take damge", "normal", SubResource( 18 ) ]
+start_node = "normal"
+graph_offset = Vector2( 0, -60.9948 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[sub_resource type="Animation" id=10]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00980716, 0.976014 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.882353 ), Color( 0, 0, 0, 0.882353 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.00367769, 0.977558 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0110331, 0.978783 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../Death_timer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.00390893 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "normal"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00494685, 0.178981 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.882353 ), Color( 1, 1, 1, 0.882353 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.058843 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0637465 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "take damge"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00259902, 0.234359, 0.291229, 0.336634, 0.422397, 0.666388 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 0, 0, 0.882353 ), Color( 1, 0, 0, 0.882353 ), Color( 1, 1, 1, 0.882353 ), Color( 1, 0, 0, 0.882353 ), Color( 1, 1, 1, 0.882353 ), Color( 1, 0, 0, 0.882353 ) ]
+}
+
 [node name="Enemy_Type_2" type="KinematicBody2D"]
 position = Vector2( 0, -1 )
 collision_layer = 4
@@ -30,13 +164,10 @@ script = ExtResource( 2 )
 bullet = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.882353 )
 position = Vector2( -1, -3 )
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 2 )
-shape = SubResource( 3 )
 
 [node name="Shooting_Range" type="Area2D" parent="."]
 visible = false
@@ -77,7 +208,23 @@ offset = Vector2( 20, 0 )
 [node name="Muzzle" type="Position2D" parent="gun"]
 position = Vector2( 19.9995, -0.147495 )
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 9 )
+
+[node name="Death_timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationTree")
+anims/Death = SubResource( 10 )
+anims/normal = SubResource( 11 )
+"anims/take damge" = SubResource( 12 )
+
 [connection signal="area_entered" from="Shooting_Range" to="." method="_on_Shooting_Range_area_entered"]
 [connection signal="area_exited" from="Shooting_Range" to="." method="_on_Shooting_Range_area_exited"]
 [connection signal="timeout" from="Shoot_Cooldown" to="." method="_on_Shoot_Cooldown_timeout"]
+[connection signal="area_entered" from="Enemy" to="." method="_on_Enemy_area_entered"]
 [connection signal="animation_finished" from="gun" to="." method="_on_gun_animation_finished"]
+[connection signal="timeout" from="Death_timer" to="." method="_on_Timer_timeout"]

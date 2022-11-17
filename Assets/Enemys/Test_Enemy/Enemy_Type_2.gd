@@ -6,14 +6,17 @@ export (int) var MOVE_SPEED
 var On_Cooldown = false
 signal fire 
 signal death
-#signal kill
+var alive = true
 export (PackedScene) var bullet
+onready var animation_tree = get_node("AnimationTree")
+onready var animation_mode = animation_tree.get("parameters/playback")
 
 onready var player = get_parent().get_node("Player")
 
 func _physics_process(delta):
-	
-	control(delta)
+	print(health)
+	if alive == true:
+		control(delta)
 
 
 func move_to_player(delta):
@@ -23,7 +26,8 @@ func move_to_player(delta):
 	
 
 func kill():
-	queue_free()
+	animation_mode.travel("Death")
+	#emit_signal("kill", $pos.global_position)
 
 var Current_Frame = 0
 
@@ -51,18 +55,15 @@ func control(delta):
 
 	if health <= 0:
 		kill()
-		emit_signal("kill", $pos.global_position)
+		alive = false
+		
 
 func take_damage(damage):
 	MOVE_SPEED -= 10
 	health -= damage
 	$HealthBar.visible = true
-
-func damage_anamation():
-	#$AnimatedSprite/damage_animation_legnth.start
-	#for 
-	#$AnimatedSprite.positionx  += 1
-	pass
+	animation_mode.travel("take damage")
+	
 
 func fire():
 	if On_Cooldown == false :
@@ -94,10 +95,11 @@ func _on_Shoot_Cooldown_timeout():
 func _on_gun_animation_finished():
 	$gun.stop()
 
-func _on_Enemy_Type_2_fire(bullet, _position, _direction):
-	pass
+
+func _on_Enemy_area_entered(area):
+	if "Hit_Area" in area.name:
+		take_damage(1)
 
 
-
-
-
+func _on_Timer_timeout():
+	queue_free()

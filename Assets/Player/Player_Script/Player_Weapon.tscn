@@ -1,10 +1,11 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Weapon_Bat.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Player/Player_Script/Player_Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/Bat_Mad.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Bat_Swing.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Player_Weapons/Bat/Bat_Swing_Opp.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=8]
 resource_name = "Gungeon_Charge_Left"
@@ -406,7 +407,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.000677604 ),
+"times": PoolRealArray( 0.0179218 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
@@ -418,7 +419,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.0177046 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ Vector2( -20, -14 ) ]
@@ -430,7 +431,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.0179218 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 90.0 ]
@@ -456,10 +457,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.017596 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
@@ -483,7 +484,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.25, -0.25 ) ]
+"values": [ Vector2( 0.25, 0.25 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -841,11 +842,15 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=42]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
 [sub_resource type="AnimationNodeStateMachine" id=10]
 states/Gungeon_Charge_Left/node = SubResource( 15 )
 states/Gungeon_Charge_Left/position = Vector2( 653, -17.25 )
 states/Gungeon_Charge_Right/node = SubResource( 16 )
-states/Gungeon_Charge_Right/position = Vector2( 652.25, 110.221 )
+states/Gungeon_Charge_Right/position = Vector2( 653.062, 109.917 )
 states/Gungeon_Followthrough_Left/node = SubResource( 22 )
 states/Gungeon_Followthrough_Left/position = Vector2( 1564.08, -16.8965 )
 states/Gungeon_Followthrough_Right/node = SubResource( 36 )
@@ -860,9 +865,9 @@ states/Left_Anticipation/node = SubResource( 26 )
 states/Left_Anticipation/position = Vector2( 960.413, -17.9453 )
 states/Right_Anticipation/node = SubResource( 33 )
 states/Right_Anticipation/position = Vector2( 960.663, 112.752 )
-transitions = [ "Idle", "Gungeon_Charge_Left", SubResource( 18 ), "Idle", "Gungeon_Charge_Right", SubResource( 20 ), "Gungeon_Swing", "Gungeon_Followthrough_Left", SubResource( 23 ), "Gungeon_Followthrough_Left", "Idle", SubResource( 24 ), "Gungeon_Charge_Left", "Left_Anticipation", SubResource( 27 ), "Left_Anticipation", "Gungeon_Swing", SubResource( 28 ), "Gungeon_Charge_Right", "Right_Anticipation", SubResource( 34 ), "Gungeon_Followthrough_Right", "Idle", SubResource( 38 ), "Right_Anticipation", "Gungeon_Swing_Right", SubResource( 41 ), "Gungeon_Swing_Right", "Gungeon_Followthrough_Right", SubResource( 42 ) ]
+transitions = [ "Idle", "Gungeon_Charge_Left", SubResource( 18 ), "Idle", "Gungeon_Charge_Right", SubResource( 20 ), "Gungeon_Swing", "Gungeon_Followthrough_Left", SubResource( 23 ), "Gungeon_Followthrough_Left", "Idle", SubResource( 24 ), "Gungeon_Charge_Left", "Left_Anticipation", SubResource( 27 ), "Left_Anticipation", "Gungeon_Swing", SubResource( 28 ), "Gungeon_Charge_Right", "Right_Anticipation", SubResource( 34 ), "Gungeon_Followthrough_Right", "Idle", SubResource( 38 ), "Right_Anticipation", "Gungeon_Swing_Right", SubResource( 41 ), "Gungeon_Swing_Right", "Gungeon_Followthrough_Right", SubResource( 42 ), "Gungeon_Charge_Right", "Gungeon_Charge_Left", SubResource( 43 ), "Gungeon_Charge_Left", "Gungeon_Charge_Right", SubResource( 44 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 743.7, -66.6207 )
+graph_offset = Vector2( 493.95, -42.9957 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
