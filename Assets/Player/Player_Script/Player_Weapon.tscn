@@ -867,7 +867,7 @@ states/Right_Anticipation/node = SubResource( 33 )
 states/Right_Anticipation/position = Vector2( 960.663, 112.752 )
 transitions = [ "Idle", "Gungeon_Charge_Left", SubResource( 18 ), "Idle", "Gungeon_Charge_Right", SubResource( 20 ), "Gungeon_Swing", "Gungeon_Followthrough_Left", SubResource( 23 ), "Gungeon_Followthrough_Left", "Idle", SubResource( 24 ), "Gungeon_Charge_Left", "Left_Anticipation", SubResource( 27 ), "Left_Anticipation", "Gungeon_Swing", SubResource( 28 ), "Gungeon_Charge_Right", "Right_Anticipation", SubResource( 34 ), "Gungeon_Followthrough_Right", "Idle", SubResource( 38 ), "Right_Anticipation", "Gungeon_Swing_Right", SubResource( 41 ), "Gungeon_Swing_Right", "Gungeon_Followthrough_Right", SubResource( 42 ), "Gungeon_Charge_Right", "Gungeon_Charge_Left", SubResource( 43 ), "Gungeon_Charge_Left", "Gungeon_Charge_Right", SubResource( 44 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 493.95, -42.9957 )
+graph_offset = Vector2( 360.75, -39.0582 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 

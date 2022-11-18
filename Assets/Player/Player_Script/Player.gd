@@ -16,7 +16,7 @@ onready var swing_right = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_
 onready var follow_thr = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Followthrough_Left")
 var swing_ready = false
 var isSwinging = false
-
+var charge_monitor = false
 
 var moving = false
 
@@ -80,6 +80,12 @@ func Player_Control(delta):
 		animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
 		move_and_collide(move_vec * MOVE_SPEED * delta)
 	
+	if charge_monitor == true:
+		match side:
+			1:
+				Weapon_animation_mode.travel("Gungeon_Charge_Left")
+			3:
+				Weapon_animation_mode.travel("Gungeon_Charge_Right")
 
 
 func _input(event):
@@ -88,17 +94,22 @@ func _input(event):
 			1:
 				if swing_ready == false:
 					Weapon_animation_mode.travel("Gungeon_Charge_Left")
+					charge_monitor = true
 				else:
 					swing_ready = false
+					charge_monitor = false
 					swing(swing_left)
 			2:
 				pass
 			3:
 				if swing_ready == false:
 					Weapon_animation_mode.travel("Gungeon_Charge_Right")
+					charge_monitor = true
 				else:
-					swing(swing_right)
+					charge_monitor = false
 					swing_ready = false
+					swing(swing_right)
+					
 			4:
 				pass
 

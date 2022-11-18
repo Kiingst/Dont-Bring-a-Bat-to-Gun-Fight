@@ -330,7 +330,7 @@ states/Walking/position = Vector2( 475, 107 )
 transitions = [ "Idle", "Walking", SubResource( 28 ), "Walking", "Idle", SubResource( 40 ) ]
 start_node = "Idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=45]
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 0
@@ -376,7 +376,7 @@ anims/Walk_West = SubResource( 4 )
 tree_root = SubResource( 6 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 7 )
+parameters/playback = SubResource( 45 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walking/blend_position = Vector2( 0.246139, 0.974249 )
 
