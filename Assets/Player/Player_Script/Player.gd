@@ -46,7 +46,6 @@ func Player_Control(delta):
 			$Roll/Cooldown.start()
 	move_vec = move_vec.normalized()
 	
-	
 	#print($Cross_Hair/Position2D.position)
 	
 	
@@ -86,6 +85,7 @@ func Player_Control(delta):
 				Weapon_animation_mode.travel("Gungeon_Charge_Left")
 			3:
 				Weapon_animation_mode.travel("Gungeon_Charge_Right")
+				
 
 
 func _input(event):
