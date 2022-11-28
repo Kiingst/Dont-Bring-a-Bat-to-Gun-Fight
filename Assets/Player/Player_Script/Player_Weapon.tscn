@@ -1,11 +1,10 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Weapon_Bat.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Player/Player_Script/Player_Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/Bat_Mad.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Player/Player_Weapons/Bat/Bat_Swing.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Player/Player_Weapons/Bat/Bat_Swing_Opp.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Player/Player_Weapons/Bat/Bat_Swing-2.png.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/Player_Weapons/Bat/Bat_Swing-opp.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=8]
 resource_name = "Gungeon_Charge_Left"
@@ -214,7 +213,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Player_Weapon:scale")
@@ -254,7 +253,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 20, -14 ) ]
+"values": [ Vector2( -20, -14 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Player_Weapon:rotation_degrees")
@@ -313,7 +312,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( -0.000458629 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0.25, 0.25 ) ]
@@ -329,7 +328,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.000677604 ),
+"times": PoolRealArray( 2.5521e-05 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
@@ -379,7 +378,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 3.90625e-05 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ ExtResource( 5 ) ]
@@ -391,10 +390,22 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.0390157 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.100094 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -407,7 +418,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.0179218 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
@@ -419,7 +430,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.0177046 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ Vector2( -20, -14 ) ]
@@ -431,7 +442,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.0179218 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 90.0 ]
@@ -457,7 +468,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.017596 ),
+"times": PoolRealArray( 5.82077e-11 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ ExtResource( 6 ) ]
@@ -469,10 +480,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.0390157 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 3.1326e-05, 0.0999944 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ false, true ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Player_Weapon:scale")
@@ -485,6 +496,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0.25, 0.25 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -656,7 +679,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite:texture")
+tracks/4/path = NodePath("Player_Weapon:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -665,10 +688,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon:texture")
+tracks/5/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -677,10 +700,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ ExtResource( 1 ) ]
+"values": [ false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
+tracks/6/path = NodePath("Player_Weapon:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -689,10 +712,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Vector2( 0.25, 0.25 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Player_Weapon:scale")
+tracks/7/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -701,7 +724,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.25, 0.25 ) ]
+"values": [ Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=30]
@@ -856,27 +879,23 @@ states/Gungeon_Followthrough_Left/position = Vector2( 1564.08, -16.8965 )
 states/Gungeon_Followthrough_Right/node = SubResource( 36 )
 states/Gungeon_Followthrough_Right/position = Vector2( 1563.16, 109.815 )
 states/Gungeon_Swing/node = SubResource( 17 )
-states/Gungeon_Swing/position = Vector2( 1240.58, -17.5977 )
+states/Gungeon_Swing/position = Vector2( 1240.58, -14.5976 )
 states/Gungeon_Swing_Right/node = SubResource( 40 )
-states/Gungeon_Swing_Right/position = Vector2( 1231.6, 111.486 )
+states/Gungeon_Swing_Right/position = Vector2( 1232.6, 111.183 )
 states/Idle/node = SubResource( 13 )
-states/Idle/position = Vector2( 427.5, 38 )
+states/Idle/position = Vector2( 427.5, 39 )
 states/Left_Anticipation/node = SubResource( 26 )
 states/Left_Anticipation/position = Vector2( 960.413, -17.9453 )
 states/Right_Anticipation/node = SubResource( 33 )
 states/Right_Anticipation/position = Vector2( 960.663, 112.752 )
 transitions = [ "Idle", "Gungeon_Charge_Left", SubResource( 18 ), "Idle", "Gungeon_Charge_Right", SubResource( 20 ), "Gungeon_Swing", "Gungeon_Followthrough_Left", SubResource( 23 ), "Gungeon_Followthrough_Left", "Idle", SubResource( 24 ), "Gungeon_Charge_Left", "Left_Anticipation", SubResource( 27 ), "Left_Anticipation", "Gungeon_Swing", SubResource( 28 ), "Gungeon_Charge_Right", "Right_Anticipation", SubResource( 34 ), "Gungeon_Followthrough_Right", "Idle", SubResource( 38 ), "Right_Anticipation", "Gungeon_Swing_Right", SubResource( 41 ), "Gungeon_Swing_Right", "Gungeon_Followthrough_Right", SubResource( 42 ), "Gungeon_Charge_Right", "Gungeon_Charge_Left", SubResource( 43 ), "Gungeon_Charge_Left", "Gungeon_Charge_Right", SubResource( 44 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 360.75, -39.0582 )
+graph_offset = Vector2( -212.509, -39.0582 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 [node name="Player_Weapon" type="Node2D"]
 script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 2 )
 
 [node name="Player_Weapon" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
@@ -887,7 +906,7 @@ scale = Vector2( 4, 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player_Weapon/Hit_Area"]
 position = Vector2( -1, -25 )
-polygon = PoolVector2Array( 4, -16, -3, -16, -3, 10, 8, 17, 18, 13, 15, -1 )
+polygon = PoolVector2Array( 2, -18, -25, -16, -28, -10, -10, 13, 4, 14, 12, 27, 11, 51, 1, 61, -0.999998, 70, 9.00961, 68.8731, 19.5, 57.0429, 21.2942, 42.1506, 21.7224, 26.8923, 18.9186, 10.0359, 13.1506, -3.95449 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Gungeon_Charge_Left = SubResource( 8 )

@@ -45,4 +45,4 @@ func _on_Hit_Area_area_entered(area):
 	if "Hit" in area.name:
 		var kill = false
 		startAng(position, rotation)
-		$Enemy_Attack.set_name("Hit_Area")
+		#$Enemy_Attack.set_name("Hit_Area")
