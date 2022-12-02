@@ -22,9 +22,12 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
-width = 5.0
+width = 22.9743
 height = 1.0
-depth = 5.0
+depth = 22.9133
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.827089, 0.150692, -0.541495, -0.0188112, 0.95543, 0.294618, 0.561757, 0.253861, -0.787391, -8.77161, 5.54288, -7.62724 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.857365, 0.514709, 0, -0.514709, 0.857365, 0, 7.65903, 9.21853 )
