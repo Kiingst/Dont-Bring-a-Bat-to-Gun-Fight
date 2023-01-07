@@ -1,12 +1,26 @@
 extends KinematicBody2D
-var MOVE_SPEED = 300
-var roll_speed = 400
-export (int) var health
-var roll_On_cooldown = false
+export (int) var MOVE_SPEED = 300
+export (int) var health = 3
+var move_vec = Vector2.ZERO
+
 signal take_damage
 var alive = true
+var floor_normal = Vector2(0, -1)
+
 export (int) var Length_from_player
 var side = 1
+
+export var jump_height : float
+export var jump_time_to_peak : float
+export var jump_time_to_descent : float
+export var double_jump = true
+export var jump_count = 2
+var count_num = 0
+
+onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
+onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
+onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 onready var Weapon_animation_tree = $Player_Weapon/AnimationTree
@@ -14,6 +28,7 @@ onready var Weapon_animation_mode = Weapon_animation_tree.get("parameters/playba
 onready var swing_left = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing")
 onready var swing_right = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Swing_Right")
 onready var follow_thr = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_Followthrough_Left")
+
 var swing_ready = false
 var isSwinging = false
 var charge_monitor = false
@@ -25,29 +40,21 @@ func _ready():
 	pass
 
 func Player_Control(delta):
-	#Movement logic
-	var move_vec = Vector2()
-	var roll_speed2 = 1
-	if Input.is_action_pressed("Move_Up"):
-		move_vec.y -= 1
-	if Input.is_action_pressed("Move_Down"):
-		move_vec.y += 1
-	if Input.is_action_pressed("Move_Left"):
-		move_vec.x -= 1
-	if Input.is_action_pressed("Move_Right"):
-		move_vec.x += 1
-	if Input.is_action_pressed("Swing"):
-		pass
-	if Input.is_action_just_pressed("Roll"):
-		if roll_On_cooldown == false:
-			MOVE_SPEED += roll_speed 
-			$Roll.start()
-			roll_On_cooldown = true
-			$Roll/Cooldown.start()
-	move_vec = move_vec.normalized()
+	move_vec.y += get_gravity() * delta
+	move_vec.x = get_input_velocity() * MOVE_SPEED
 	
-	#print($Cross_Hair/Position2D.position)
+	if is_on_floor() == true:
+		count_num = 0
 	
+	if double_jump == false:
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			jump()
+	else:
+		if Input.is_action_just_pressed("jump") and count_num != jump_count:
+			jump()
+			count_num += 1
+	
+	move_vec = move_and_slide(move_vec, Vector2.UP)
 	
 	var look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
@@ -71,13 +78,13 @@ func Player_Control(delta):
 	
 	#Set correct animation for bat position
 	#Change Walking Animation
-	if move_vec == Vector2.ZERO:
+	if move_vec.x == 0:
 		animation_mode.travel("Idle")
 	else:
 		animation_mode.travel("Walking")
 		animation_tree.set("parameters/Walking/blend_position", look_vec.normalized() )
 		animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
-		move_and_collide(move_vec * MOVE_SPEED * delta)
+		
 	
 	if charge_monitor == true:
 		match side:
@@ -117,7 +124,8 @@ func _input(event):
 func _physics_process(delta):
 	if alive == false:
 		return
-	Player_Control(delta)
+	else:
+		Player_Control(delta)
 	
 func swing(swing):
 	isSwinging = true
@@ -136,27 +144,28 @@ func swing(swing):
 			Weapon_animation_mode.travel("Left_Anticipation")
 		3:
 			Weapon_animation_mode.travel("Right_Anticipation")
+			
 
-
-func _on_Roll_timeout():
-	#Stops Roll & restes move speed
-	MOVE_SPEED = 300
-
-
-func _on_Cooldown_timeout():
-	#Roll taken off cooldown
-	roll_On_cooldown = false
-	print(roll_On_cooldown)
-
-func Weapon_Pos(delta):
-	pass
+#Next 3 func handels jumping and movement
+func get_gravity() -> float:
+	return jump_gravity if move_vec.y < 0.0 else fall_gravity
+func get_input_velocity() -> float:
+	var horizontal := 0.0
 	
+	if Input.is_action_pressed("Move_Left"):
+		horizontal -= 1.0
+	if Input.is_action_pressed("Move_Right"):
+		horizontal += 1.0
+	
+	return horizontal
+func jump():
+	move_vec.y = jump_velocity
 func ChangeAnimationValue(Animationname, trackname, time, keyvalue):
 	var track_id = Animationname.find_track(trackname)
 	var key_id = Animationname.track_find_key(track_id, time, false)
 	Animationname.track_set_key_value(track_id, key_id, keyvalue)
 	
-	
+
 
 func _on_Player_Weapon_Done(anim_name):
 	match anim_name:
