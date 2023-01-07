@@ -8,7 +8,7 @@
 
 [node name="Room_Template" type="Node2D"]
 
-[node name="fllor" type="TileMap" parent="."]
+[node name="floor" type="TileMap" parent="."]
 z_index = -6
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 32, 32 )
@@ -127,6 +127,23 @@ texture_scale = 0.25
 color = Color( 0.901961, 0.129412, 0.0470588, 1 )
 energy = 1.74
 
+[node name="Sprite3" type="Sprite" parent="walls"]
+position = Vector2( 494, -111 )
+rotation = 0.000278568
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Light2D" type="Light2D" parent="walls/Sprite3"]
+position = Vector2( 0, -2.23581 )
+rotation = -0.00700015
+texture = ExtResource( 4 )
+texture_scale = 0.25
+color = Color( 0.901961, 0.129412, 0.0470588, 1 )
+energy = 1.74
+
 [node name="Sprite2" type="Sprite" parent="walls"]
 position = Vector2( -210, -170 )
 rotation = 0.259246
@@ -145,8 +162,8 @@ energy = 1.25
 shadow_enabled = true
 
 [node name="Light2D" type="Light2D" parent="walls"]
-visible = false
 position = Vector2( 1, 1.19209e-07 )
 scale = Vector2( 1.10059, 0.894531 )
 texture = ExtResource( 4 )
-energy = 0.25
+energy = 0.5
+shadow_enabled = true
