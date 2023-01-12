@@ -106,6 +106,7 @@ func swing(swing):
 	keyvaluefollow.x -= 20
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0.2 , keyvaluefollow)
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0 , keyvaluerot)
+	
 	match side:
 		1:
 			Weapon_animation_mode.travel("Left_Anticipation")
@@ -117,7 +118,6 @@ func ChangeAnimationValue(Animationname, trackname, time, keyvalue):
 	var track_id = Animationname.find_track(trackname)
 	var key_id = Animationname.track_find_key(track_id, time, false)
 	Animationname.track_set_key_value(track_id, key_id, keyvalue)
-	
 
 
 func _on_Player_Weapon_Done(anim_name):
