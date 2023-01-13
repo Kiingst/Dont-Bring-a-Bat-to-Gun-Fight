@@ -4,6 +4,8 @@ export (int) var Length_from_player
 var side = 1
 
 
+
+
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 onready var Weapon_animation_tree = $Player_Weapon/AnimationTree
@@ -19,7 +21,7 @@ var charge_monitor = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Player_Weapon.connect("Done", self, "_on_Player_Weapon_Done")
 
 func Player_Control_Bat(delta):
 	

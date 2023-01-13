@@ -495,7 +495,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.25, 0.25 ) ]
+"values": [ Vector2( -0.25, -0.25 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:scale")
@@ -879,7 +879,7 @@ states/Gungeon_Followthrough_Left/position = Vector2( 1564.08, -16.8965 )
 states/Gungeon_Followthrough_Right/node = SubResource( 36 )
 states/Gungeon_Followthrough_Right/position = Vector2( 1563.16, 109.815 )
 states/Gungeon_Swing/node = SubResource( 17 )
-states/Gungeon_Swing/position = Vector2( 1240.58, -14.5976 )
+states/Gungeon_Swing/position = Vector2( 1240.58, -17.0732 )
 states/Gungeon_Swing_Right/node = SubResource( 40 )
 states/Gungeon_Swing_Right/position = Vector2( 1232.6, 111.183 )
 states/Idle/node = SubResource( 13 )
@@ -890,7 +890,7 @@ states/Right_Anticipation/node = SubResource( 33 )
 states/Right_Anticipation/position = Vector2( 960.663, 112.752 )
 transitions = [ "Idle", "Gungeon_Charge_Left", SubResource( 18 ), "Idle", "Gungeon_Charge_Right", SubResource( 20 ), "Gungeon_Swing", "Gungeon_Followthrough_Left", SubResource( 23 ), "Gungeon_Followthrough_Left", "Idle", SubResource( 24 ), "Gungeon_Charge_Left", "Left_Anticipation", SubResource( 27 ), "Left_Anticipation", "Gungeon_Swing", SubResource( 28 ), "Gungeon_Charge_Right", "Right_Anticipation", SubResource( 34 ), "Gungeon_Followthrough_Right", "Idle", SubResource( 38 ), "Right_Anticipation", "Gungeon_Swing_Right", SubResource( 41 ), "Gungeon_Swing_Right", "Gungeon_Followthrough_Right", SubResource( 42 ), "Gungeon_Charge_Right", "Gungeon_Charge_Left", SubResource( 43 ), "Gungeon_Charge_Left", "Gungeon_Charge_Right", SubResource( 44 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -212.509, -39.0582 )
+graph_offset = Vector2( 203.741, -70.5582 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
