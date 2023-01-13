@@ -2,6 +2,7 @@ extends "res://Assets/Player/Player_Script/Base_Player.gd"
 
 export (int) var Length_from_player
 var side = 1
+export (bool) var canSwing = true
 
 
 
@@ -17,15 +18,17 @@ onready var follow_thr = $Player_Weapon/AnimationPlayer.get_animation("Gungeon_F
 var swing_ready = false
 var isSwinging = false
 var charge_monitor = false
+var look_vec 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player_Weapon.connect("Done", self, "_on_Player_Weapon_Done")
+	#$Player_Weapon.connect("Done", self, "_on_Player_Weapon_Done")
+	pass
 
 func Player_Control_Bat(delta):
 	
-	var look_vec = get_global_mouse_position() - global_position
+	look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	
@@ -55,37 +58,18 @@ func Player_Control_Bat(delta):
 		animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
 		
 	
-	if charge_monitor == true:
-		match side:
-			1:
-				Weapon_animation_mode.travel("Gungeon_Charge_Left")
-			3:
-				Weapon_animation_mode.travel("Gungeon_Charge_Right")
-				
+
 func _input(event):
 	if event.is_action_pressed("Swing"):
 		match side:
 			1:
-				if swing_ready == false:
-					print("charging")
-					Weapon_animation_mode.travel("Gungeon_Charge_Left")
-					charge_monitor = true
-				else:
-					print("swinging")
-					swing_ready = false
-					charge_monitor = false
-					swing(swing_left)
+				swing(swing_left)
+				$Swing_Cooldown.start()
 			2:
 				pass
 			3:
-				if swing_ready == false:
-					Weapon_animation_mode.travel("Gungeon_Charge_Right")
-					charge_monitor = true
-				else:
-					charge_monitor = false
-					swing_ready = false
-					swing(swing_right)
-					
+				swing(swing_right)
+				$Swing_Cooldown.start()
 			4:
 				pass
 
@@ -97,24 +81,27 @@ func _physics_process(delta):
 		Player_Control_Bat(delta)
 	
 func swing(swing):
-	print("swinging")
-	isSwinging = true
+	if canSwing == false:
+		pass
+	else:
+		print("swinging")
+		isSwinging = true
 	
-	var look_vec = get_global_mouse_position() - global_position
-	var keyvaluepos = look_vec.normalized() * Length_from_player
-	var keyvaluerot = (rad2deg(look_vec.angle()) + 90) - 360
-	ChangeAnimationValue(swing, "Player_Weapon:position", 0.2, keyvaluepos)
-	ChangeAnimationValue(swing, "Player_Weapon:rotation_degrees", 0.2, keyvaluerot)
-	var keyvaluefollow = keyvaluepos
-	keyvaluefollow.x -= 20
-	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0.2 , keyvaluefollow)
-	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0 , keyvaluerot)
-	match side:
-		1:
-			Weapon_animation_mode.travel("Left_Anticipation")
-		3:
-			Weapon_animation_mode.travel("Right_Anticipation")
-			
+		var keyvaluepos = look_vec.normalized() * Length_from_player
+		var keyvaluerot = (rad2deg(look_vec.angle()) + 90) - 360
+		ChangeAnimationValue(swing, "Player_Weapon:position", 0.2, keyvaluepos)
+		ChangeAnimationValue(swing, "Player_Weapon:rotation_degrees", 0.2, keyvaluerot)
+		var keyvaluefollow = keyvaluepos
+		keyvaluefollow.x -= 20
+		ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0.2 , keyvaluefollow)
+		ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0 , keyvaluerot)
+		
+		match side:
+			1:
+				Weapon_animation_mode.travel("Gungeon_Followthrough_Left")
+			3:
+				Weapon_animation_mode.travel("Gungeon_Followthrough_Right")
+				
 
 func ChangeAnimationValue(Animationname, trackname, time, keyvalue):
 	var track_id = Animationname.find_track(trackname)
@@ -124,21 +111,11 @@ func ChangeAnimationValue(Animationname, trackname, time, keyvalue):
 
 
 func _on_Player_Weapon_Done(anim_name):
-	match anim_name:
-		"Idle":
-			pass
-		"Gungeon_Charge_Left":
-			print("ready to swing")
-			swing_ready = true
-		"Gungeon_Charge_Right":
-			pass
-		"Gungeon_Swing_Left":
-			Weapon_animation_mode.travel("Gungeon_Followthrough_Left")
-		"Gungeon_Swing_Right":
-			pass
-		"Followthrough":
-			Weapon_animation_mode.travel("Idle")
-			isSwinging = false
-			swing_ready = false
-	
+	pass
 
+
+
+
+func _on_Swing_Cooldown_timeout():
+	canSwing = true
+	print("canswing")

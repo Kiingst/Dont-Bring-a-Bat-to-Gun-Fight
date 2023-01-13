@@ -53,5 +53,9 @@ offset = Vector2( 250, 0 )
 position = Vector2( 248, 0 )
 
 [node name="Player_Weapon" parent="." instance=ExtResource( 15 )]
-position = Vector2( 0, -15 )
-script = null
+
+[node name="Swing_Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="Done" from="Player_Weapon" to="." method="_on_Player_Weapon_Done"]
+[connection signal="timeout" from="Swing_Cooldown" to="." method="_on_Swing_Cooldown_timeout"]
