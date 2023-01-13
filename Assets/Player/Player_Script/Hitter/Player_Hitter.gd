@@ -65,9 +65,11 @@ func _input(event):
 		match side:
 			1:
 				if swing_ready == false:
+					print("charging")
 					Weapon_animation_mode.travel("Gungeon_Charge_Left")
 					charge_monitor = true
 				else:
+					print("swinging")
 					swing_ready = false
 					charge_monitor = false
 					swing(swing_left)
@@ -93,6 +95,7 @@ func _physics_process(delta):
 		Player_Control_Bat(delta)
 	
 func swing(swing):
+	print("swinging")
 	isSwinging = true
 	
 	var look_vec = get_global_mouse_position() - global_position

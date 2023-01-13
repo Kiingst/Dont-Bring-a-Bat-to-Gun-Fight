@@ -1,5 +1,6 @@
 extends Node2D
 signal Done
+signal hi
 
 # Declare member variables here. Examples:
 # var a = 2
