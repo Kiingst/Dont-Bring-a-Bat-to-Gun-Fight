@@ -21,7 +21,7 @@ var charge_monitor = false
 func _ready():
 	pass
 
-func Player_Control(delta):
+func Player_Control_Bat(delta):
 	
 	var look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
@@ -60,8 +60,6 @@ func Player_Control(delta):
 			3:
 				Weapon_animation_mode.travel("Gungeon_Charge_Right")
 				
-
-
 func _input(event):
 	if event.is_action_pressed("Swing"):
 		match side:
@@ -92,7 +90,7 @@ func _physics_process(delta):
 	if alive == false:
 		return
 	else:
-		Player_Control(delta)
+		Player_Control_Bat(delta)
 	
 func swing(swing):
 	isSwinging = true
@@ -106,7 +104,6 @@ func swing(swing):
 	keyvaluefollow.x -= 20
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0.2 , keyvaluefollow)
 	ChangeAnimationValue(follow_thr, "Player_Weapon:position", 0 , keyvaluerot)
-	
 	match side:
 		1:
 			Weapon_animation_mode.travel("Left_Anticipation")
@@ -118,6 +115,7 @@ func ChangeAnimationValue(Animationname, trackname, time, keyvalue):
 	var track_id = Animationname.find_track(trackname)
 	var key_id = Animationname.track_find_key(track_id, time, false)
 	Animationname.track_set_key_value(track_id, key_id, keyvalue)
+	
 
 
 func _on_Player_Weapon_Done(anim_name):
@@ -138,3 +136,4 @@ func _on_Player_Weapon_Done(anim_name):
 			isSwinging = false
 			swing_ready = false
 	
+
