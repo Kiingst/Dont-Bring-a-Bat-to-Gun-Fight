@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Player/Player_Script/Catcher/Player_Catcher.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 extents = Vector2( 21, 22.125 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 78.5212
 
 [node name="Player_Catcher" type="KinematicBody2D"]
 scale = Vector2( 0.999066, 1.00702 )
@@ -42,6 +45,13 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 3 )
 parameters/Walking/blend_position = Vector2( -0.00420612, 0.396552 )
+
+[node name="Catch_Area" type="Area2D" parent="."]
+position = Vector2( 0, 3 )
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catch_Area"]
+shape = SubResource( 4 )
 
 [node name="Cross_Hair" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )

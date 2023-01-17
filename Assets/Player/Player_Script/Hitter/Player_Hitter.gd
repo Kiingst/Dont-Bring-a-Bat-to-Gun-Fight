@@ -58,7 +58,7 @@ func Player_Control_Bat(delta):
 	
 
 func _input(event):
-	if event.is_action_pressed("Swing"):
+	if event.is_action_pressed("Action"):
 		print(canSwing)
 		if canSwing == true:
 			match side:

@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Temp_frames/weapon_knife.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Enemys/Test_Enemy/Enemy_Type_2.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Temp_frames/goblin_idle_anim_f0.png" type="Texture" id=3]
 [ext_resource path="res://Assets/baseball/script/Bullet.tscn" type="PackedScene" id=4]
-
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 85.0
@@ -160,6 +159,9 @@ tracks/2/keys = {
 "values": [ Vector2( 3, 3 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 13.5, 15.5 )
+
 [node name="Enemy_Type_2" type="KinematicBody2D"]
 position = Vector2( 0, -1 )
 collision_layer = 4
@@ -228,6 +230,10 @@ root_node = NodePath("../AnimationTree")
 anims/Death = SubResource( 10 )
 anims/damage_animation = SubResource( 12 )
 anims/normal = SubResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, 5.5 )
+shape = SubResource( 21 )
 
 [connection signal="area_entered" from="Shooting_Range" to="." method="_on_Shooting_Range_area_entered"]
 [connection signal="area_exited" from="Shooting_Range" to="." method="_on_Shooting_Range_area_exited"]

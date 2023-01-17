@@ -13,6 +13,9 @@ func _ready():
 	pass # Replace with function body.
 
 func Player_Control_Catch(delta):
+	#print($Catch_Area.get_overlapping_areas())
+	
+	
 	look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
@@ -31,3 +34,10 @@ func _physics_process(delta):
 	else:
 		Player_Control_Catch(delta)
 	
+func _input(event):
+	if event.is_action_pressed("Action"):
+		catch()
+
+
+func catch():
+	pass

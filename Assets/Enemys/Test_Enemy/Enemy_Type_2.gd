@@ -11,7 +11,7 @@ export (PackedScene) var bullet
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 
-onready var player = get_parent().get_node("Player")
+onready var player = get_parent().get_node("Player_Catcher")
 
 func _physics_process(delta):
 	if alive == true:
@@ -48,7 +48,8 @@ func control(delta):
 	$gun.global_rotation = atan2(vec_to_player.y, vec_to_player.x)
 	
 	if Locked_On == false : 
-			move_to_player(delta)
+			#move_to_player(delta)
+			pass
 	elif Locked_On == true :
 			fire()
 
