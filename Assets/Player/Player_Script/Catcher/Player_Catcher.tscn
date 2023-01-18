@@ -47,10 +47,8 @@ parameters/playback = SubResource( 3 )
 parameters/Walking/blend_position = Vector2( -0.00420612, 0.396552 )
 
 [node name="offset" type="Sprite" parent="."]
-scale = Vector2( 1, 1 )
 
 [node name="Catch_Area" type="Area2D" parent="offset"]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="offset/Catch_Area"]
 position = Vector2( 62.5608, 2.17713e-08 )

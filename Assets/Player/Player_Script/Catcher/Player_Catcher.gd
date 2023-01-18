@@ -14,7 +14,7 @@ func _ready():
 	pass # Replace with function body.
 
 func Player_Control_Catch(delta):
-	print($offset/Catch_Area.get_overlapping_areas())
+	#print($offset/Catch_Area.get_overlapping_areas())
 	
 	
 	look_vec = get_global_mouse_position() - global_position
@@ -35,14 +35,15 @@ func _physics_process(delta):
 		return
 	else:
 		Player_Control_Catch(delta)
-	
+
+
 func _input(event):
 	if event.is_action_pressed("Action"):
 		catch()
 
 
 func catch():
-	for body in $offset/Catch_Area.get_overlapping_bodies():
-		if body.is_in_group("Bullets"):
+	for index in $offset/Catch_Area.get_overlapping_areas():
+		if "Bullet" in index.name:
 			print("caught")
-	
+			remove_child(index)
