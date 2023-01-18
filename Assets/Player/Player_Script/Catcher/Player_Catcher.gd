@@ -3,6 +3,7 @@ extends "res://Assets/Player/Player_Script/Base_Player.gd"
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 var look_vec 
+var balls
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -13,12 +14,13 @@ func _ready():
 	pass # Replace with function body.
 
 func Player_Control_Catch(delta):
-	#print($Catch_Area.get_overlapping_areas())
+	print($offset/Catch_Area.get_overlapping_areas())
 	
 	
 	look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
+	$offset.global_rotation = atan2(look_vec.y, look_vec.x)
 	
 	
 	if move_vec.x == 0:
@@ -40,4 +42,7 @@ func _input(event):
 
 
 func catch():
-	pass
+	for body in $offset/Catch_Area.get_overlapping_bodies():
+		if body.is_in_group("Bullets"):
+			print("caught")
+	

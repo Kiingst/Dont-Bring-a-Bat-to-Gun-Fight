@@ -11,8 +11,8 @@ extents = Vector2( 21, 22.125 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 78.5212
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 16.015
 
 [node name="Player_Catcher" type="KinematicBody2D"]
 scale = Vector2( 0.999066, 1.00702 )
@@ -46,11 +46,15 @@ active = true
 parameters/playback = SubResource( 3 )
 parameters/Walking/blend_position = Vector2( -0.00420612, 0.396552 )
 
-[node name="Catch_Area" type="Area2D" parent="."]
-position = Vector2( 0, 3 )
+[node name="offset" type="Sprite" parent="."]
 scale = Vector2( 1, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Catch_Area"]
+[node name="Catch_Area" type="Area2D" parent="offset"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="offset/Catch_Area"]
+position = Vector2( 62.5608, 2.17713e-08 )
+rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="Cross_Hair" type="Sprite" parent="."]

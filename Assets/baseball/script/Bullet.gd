@@ -7,7 +7,7 @@ var dir
 var kill = true
 
 func _ready():
-	pass
+	add_to_group("Bullets")
 
 var Bullet_velocity = Vector2()
 
