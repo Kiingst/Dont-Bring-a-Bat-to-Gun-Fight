@@ -186,7 +186,6 @@ scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-visible = false
 margin_left = -42.0
 margin_top = -64.0
 margin_right = -9.99999
@@ -212,10 +211,10 @@ shape = SubResource( 5 )
 [node name="gun" type="AnimatedSprite" parent="."]
 rotation = 0.0073748
 frames = SubResource( 4 )
-offset = Vector2( 20, 0 )
+offset = Vector2( 25, 0 )
 
 [node name="Muzzle" type="Position2D" parent="gun"]
-position = Vector2( 19.9995, -0.147495 )
+position = Vector2( 24.9919, -1.18434 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 8 )

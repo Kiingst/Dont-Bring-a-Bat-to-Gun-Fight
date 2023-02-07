@@ -50,3 +50,7 @@ func _on_Hit_Area_area_entered(area):
 
 
 
+
+
+func _on_invincibility_timeout():
+	$CollisionShape2D.disabled = false 

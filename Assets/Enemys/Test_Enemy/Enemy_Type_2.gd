@@ -14,7 +14,7 @@ onready var animation_mode = animation_tree.get("parameters/playback")
 onready var player = get_parent().get_node("Player_Catcher")
 
 func _physics_process(delta):
-	print($Enemy.get_overlapping_areas())
+	#print($Enemy.get_overlapping_areas())
 	if alive == true:
 		control(delta)
 
@@ -64,7 +64,6 @@ func take_damage(damage):
 	MOVE_SPEED -= 10
 	health -= damage
 	$HealthBar.visible = true
-	print("enemy took damage")
 	
 
 func fire():
@@ -99,8 +98,9 @@ func _on_gun_animation_finished():
 
 
 func _on_Enemy_area_entered(area):
-	if "Hit_Area" in area.name:
+	if "Hit" in area.name:
 		take_damage(1)
+		print("enemy took_damge from, ", area)
 
 
 func _on_Timer_timeout():

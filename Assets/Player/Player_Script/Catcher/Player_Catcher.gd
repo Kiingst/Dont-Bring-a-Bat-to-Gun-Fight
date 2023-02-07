@@ -50,7 +50,7 @@ func _input(event):
 func catch():
 	for index in $offset/Catch_Area.get_overlapping_areas():
 		if "Bullet" in index.name:
-			print("caught")
+			print("caught ", index.get_parent())
 			emit_signal("catch", index)
 			balls_in_inventory += 1
 
