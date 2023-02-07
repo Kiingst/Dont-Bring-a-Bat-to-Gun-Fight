@@ -37,6 +37,7 @@ func startAng(_position, _angle):
 
 func _process(delta):
 	position += Bullet_velocity * delta
+	$Sprite.rotation_degrees += Bullet_Speed/20
 
 
  
@@ -46,3 +47,6 @@ func _on_Hit_Area_area_entered(area):
 		var kill = false
 		startAng(position, rotation)
 		#$Enemy_Attack.set_name("Hit_Area")
+
+
+

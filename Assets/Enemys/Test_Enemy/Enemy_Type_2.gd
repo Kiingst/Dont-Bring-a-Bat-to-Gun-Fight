@@ -14,6 +14,7 @@ onready var animation_mode = animation_tree.get("parameters/playback")
 onready var player = get_parent().get_node("Player_Catcher")
 
 func _physics_process(delta):
+	print($Enemy.get_overlapping_areas())
 	if alive == true:
 		control(delta)
 

@@ -3,7 +3,10 @@ extends "res://Assets/Player/Player_Script/Base_Player.gd"
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 var look_vec 
-var balls
+export (int) var balls_in_inventory 
+signal catch
+export (PackedScene) var ball
+signal fire
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -38,12 +41,22 @@ func _physics_process(delta):
 
 
 func _input(event):
-	if event.is_action_pressed("Action"):
+	if event.is_action_pressed("Parry"):
 		catch()
+	if event.is_action_pressed("Action"):
+		throw()
 
 
 func catch():
 	for index in $offset/Catch_Area.get_overlapping_areas():
 		if "Bullet" in index.name:
 			print("caught")
-			remove_child(index)
+			emit_signal("catch", index)
+			balls_in_inventory += 1
+
+func throw():
+	if balls_in_inventory > 0:
+		print("throwing")
+		var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
+		emit_signal('fire', ball, $Cross_Hair/Position2D.global_position, direction)
+		balls_in_inventory -= 1

@@ -1,16 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/baseball/script/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Assets/baseball/model/ball.png" type="Texture" id=2]
 
 [sub_resource type="PhysicsMaterial" id=3]
 bounce = 1.0
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 8.06226
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 7.76209
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 8
@@ -21,18 +14,15 @@ Bullet_Speed = 100
 Bullet_lifetime = 3
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
-[node name="Bullet_Attack" type="Area2D" parent="."]
+[node name="Hit_Area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet_Attack"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
 position = Vector2( 0.5, 0 )
-shape = SubResource( 4 )
 
 [node name="Lifetime" type="Timer" parent="."]
 
-[connection signal="area_entered" from="Bullet_Attack" to="." method="_on_Hit_Area_area_entered"]
+[connection signal="area_entered" from="Hit_Area" to="." method="_on_Hit_Area_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
