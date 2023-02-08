@@ -7,6 +7,8 @@ export (int) var balls_in_inventory
 signal catch
 export (PackedScene) var ball
 signal fire
+export (int) var Bullet_Damage
+export (int) var Bullet_Speed
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,7 +16,7 @@ signal fire
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func Player_Control_Catch(delta):
 	#print($offset/Catch_Area.get_overlapping_areas())
@@ -58,5 +60,5 @@ func throw():
 	if balls_in_inventory > 0:
 		print("throwing")
 		var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
-		emit_signal('fire', ball, $Cross_Hair/Position2D.global_position, direction)
+		emit_signal('fire', ball, $Cross_Hair/Position2D.global_position, direction, Bullet_Speed, Bullet_Damage)
 		balls_in_inventory -= 1

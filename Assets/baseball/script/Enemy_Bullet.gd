@@ -12,7 +12,7 @@ func switch(_position, _angle):
 	var rotation1 = _angle - PI
 	var test = _angle - PI
 	var direction1 = Vector2(1,0).rotated(test)
-	emit_signal('fire', player_bullet, position1, direction1)
+	emit_signal('fire', player_bullet, position1, direction1, Bullet_Speed, Bullet_Damage)
 	print(direction1)
 	queue_free()
 

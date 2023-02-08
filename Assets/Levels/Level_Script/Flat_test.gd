@@ -16,17 +16,24 @@ func _ready():
 #	pass
 
 
-func fire(bullet, _position, _direction):
+func fire(bullet, _position, _direction, _speed, _damage):
 	var b = bullet.instance()
 	add_child(b)
-	b.start(_position, _direction)
+	b.start(_position, _direction, _speed, _damage)
 	
-
-func enemy_fire(bullet, _position, _direction):
+func fire2(bullet, _position, _direction, _speed, _damage):
 	var b = bullet.instance()
 	add_child(b)
-	b.start(_position, _direction)
-	b.connect("fire", self, "fire")
+	_direction *= -1
+	b.start(_position, _direction, _speed, _damage)
+
+
+func enemy_fire(bullet, _position, _direction, _speed, _damage):
+	var b = bullet.instance()
+	add_child(b)
+	b.start(_position, _direction, _speed, _damage)
+	b.connect("fire", self, "fire2")
+	
 
 
 

@@ -1,13 +1,15 @@
 extends RigidBody2D
 
 export (int) var Bullet_Speed
-export (int) var Bullet_Damage
+var Bullet_Damage
 export (int) var Bullet_lifetime
 var dir 
 var kill = true
 
+
 func _ready():
 	add_to_group("Bullets")
+	
 
 var Bullet_velocity = Vector2()
 
@@ -19,12 +21,13 @@ func _on_Lifetime_timeout():
 	else :
 		$Lifetime.start()
 
-func start(_position, _direction):
+func start(_position, _direction, _speed, _damage):
+	Bullet_Damage = _damage
 	position = _position
 	rotation = _direction.angle()
 	dir = _direction
 	$Lifetime.wait_time = Bullet_lifetime
-	Bullet_velocity = _direction * Bullet_Speed
+	Bullet_velocity = _direction * _speed
 	$Lifetime.start()
 
 func startAng(_position, _angle):
@@ -47,6 +50,7 @@ func _on_Hit_Area_area_entered(area):
 		var kill = false
 		startAng(position, rotation)
 		#$Enemy_Attack.set_name("Hit_Area")
+
 
 
 

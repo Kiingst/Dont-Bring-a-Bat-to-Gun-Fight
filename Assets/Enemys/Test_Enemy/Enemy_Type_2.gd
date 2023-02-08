@@ -10,6 +10,13 @@ var alive = true
 export (PackedScene) var bullet
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
+export (int) var Bullet_Damage
+export (int) var Bullet_Speed
+
+func _ready():
+	#bullet.Bullet_Damage = Bullet_Damage
+	#bullet.Bullet_Speed = Bullet_Speed
+	$HealthBar.max_value = health
 
 onready var player = get_parent().get_node("Player_Catcher")
 
@@ -35,9 +42,6 @@ var Current_Frame = 0
 var Locked_On = false
 var x = 0
 
-func _ready():
-	$HealthBar.max_value = health
-	pass # Replace with function body.
 
 func control(delta):
 	if player == null:
@@ -72,7 +76,7 @@ func fire():
 		$Shoot_Cooldown.start()
 		$gun.play()
 		var direction = Vector2(1,0).rotated($gun.global_rotation)
-		emit_signal('fire', bullet, $gun/Muzzle.global_position, direction)
+		emit_signal('fire', bullet, $gun/Muzzle.global_position, direction, Bullet_Speed, Bullet_Damage)
 		#print("gun muzzle position", $gun/Muzzle.global_position)
 		#print("Bullet position",b.global_position)
 
@@ -99,8 +103,9 @@ func _on_gun_animation_finished():
 
 func _on_Enemy_area_entered(area):
 	if "Hit" in area.name:
-		take_damage(1)
-		print("enemy took_damge from, ", area)
+		var w = area.get_parent()
+		take_damage(w.Bullet_Damage)
+		print("enemy took ", w.Bullet_Damage, " damge from, ", area)
 
 
 func _on_Timer_timeout():

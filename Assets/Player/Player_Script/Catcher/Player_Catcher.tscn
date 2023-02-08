@@ -23,6 +23,8 @@ jump_height = 100.0
 jump_time_to_peak = 0.3
 jump_time_to_descent = 0.4
 ball = ExtResource( 5 )
+Bullet_Damage = 1
+Bullet_Speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7.875 )
@@ -64,3 +66,5 @@ offset = Vector2( 250, 0 )
 
 [node name="Position2D" type="Position2D" parent="Cross_Hair"]
 position = Vector2( 248, 0 )
+
+[connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

@@ -48,6 +48,10 @@ func _physics_process(delta):
 		return
 	else:
 		Player_Control(delta)
+	
+	if health <= 0:
+		alive = false
+		remove_child($Player_Model)
 
 func get_gravity() -> float:
 	return jump_gravity if move_vec.y < 0.0 else fall_gravity
@@ -67,3 +71,18 @@ func jump():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func take_damage(damage):
+	health -= damage
+	
+
+func _on_Player_area_entered(area):
+	if "Bullet" in area.name:
+		var w = area.get_parent()
+		take_damage(w.Bullet_Damage)
+		print("player took ",w.Bullet_Damage," damage from ", area )
+		w.queue_free()
+	elif "Hit_Area" in area.name:
+		var w = area.get_parent()
+		take_damage(w.Bullet_Damage)
+		print("player took ",w.Bullet_Damage," damage from ", area )
+		w.queue_free()

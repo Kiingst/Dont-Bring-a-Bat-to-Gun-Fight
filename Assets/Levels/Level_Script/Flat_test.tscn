@@ -19,11 +19,13 @@ tile_data = PoolIntArray( -589840, 1, 0, -589839, 1, 0, -589838, 1, 0, -589837, 
 
 [node name="Player_Catcher" parent="." instance=ExtResource( 1 )]
 position = Vector2( -66, 115 )
-balls_in_inventory = 50
+balls_in_inventory = 2
 
 [node name="Enemy_Type_2" parent="." groups=["enemy"] instance=ExtResource( 6 )]
 position = Vector2( 289, 182 )
 health = 2
 MOVE_SPEED = 100
+Bullet_Damage = 1
+Bullet_Speed = 50
 
 [connection signal="catch" from="Player_Catcher" to="." method="_on_Player_Catcher_catch"]

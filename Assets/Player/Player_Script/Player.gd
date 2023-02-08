@@ -3,6 +3,7 @@ export (int) var MOVE_SPEED = 300
 export (int) var health = 3
 var move_vec = Vector2.ZERO
 
+
 signal take_damage
 var alive = true
 var floor_normal = Vector2(0, -1)
