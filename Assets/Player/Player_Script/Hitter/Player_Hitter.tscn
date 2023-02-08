@@ -21,6 +21,7 @@ jump_time_to_peak = 0.3
 jump_time_to_descent = 0.3
 jump_count = 3
 Length_from_player = 40
+Bat_damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7.875 )

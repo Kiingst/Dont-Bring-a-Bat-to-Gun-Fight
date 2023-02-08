@@ -13,17 +13,14 @@ func switch(_position, _angle):
 	var test = _angle - PI
 	var direction1 = Vector2(1,0).rotated(test)
 	emit_signal('fire', player_bullet, position1, direction1, Bullet_Speed, Bullet_Damage)
-	print(direction1)
+	#print(direction1)
 	queue_free()
 
 
 func _on_Bullet_area_entered(area):
 	if "Hit" in area.name:
-		#print("enemy_Ball switching sides")
 		var kill = false
 		switch(position, rotation)
-		#startAng(position, rotation)
-		#$Enemy_Attack.set_name("Hit_Area")
 
 	
 

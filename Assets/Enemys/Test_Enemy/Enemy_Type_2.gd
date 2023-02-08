@@ -64,10 +64,11 @@ func control(delta):
 		
 
 func take_damage(damage):
-	animation_mode.travel("damage_animation")
-	MOVE_SPEED -= 10
-	health -= damage
-	$HealthBar.visible = true
+	if damage != null:
+		animation_mode.travel("damage_animation")
+		MOVE_SPEED -= 10
+		health -= damage
+		$HealthBar.visible = true
 	
 
 func fire():

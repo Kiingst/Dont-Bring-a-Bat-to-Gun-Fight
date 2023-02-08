@@ -5,7 +5,7 @@ var side = 1
 export (bool) var canSwing = true
 var keyvaluepos 
 var keyvaluerot 
-
+export (int) var Bat_damage
 
 
 onready var animation_tree = get_node("AnimationTree")
@@ -23,8 +23,7 @@ var look_vec
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$Player_Weapon.connect("Done", self, "_on_Player_Weapon_Done")
-	pass
+	$Player_Weapon.Bullet_Damage = Bat_damage
 
 func Player_Control_Bat(delta):
 	
@@ -59,8 +58,8 @@ func Player_Control_Bat(delta):
 
 func _input(event):
 	if event.is_action_pressed("Action"):
-		print(canSwing)
 		if canSwing == true:
+			print("Player is swinging")
 			match side:
 				1:
 					swing(swing_left)
@@ -74,6 +73,8 @@ func _input(event):
 					$Swing_Cooldown.start()
 				4:
 					pass
+		else:
+			print("Player swing is on cooldown")
 
 
 func _physics_process(delta):
@@ -118,7 +119,7 @@ func _on_Player_Weapon_Done(anim_name):
 
 func _on_Swing_Cooldown_timeout():
 	canSwing = true
-	print("canswing")
+	print("Player Swing off cooldown")
 
 
 func _on_swing_movement_timeout():

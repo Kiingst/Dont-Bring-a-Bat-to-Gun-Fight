@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Weapon_Bat.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Player/Player_Script/Hitter/Player_Weapon_Sprite.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Player/Player_Script/Hitter/Player_Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/Bat_Mad.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Player/Player_Weapons/Bat/Bat_Swing-2.png.png" type="Texture" id=5]
@@ -204,7 +205,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -294,7 +295,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -384,7 +385,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -396,7 +397,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:scale")
+tracks/6/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -474,7 +475,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -498,7 +499,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0.25, 0.25 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:scale")
+tracks/7/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -562,7 +563,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
+tracks/4/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -691,7 +692,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -715,7 +716,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0.25, 0.25 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Player_Weapon/Hit_Area/CollisionPolygon2D:scale")
+tracks/7/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -900,11 +901,12 @@ script = ExtResource( 3 )
 [node name="Player_Weapon" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
+script = ExtResource( 2 )
 
-[node name="Hit_Area" type="Area2D" parent="Player_Weapon"]
+[node name="Bat_Hit_Area" type="Area2D" parent="Player_Weapon"]
 scale = Vector2( 4, 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player_Weapon/Hit_Area"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player_Weapon/Bat_Hit_Area"]
 position = Vector2( -1, -25 )
 polygon = PoolVector2Array( 2, -18, -25, -16, -28, -10, -10, 13, 4, 14, 12, 27, 11, 51, 1, 61, -0.999998, 70, 9.00961, 68.8731, 19.5, 57.0429, 21.2942, 42.1506, 21.7224, 26.8923, 18.9186, 10.0359, 13.1506, -3.95449 )
 

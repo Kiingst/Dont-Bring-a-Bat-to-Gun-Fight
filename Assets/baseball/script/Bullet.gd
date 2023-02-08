@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export (int) var Bullet_Speed
+var Bullet_Speed
 var Bullet_Damage
 export (int) var Bullet_lifetime
 var dir 
@@ -23,11 +23,13 @@ func _on_Lifetime_timeout():
 
 func start(_position, _direction, _speed, _damage):
 	Bullet_Damage = _damage
+	Bullet_Speed = _speed
 	position = _position
 	rotation = _direction.angle()
 	dir = _direction
 	$Lifetime.wait_time = Bullet_lifetime
 	Bullet_velocity = _direction * _speed
+	print(Bullet_velocity)
 	$Lifetime.start()
 
 func startAng(_position, _angle):
@@ -47,7 +49,7 @@ func _process(delta):
 
 func _on_Hit_Area_area_entered(area):
 	if "Hit" in area.name:
-		var kill = false
+		kill = false
 		startAng(position, rotation)
 		#$Enemy_Attack.set_name("Hit_Area")
 
