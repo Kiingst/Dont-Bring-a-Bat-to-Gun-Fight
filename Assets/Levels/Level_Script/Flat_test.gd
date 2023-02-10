@@ -39,7 +39,6 @@ func enemy_fire(bullet, _position, _direction, _speed, _damage):
 
 
 func _on_Player_Catcher_catch(area):
-	
 	area.get_parent().queue_free()
 
 func _on_Level_Win():

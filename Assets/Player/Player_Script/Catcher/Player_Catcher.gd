@@ -55,6 +55,10 @@ func catch():
 			print("caught ", index.get_parent())
 			emit_signal("catch", index)
 			balls_in_inventory += 1
+		elif "Hit_Area" in index.name:
+			print("caught ", index.get_parent())
+			emit_signal("catch", index)
+			balls_in_inventory += 1
 
 func throw():
 	if balls_in_inventory > 0:

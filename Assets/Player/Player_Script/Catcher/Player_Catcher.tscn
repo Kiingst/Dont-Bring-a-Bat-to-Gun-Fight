@@ -24,7 +24,7 @@ jump_time_to_peak = 0.3
 jump_time_to_descent = 0.4
 ball = ExtResource( 5 )
 Bullet_Damage = 1
-Bullet_Speed = 200
+Bullet_Speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7.875 )
