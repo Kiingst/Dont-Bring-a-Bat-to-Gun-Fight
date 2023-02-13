@@ -22,9 +22,10 @@ position = Vector2( 289, 182 )
 health = 2
 MOVE_SPEED = 100
 Bullet_Damage = 1
-Bullet_Speed = 150
+Bullet_Speed = 100
 
 [node name="Player_Catcher" parent="." instance=ExtResource( 1 )]
 balls_in_inventory = 1
+Bullet_Speed = 150
 
 [connection signal="catch" from="Player_Catcher" to="." method="_on_Player_Catcher_catch"]
