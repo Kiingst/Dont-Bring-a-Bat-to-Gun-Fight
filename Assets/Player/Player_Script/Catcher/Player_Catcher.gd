@@ -3,6 +3,8 @@ extends "res://Assets/Player/Player_Script/Base_Player.gd"
 onready var animation_tree = get_node("AnimationTree")
 onready var animation_mode = animation_tree.get("parameters/playback")
 var look_vec 
+var throw_on_cooldown = false
+var catch_on_cooldown = false
 export (int) var balls_in_inventory 
 signal catch
 export (PackedScene) var ball
@@ -44,10 +46,15 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("Parry"):
-		catch()
+		if catch_on_cooldown == false:
+			catch()
+			catch_on_cooldown = true
+			$catch_cooldown.start()
 	if event.is_action_pressed("Action"):
-		throw()
-
+		if throw_on_cooldown == false:
+			throw()
+			throw_on_cooldown = true
+			$throw_cooldown.start()
 
 func catch():
 	for index in $offset/Catch_Area.get_overlapping_areas():
@@ -66,3 +73,11 @@ func throw():
 		var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
 		emit_signal('fire', ball, $Cross_Hair/Position2D.global_position, direction, Bullet_Speed, Bullet_Damage)
 		balls_in_inventory -= 1
+
+
+func _on_throw_cooldown_timeout():
+	throw_on_cooldown = false
+
+
+func _on_catch_cooldown_timeout():
+	catch_on_cooldown = false

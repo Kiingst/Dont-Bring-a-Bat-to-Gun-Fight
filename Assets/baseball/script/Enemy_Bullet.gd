@@ -2,10 +2,6 @@ extends "res://Assets/baseball/script/Bullet.gd"
 export (PackedScene) var player_bullet
 signal fire
 
-func _process(delta):
-	position += Bullet_velocity * delta
-	$Sprite.rotation_degrees += Bullet_Speed/20
-
 
 func switch(_position, _angle):
 	var position1 = _position

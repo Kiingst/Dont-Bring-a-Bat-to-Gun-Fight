@@ -24,7 +24,7 @@ jump_time_to_peak = 0.3
 jump_time_to_descent = 0.4
 ball = ExtResource( 5 )
 Bullet_Damage = 1
-Bullet_Speed = 100
+Bullet_Speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7.875 )
@@ -67,4 +67,14 @@ offset = Vector2( 250, 0 )
 [node name="Position2D" type="Position2D" parent="Cross_Hair"]
 position = Vector2( 248, 0 )
 
+[node name="catch_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="throw_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
+[connection signal="timeout" from="catch_cooldown" to="." method="_on_catch_cooldown_timeout"]
+[connection signal="timeout" from="throw_cooldown" to="." method="_on_throw_cooldown_timeout"]

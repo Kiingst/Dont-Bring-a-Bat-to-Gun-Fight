@@ -107,6 +107,7 @@ func _on_Enemy_area_entered(area):
 		var w = area.get_parent()
 		take_damage(w.Bullet_Damage)
 		print("enemy took ", w.Bullet_Damage, " damge from, ", area)
+		w.queue_free()
 
 
 func _on_Timer_timeout():

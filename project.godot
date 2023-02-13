@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Dont Bring a Bat to A Gun Fight"
-run/main_scene="res://Assets/Levels/Level_Script/Flat_test.tscn"
+run/main_scene="res://Assets/Levels/Level_Script/Base_Level.tscn"
 config/icon="res://icon.png"
 
 [display]

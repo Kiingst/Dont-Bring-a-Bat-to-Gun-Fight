@@ -29,7 +29,7 @@ func start(_position, _direction, _speed, _damage):
 	dir = _direction
 	$Lifetime.wait_time = Bullet_lifetime
 	Bullet_velocity = _direction * _speed
-	print(Bullet_velocity)
+	print(_speed)
 	$Lifetime.start()
 
 func startAng(_position, _angle):
