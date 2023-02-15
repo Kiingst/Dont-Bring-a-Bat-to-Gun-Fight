@@ -22,7 +22,3 @@ Bullet_Damage = 1
 Bullet_Speed = 100
 
 [node name="Player_Catcher" parent="." instance=ExtResource( 4 )]
-position = Vector2( 12, 94 )
-balls_in_inventory = 30
-
-[connection signal="catch" from="Player_Catcher" to="." method="_on_Player_Catcher_catch"]

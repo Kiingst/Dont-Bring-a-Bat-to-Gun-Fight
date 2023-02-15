@@ -68,9 +68,11 @@ func get_input_velocity() -> float:
 func jump():
 	move_vec.y = jump_velocity
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func dash():
+	MOVE_SPEED += 1000
+	yield(get_tree().create_timer(0.15),"timeout")
+	MOVE_SPEED -= 1000
+	
 func take_damage(damage):
 	health -= damage
 	

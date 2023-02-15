@@ -231,6 +231,7 @@ anims/damage_animation = SubResource( 12 )
 anims/normal = SubResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.5, 5.5 )
 shape = SubResource( 21 )
 

@@ -16,6 +16,10 @@ export (int) var Bullet_Speed
 func _ready():
 	#bullet.Bullet_Damage = Bullet_Damage
 	#bullet.Bullet_Speed = Bullet_Speed
+#	if get_node_or_null("Player_Catcher") != null:
+#		player = get_parent().get_node("Player_Catcher")
+#	else:
+#		player = get_parent().get_node("Player_Hitter")
 	$HealthBar.max_value = health
 
 onready var player = get_parent().get_node("Player_Catcher")

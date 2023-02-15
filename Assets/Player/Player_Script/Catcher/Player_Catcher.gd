@@ -11,6 +11,7 @@ export (PackedScene) var ball
 signal fire
 export (int) var Bullet_Damage
 export (int) var Bullet_Speed
+var currently_taking_damage = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -29,20 +30,19 @@ func Player_Control_Catch(delta):
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	$offset.global_rotation = atan2(look_vec.y, look_vec.x)
 	
-	
-	if move_vec.x == 0:
-		animation_mode.travel("Idle")
-	else:
-		animation_mode.travel("Walking")
-		animation_tree.set("parameters/Walking/blend_position", look_vec.normalized() )
-		animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
+	if currently_taking_damage == false:
+		if move_vec.x == 0:
+			animation_mode.travel("Idle")
+		else:
+			animation_mode.travel("Walking")
+			animation_tree.set("parameters/Walking/blend_position", look_vec.normalized() )
+			animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
 
 func _physics_process(delta):
 	if alive == false:
 		return
 	else:
 		Player_Control_Catch(delta)
-
 
 func _input(event):
 	if event.is_action_pressed("Parry"):
@@ -55,6 +55,18 @@ func _input(event):
 			throw()
 			throw_on_cooldown = true
 			$throw_cooldown.start()
+	if event.is_action_pressed("reset_scene"):
+		get_tree().reload_current_scene()
+	if event.is_action_pressed("dash"):
+		dash()
+
+func take_damage(damage):
+	currently_taking_damage = true
+	print("doing damage animation")
+	animation_mode.travel("Damage")
+	health -= damage
+	
+
 
 func catch():
 	for index in $offset/Catch_Area.get_overlapping_areas():
