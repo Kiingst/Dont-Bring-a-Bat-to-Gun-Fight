@@ -21,4 +21,4 @@ MOVE_SPEED = 100
 Bullet_Damage = 1
 Bullet_Speed = 100
 
-[node name="Player_Catcher" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]

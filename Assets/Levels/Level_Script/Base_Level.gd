@@ -8,9 +8,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_node_or_null("Player_Catcher") != null:
-		get_node("Player_Catcher").connect("fire", self, "fire")
-		get_node("Player_Catcher").connect("catch", self, "_on_Player_Catcher_catch")
+	if get_node_or_null("Player") != null:
+		get_node("Player").connect("fire", self, "fire")
+		get_node("Player").connect("catch", self, "_on_Player_Catcher_catch")
 	get_node_or_null("Enemy_Type_2").connect("fire", self, "enemy_fire")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

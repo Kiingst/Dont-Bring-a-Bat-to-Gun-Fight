@@ -22,7 +22,7 @@ func _ready():
 #		player = get_parent().get_node("Player_Hitter")
 	$HealthBar.max_value = health
 
-onready var player = get_parent().get_node("Player_Catcher")
+onready var player = get_parent().get_node("Player")
 
 func _physics_process(delta):
 	#print($Enemy.get_overlapping_areas())

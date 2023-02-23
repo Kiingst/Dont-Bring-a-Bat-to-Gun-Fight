@@ -7,10 +7,9 @@ bounce = 1.0
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 3
 physics_material_override = SubResource( 3 )
 script = ExtResource( 1 )
-Bullet_Speed = 100
 Bullet_lifetime = 3
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -12,7 +12,7 @@ extents = Vector2( 21, 22.125 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
-[node name="Player_Hitter" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.999066, 1.00702 )
 collision_mask = 0
 script = ExtResource( 1 )

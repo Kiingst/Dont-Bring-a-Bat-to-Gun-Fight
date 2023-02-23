@@ -32,7 +32,7 @@ tracks/0/keys = {
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 16.015
 
-[node name="Player_Catcher" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.999066, 1.00702 )
 collision_mask = 2
 script = ExtResource( 2 )
