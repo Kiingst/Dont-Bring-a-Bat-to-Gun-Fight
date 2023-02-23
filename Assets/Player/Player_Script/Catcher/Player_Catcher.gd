@@ -10,7 +10,9 @@ signal catch
 export (PackedScene) var ball
 signal fire
 export (int) var Bullet_Damage
-export (int) var Bullet_Speed
+export (int) var max_Bullet_Speed
+export (int) var base_Bullet_Speed
+export (float) var charge_increment
 var currently_taking_damage = false
 # Declare member variables here. Examples:
 # var a = 2
@@ -37,6 +39,12 @@ func Player_Control_Catch(delta):
 			animation_mode.travel("Walking")
 			animation_tree.set("parameters/Walking/blend_position", look_vec.normalized() )
 			animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
+			
+	
+	
+	if Input.is_action_pressed("Charge"):
+		$charge_bar.value += charge_increment
+		print($charge_bar.value)
 
 func _physics_process(delta):
 	if alive == false:
@@ -83,8 +91,10 @@ func throw():
 	if balls_in_inventory > 0:
 		print("throwing")
 		var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
-		emit_signal('fire', ball, $Cross_Hair/Position2D.global_position, direction, Bullet_Speed, Bullet_Damage)
+		emit_signal('fire', ball, $Cross_Hair/Position2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * $charge_bar.value, Bullet_Damage)
+		$charge_bar.value = 0
 		balls_in_inventory -= 1
+		
 
 
 func _on_throw_cooldown_timeout():

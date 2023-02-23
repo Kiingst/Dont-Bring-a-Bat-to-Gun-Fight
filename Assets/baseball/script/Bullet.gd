@@ -29,8 +29,8 @@ func start(_position, _direction, _speed, _damage):
 	dir = _direction
 	$Lifetime.wait_time = Bullet_lifetime
 	Bullet_velocity = _direction * _speed
-	print(_speed)
 	$Lifetime.start()
+	apply_central_impulse(Bullet_velocity)
 
 func startAng(_position, _angle):
 	position = _position
@@ -41,22 +41,17 @@ func startAng(_position, _angle):
 	Bullet_velocity = direction * Bullet_Speed
 
 func _process(delta):
-	position += Bullet_velocity * delta
-	$Sprite.rotation_degrees += Bullet_Speed/20
-
-
- 
-
-func _on_Hit_Area_area_entered(area):
-	if "Hit" in area.name:
-		kill = false
-		startAng(position, rotation)
-		#$Enemy_Attack.set_name("Hit_Area")
-
-
-
+	pass
+	#position += Bullet_velocity * delta
+	#$Sprite.rotation_degrees += Bullet_Speed/20
 
 
 
 func _on_invincibility_timeout():
 	$CollisionShape2D.disabled = false 
+
+
+func _on_Bullet_body_entered(body):
+	print(body.get_parent().name)
+	if "Tilemap" in body.get_parent().name: 
+		apply_central_impulse(Bullet_velocity)
