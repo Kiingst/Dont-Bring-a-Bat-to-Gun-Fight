@@ -205,7 +205,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -295,7 +295,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -385,7 +385,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -397,7 +397,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:scale")
+tracks/6/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -475,7 +475,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -499,7 +499,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0.25, 0.25 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:scale")
+tracks/7/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -563,7 +563,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
+tracks/4/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -692,7 +692,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:disabled")
+tracks/5/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -716,7 +716,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0.25, 0.25 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Player_Weapon/Bat_Hit_Area/CollisionPolygon2D:scale")
+tracks/7/path = NodePath("Player_Weapon/Bat_Area/CollisionPolygon2D:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -909,10 +909,10 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Bat_Hit_Area" type="Area2D" parent="Player_Weapon"]
+[node name="Bat_Area" type="Area2D" parent="Player_Weapon"]
 scale = Vector2( 4, 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player_Weapon/Bat_Hit_Area"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player_Weapon/Bat_Area"]
 position = Vector2( -1, -25 )
 polygon = PoolVector2Array( 2, -18, -25, -16, -28, -10, -10, 13, 4, 14, 12, 27, 11, 51, 1, 61, -0.999998, 70, 9.00961, 68.8731, 19.5, 57.0429, 21.2942, 42.1506, 21.7224, 26.8923, 18.9186, 10.0359, 13.1506, -3.95449 )
 
@@ -950,6 +950,7 @@ one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="area_entered" from="Player_Weapon/Bat_Area" to="." method="_on_Bat_Area_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Left_ChargeTime" to="." method="_on_ChargeTime_timeout"]
 [connection signal="timeout" from="Swing" to="." method="_on_Swing_timeout"]

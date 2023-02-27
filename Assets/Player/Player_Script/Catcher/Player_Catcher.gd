@@ -78,11 +78,7 @@ func take_damage(damage):
 
 func catch():
 	for index in $offset/Catch_Area.get_overlapping_areas():
-		if "Bullet" in index.name:
-			print("caught ", index.get_parent())
-			emit_signal("catch", index)
-			balls_in_inventory += 1
-		elif "Hit_Area" in index.name:
+		if "catch_area" in index.name:
 			print("caught ", index.get_parent())
 			emit_signal("catch", index)
 			balls_in_inventory += 1

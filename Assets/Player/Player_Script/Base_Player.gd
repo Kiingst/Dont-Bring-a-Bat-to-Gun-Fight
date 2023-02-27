@@ -78,12 +78,7 @@ func take_damage(damage):
 	
 
 func _on_Player_area_entered(area):
-	if "Bullet" in area.name:
-		var w = area.get_parent()
-		take_damage(w.Bullet_Damage)
-		print("player took ",w.Bullet_Damage," damage from ", area )
-		w.queue_free()
-	elif "Hit_Area" in area.name:
+	if "Hit_Area" in area.name:
 		var w = area.get_parent()
 		take_damage(w.Bullet_Damage)
 		print("player took ",w.Bullet_Damage," damage from ", area )

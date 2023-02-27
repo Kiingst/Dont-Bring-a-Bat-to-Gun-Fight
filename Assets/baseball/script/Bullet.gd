@@ -2,7 +2,6 @@ extends RigidBody2D
 
 var Bullet_Speed
 var Bullet_Damage
-export (int) var Bullet_lifetime
 var dir 
 var kill = true
 
@@ -27,18 +26,8 @@ func start(_position, _direction, _speed, _damage):
 	position = _position
 	rotation = _direction.angle()
 	dir = _direction
-	$Lifetime.wait_time = Bullet_lifetime
 	Bullet_velocity = _direction * _speed
-	$Lifetime.start()
 	apply_central_impulse(Bullet_velocity)
-
-func startAng(_position, _angle):
-	position = _position
-	rotation = _angle - PI
-	var test = _angle - PI
-	var direction = Vector2(1,0).rotated(test)
-	$Lifetime.start()
-	Bullet_velocity = direction * Bullet_Speed
 
 func _process(delta):
 	pass

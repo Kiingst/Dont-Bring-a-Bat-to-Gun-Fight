@@ -6,6 +6,7 @@ export (bool) var canSwing = true
 var keyvaluepos 
 var keyvaluerot 
 export (int) var Bat_damage
+export (int) var bat_power
 
 
 onready var animation_tree = get_node("AnimationTree")
@@ -125,3 +126,9 @@ func _on_Swing_Cooldown_timeout():
 func _on_swing_movement_timeout():
 	pass
 	
+
+
+func _on_Player_Weapon_ball(area):
+	var w = area.get_parent()
+	w.applied_force = Vector2(0,0)
+	w.apply_central_impulse(look_vec.normalized() * bat_power)

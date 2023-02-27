@@ -22,6 +22,7 @@ jump_time_to_descent = 0.3
 jump_count = 3
 Length_from_player = 40
 Bat_damage = 2
+bat_power = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7.875 )
@@ -63,6 +64,8 @@ one_shot = true
 wait_time = 0.6
 one_shot = true
 
+[connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
 [connection signal="Done" from="Player_Weapon" to="." method="_on_Player_Weapon_Done"]
+[connection signal="ball" from="Player_Weapon" to="." method="_on_Player_Weapon_ball"]
 [connection signal="timeout" from="Swing_Cooldown" to="." method="_on_Swing_Cooldown_timeout"]
 [connection signal="timeout" from="Swing_movement" to="." method="_on_swing_movement_timeout"]

@@ -1,5 +1,6 @@
 extends Node2D
 signal Done
+signal ball
 export (int) var Bullet_Damage
 # Declare member variables here. Examples:
 # var a = 2
@@ -34,3 +35,9 @@ func _on_Swing_timeout():
 
 func _on_FollowThrough_timeout():
 	emit_signal("Done", "Followthrough")
+
+
+func _on_Bat_Area_area_entered(area):
+	if "Hit_Area" in area.name:
+		emit_signal("ball", area)
+		print("emmiting signal from bat")
