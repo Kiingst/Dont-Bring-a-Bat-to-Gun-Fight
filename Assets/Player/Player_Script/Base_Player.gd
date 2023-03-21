@@ -1,23 +1,23 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export (int) var MOVE_SPEED = 300
-export (int) var health = 3
+@export (int) var MOVE_SPEED = 300
+@export (int) var health = 3
 var move_vec = Vector2.ZERO
 
 signal take_damage
 var alive = true
 var floor_normal = Vector2(0, -1)
 
-export var jump_height : float
-export var jump_time_to_peak : float
-export var jump_time_to_descent : float
-export var double_jump = true
-export var jump_count = 2
+@export var jump_height : float
+@export var jump_time_to_peak : float
+@export var jump_time_to_descent : float
+@export var double_jump = true
+@export var jump_count = 2
 var count_num = 0
 
-onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
-onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
-onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+@onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
+@onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
+@onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
 var moving = false
 
@@ -40,7 +40,10 @@ func Player_Control(delta):
 			jump()
 			count_num += 1
 	
-	move_vec = move_and_slide(move_vec, Vector2.UP)
+	set_velocity(move_vec)
+	set_up_direction(Vector2.UP)
+	move_and_slide()
+	move_vec = velocity
 	
 
 func _physics_process(delta):
@@ -70,7 +73,7 @@ func jump():
 
 func dash():
 	MOVE_SPEED += 1000
-	yield(get_tree().create_timer(0.15),"timeout")
+	await get_tree().create_timer(0.15).timeout
 	MOVE_SPEED -= 1000
 	
 func take_damage(damage):

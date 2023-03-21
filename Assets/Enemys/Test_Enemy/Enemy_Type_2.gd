@@ -1,17 +1,17 @@
-extends KinematicBody2D
+extends CharacterBody2D
 var bullet_speed = 100
 var waittimer = Timer.new()
-export (int) var health
-export (int) var MOVE_SPEED
+@export (int) var health
+@export (int) var MOVE_SPEED
 var On_Cooldown = false
 signal fire 
 signal death
 var alive = true
-export (PackedScene) var bullet
-onready var animation_tree = get_node("AnimationTree")
-onready var animation_mode = animation_tree.get("parameters/playback")
-export (int) var Bullet_Damage
-export (int) var Bullet_Speed
+@export (PackedScene) var bullet
+@onready var animation_tree = get_node("AnimationTree")
+@onready var animation_mode = animation_tree.get("parameters/playback")
+@export (int) var Bullet_Damage
+@export (int) var Bullet_Speed
 
 func _ready():
 	#bullet.Bullet_Damage = Bullet_Damage
@@ -22,7 +22,7 @@ func _ready():
 #		player = get_parent().get_node("Player_Hitter")
 	$HealthBar.max_value = health
 
-onready var player = get_parent().get_node("Player")
+@onready var player = get_parent().get_node("Player")
 
 func _physics_process(delta):
 	#print($Enemy.get_overlapping_areas())

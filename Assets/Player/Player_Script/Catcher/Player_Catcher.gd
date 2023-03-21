@@ -1,18 +1,18 @@
 extends "res://Assets/Player/Player_Script/Base_Player.gd"
 
-onready var animation_tree = get_node("AnimationTree")
-onready var animation_mode = animation_tree.get("parameters/playback")
+@onready var animation_tree = get_node("AnimationTree")
+@onready var animation_mode = animation_tree.get("parameters/playback")
 var look_vec 
 var throw_on_cooldown = false
 var catch_on_cooldown = false
-export (int) var balls_in_inventory 
+@export (int) var balls_in_inventory 
 signal catch
-export (PackedScene) var ball
+@export (PackedScene) var ball
 signal fire
-export (int) var Bullet_Damage
-export (int) var max_Bullet_Speed
-export (int) var base_Bullet_Speed
-export (float) var charge_increment
+@export (int) var Bullet_Damage
+@export (int) var max_Bullet_Speed
+@export (int) var base_Bullet_Speed
+@export (float) var charge_increment
 var currently_taking_damage = false
 # Declare member variables here. Examples:
 # var a = 2
@@ -28,7 +28,7 @@ func Player_Control_Catch(delta):
 	
 	
 	look_vec = get_global_mouse_position() - global_position
-	var look_ang = rad2deg(atan2(look_vec.y, look_vec.x))
+	var look_ang = rad_to_deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	$offset.global_rotation = atan2(look_vec.y, look_vec.x)
 	
@@ -87,7 +87,7 @@ func throw():
 	if balls_in_inventory > 0:
 		print("throwing")
 		var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
-		emit_signal('fire', ball, $Cross_Hair/Position2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * $charge_bar.value, Bullet_Damage)
+		emit_signal('fire', ball, $Cross_Hair/Marker2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * $charge_bar.value, Bullet_Damage)
 		$charge_bar.value = 0
 		balls_in_inventory -= 1
 		

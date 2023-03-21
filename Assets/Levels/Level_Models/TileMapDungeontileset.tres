@@ -1,29 +1,29 @@
 [gd_resource type="TileSet" load_steps=11 format=2]
 
-[ext_resource path="res://Assets/Levels/Level_Models/TileMap/0x72_DungeonTilesetII_v1.4-1.png.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Levels/Level_Models/TileMap/New Piskel-1.png.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Levels/Level_Models/TileMap/dungeon top tiles.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Levels/Level_Models/TileMap/0x72_DungeonTilesetII_v1.4-1.png.png" type="Texture2D" id=1]
+[ext_resource path="res://Assets/Levels/Level_Models/TileMap/New Piskel-1.png.png" type="Texture2D" id=2]
+[ext_resource path="res://Assets/Levels/Level_Models/TileMap/dungeon top tiles.png" type="Texture2D" id=3]
 
 [sub_resource type="OccluderPolygon2D" id=1]
-polygon = PoolVector2Array( 0, 23.9162, 32, 24.4007, 32, 32, 0, 32 )
+polygon = PackedVector2Array( 0, 23.9162, 32, 24.4007, 32, 32, 0, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( 0, 24.5622, 32, 24.8852, 32, 32, 0, 32 )
+polygon = PackedVector2Array( 0, 24.5622, 32, 24.8852, 32, 32, 0, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
-polygon = PoolVector2Array( 0, 24.2392, 32, 24.0777, 32, 32, 0, 32 )
+polygon = PackedVector2Array( 0, 24.2392, 32, 24.0777, 32, 32, 0, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=5]
-polygon = PoolVector2Array( 22.3011, 24.3333, 31.3454, 24.0103, 32, 32, 21.9781, 32 )
+polygon = PackedVector2Array( 22.3011, 24.3333, 31.3454, 24.0103, 32, 32, 21.9781, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=6]
-polygon = PoolVector2Array( 0, 23.0412, 9.68176, 23.3642, 9.84328, 32, 0, 32 )
+polygon = PackedVector2Array( 0, 23.0412, 9.68176, 23.3642, 9.84328, 32, 0, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=4]
-polygon = PoolVector2Array( 0, 0, 9.03574, 0, 9.19725, 32, 0, 32 )
+polygon = PackedVector2Array( 0, 0, 9.03574, 0, 9.19725, 32, 0, 32 )
 
 [sub_resource type="OccluderPolygon2D" id=7]
-polygon = PoolVector2Array( 23.1086, 0, 32, 0, 32, 32, 22.9471, 32 )
+polygon = PackedVector2Array( 23.1086, 0, 32, 0, 32, 32, 22.9471, 32 )
 
 [resource]
 36/name = "dungeon top tiles.png 36"

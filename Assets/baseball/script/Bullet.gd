@@ -32,7 +32,7 @@ func start(_position, _direction, _speed, _damage):
 func _process(delta):
 	pass
 	#position += Bullet_velocity * delta
-	#$Sprite.rotation_degrees += Bullet_Speed/20
+	#$Sprite2D.rotation_degrees += Bullet_Speed/20
 
 
 

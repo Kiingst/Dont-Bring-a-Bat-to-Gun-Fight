@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png" type="Texture2D" id=1]
 [ext_resource path="res://Assets/Player/Player_Script/Catcher/Player_Catcher.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Player/Player_Script/Hitter/Hitter_Animation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Player/Player_Script/Hitter/Player_Hitter_AniPlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/baseball/script/Player_Bullet.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Player/Player_Models/healthbarinner.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Player/Player_Models/healthbaroutline.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Player/Player_Weapons/Bat/Cross_Hair.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Player/Player_Models/healthbarinner.png" type="Texture2D" id=6]
+[ext_resource path="res://Assets/Player/Player_Models/healthbaroutline.png" type="Texture2D" id=7]
+[ext_resource path="res://Assets/Player/Player_Weapons/Bat/Cross_Hair.png" type="Texture2D" id=14]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 21, 22.125 )
+size = Vector2( 21, 22.125 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "Damage"
@@ -23,15 +23,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.04, 0.23 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.04, 0.23 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.796078, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2( 0.999066, 1.00702 )
 collision_mask = 2
 script = ExtResource( 2 )
@@ -48,7 +48,7 @@ charge_increment = 0.1
 position = Vector2( 0, 7.875 )
 shape = SubResource( 2 )
 
-[node name="Player_Model" type="Sprite" parent="."]
+[node name="Player_Model" type="Sprite2D" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
@@ -69,19 +69,19 @@ active = true
 parameters/playback = SubResource( 3 )
 parameters/Walking/blend_position = Vector2( -0.00420612, 0.396552 )
 
-[node name="offset" type="Sprite" parent="."]
+[node name="offset" type="Sprite2D" parent="."]
 
 [node name="Catch_Area" type="Area2D" parent="offset"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="offset/Catch_Area"]
-polygon = PoolVector2Array( 24.0224, 22.8397, 41.0383, 27.8048, 68.0636, 27.8048, 83.0776, 15.8885, 82.0767, -15.8885, 67.0626, -23.8327, 39.0365, -23.8327, 31.029, -18.8675, 23.0215, -12.9094 )
+polygon = PackedVector2Array( 24.0224, 22.8397, 41.0383, 27.8048, 68.0636, 27.8048, 83.0776, 15.8885, 82.0767, -15.8885, 67.0626, -23.8327, 39.0365, -23.8327, 31.029, -18.8675, 23.0215, -12.9094 )
 
-[node name="Cross_Hair" type="Sprite" parent="."]
+[node name="Cross_Hair" type="Sprite2D" parent="."]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 14 )
 offset = Vector2( 250, 0 )
 
-[node name="Position2D" type="Position2D" parent="Cross_Hair"]
+[node name="Marker2D" type="Marker2D" parent="Cross_Hair"]
 position = Vector2( 248, 0 )
 
 [node name="catch_cooldown" type="Timer" parent="."]
@@ -92,11 +92,11 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[node name="charge_bar" type="TextureProgress" parent="."]
-margin_left = -16.0
-margin_top = 22.0
-margin_right = 16.0
-margin_bottom = 54.0
+[node name="charge_bar" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = 22.0
+offset_right = 16.0
+offset_bottom = 54.0
 max_value = 1.0
 step = 0.01
 texture_over = ExtResource( 7 )

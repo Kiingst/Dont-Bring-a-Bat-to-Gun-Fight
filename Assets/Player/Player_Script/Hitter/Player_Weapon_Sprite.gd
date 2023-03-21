@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 var Bullet_Damage 
 # Declare member variables here. Examples:

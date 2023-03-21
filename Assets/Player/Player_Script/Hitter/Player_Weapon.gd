@@ -1,7 +1,7 @@
 extends Node2D
 signal Done
 signal ball
-export (int) var Bullet_Damage
+@export (int) var Bullet_Damage
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

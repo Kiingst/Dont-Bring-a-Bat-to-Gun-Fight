@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Assets/Temp_frames/weapon_knife.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Temp_frames/weapon_knife.png" type="Texture2D" id=1]
 [ext_resource path="res://Assets/Enemys/Test_Enemy/Enemy_Type_2.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Temp_frames/goblin_idle_anim_f0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Temp_frames/goblin_idle_anim_f0.png" type="Texture2D" id=3]
 [ext_resource path="res://Assets/baseball/script/Player_Bullet.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -53,38 +53,38 @@ graph_offset = Vector2( 0, -60.9948 )
 [sub_resource type="Animation" id=10]
 resource_name = "Death"
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/path = NodePath("../Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00980716, 0.976014 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.00980716, 0.976014 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 0, 0, 0.882353 ), Color( 0, 0, 0, 0.882353 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:rotation_degrees")
+tracks/1/path = NodePath("../Sprite2D:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.00367769, 0.977558 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.00367769, 0.977558 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Sprite:scale")
+tracks/2/path = NodePath("../Sprite2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.0110331, 0.978783 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.0110331, 0.978783 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 3, 3 ), Vector2( 0.1, 0.1 ) ]
 }
@@ -95,8 +95,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.00390893 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.00390893 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [ -1 ],
 "method": "start"
@@ -107,14 +107,14 @@ tracks/3/keys = {
 resource_name = "damage_animation"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/path = NodePath("../Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00460625, 0.104408, 0.201642 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0.00460625, 0.104408, 0.201642 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 0, 0, 0.882353 ), Color( 1, 0, 0, 0.882353 ), Color( 1, 0, 0, 0.882353 ) ]
 }
@@ -123,46 +123,46 @@ tracks/0/keys = {
 resource_name = "normal"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/path = NodePath("../Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.00494685, 0.178981 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.00494685, 0.178981 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.882353 ), Color( 1, 1, 1, 0.882353 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Sprite:rotation_degrees")
+tracks/1/path = NodePath("../Sprite2D:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.058843 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.058843 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../Sprite:scale")
+tracks/2/path = NodePath("../Sprite2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.0637465 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.0637465 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 3, 3 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 13.5, 15.5 )
+size = Vector2( 13.5, 15.5 )
 
-[node name="Enemy_Type_2" type="KinematicBody2D"]
+[node name="Enemy_Type_2" type="CharacterBody2D"]
 position = Vector2( 0, -1 )
 collision_layer = 12
 collision_mask = 11
@@ -172,7 +172,7 @@ __meta__ = {
 }
 bullet = ExtResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color( 1, 1, 1, 0.882353 )
 position = Vector2( -1, -3 )
 scale = Vector2( 3, 3 )
@@ -185,12 +185,12 @@ scale = Vector2( 2, 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shooting_Range"]
 shape = SubResource( 1 )
 
-[node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -42.0
-margin_top = -64.0
-margin_right = -9.99999
-margin_bottom = -32.0
-rect_scale = Vector2( 2.5, 1.5 )
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -42.0
+offset_top = -64.0
+offset_right = -9.99999
+offset_bottom = -32.0
+scale = Vector2( 2.5, 1.5 )
 max_value = 5.0
 value = 5.0
 
@@ -198,7 +198,7 @@ value = 5.0
 wait_time = 4.0
 autostart = true
 
-[node name="pos" type="Position2D" parent="."]
+[node name="pos" type="Marker2D" parent="."]
 
 [node name="Enemy" type="Area2D" parent="."]
 visible = false
@@ -208,12 +208,12 @@ position = Vector2( -1, 1 )
 position = Vector2( 0.5, 1 )
 shape = SubResource( 5 )
 
-[node name="gun" type="AnimatedSprite" parent="."]
+[node name="gun" type="AnimatedSprite2D" parent="."]
 rotation = 0.0073748
 frames = SubResource( 4 )
 offset = Vector2( 25, 0 )
 
-[node name="Muzzle" type="Position2D" parent="gun"]
+[node name="Muzzle" type="Marker2D" parent="gun"]
 position = Vector2( 24.9919, -1.18434 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

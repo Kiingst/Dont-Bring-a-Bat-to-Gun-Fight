@@ -1,5 +1,5 @@
 extends "res://Assets/baseball/script/Bullet.gd"
-export (PackedScene) var player_bullet
+@export (PackedScene) var player_bullet
 signal fire
 
 
@@ -20,4 +20,4 @@ func _on_Bullet_area_entered(area):
 
 	
 
-	#$Sprite.modulate = Color(0.69,0.88,0.72)
+	#$Sprite2D.modulate = Color(0.69,0.88,0.72)
