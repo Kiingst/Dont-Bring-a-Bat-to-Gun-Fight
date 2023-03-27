@@ -1,10 +1,10 @@
 2a60927148abd1d33b818b535e306557
-::res://::1679419152
+::res://::1679935783
 default_env.tres::Environment::-1::1679419138::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1676487296::0::1::::<><>::
 icon.png::CompressedTexture2D::9194728733484744314::1665421642::1679419154::1::::<><>::
 ::res://addons/::1673459351
-::res://addons/vnen.tiled_importer/::1679419116
+::res://addons/vnen.tiled_importer/::1679419154
 plugin.cfg::TextFile::-1::1673459351::0::1::::<><>::
 polygon_sorter.gd::GDScript::-1::1679419139::0::1::::<>RefCounted<>::
 tiled.png::CompressedTexture2D::7423870089652009473::1673459351::1679419154::1::::<><>::
@@ -15,7 +15,7 @@ tiled_xml_to_dict.gd::GDScript::-1::1679419139::0::1::::<>RefCounted<>::
 vnen.tiled_importer.gd::GDScript::-1::1679419139::0::1::::<>EditorPlugin<>::
 ::res://Assets/::1677174379
 ::res://Assets/baseball/::1674064171
-::res://Assets/baseball/model/::1679419116
+::res://Assets/baseball/model/::1679419154
 ball.png::CompressedTexture2D::6064702223265057177::1674064171::1679419154::1::::<><>::
 ::res://Assets/baseball/script/::1679419116
 Bullet.gd::GDScript::-1::1679419139::0::1::::<>RigidBody2D<>::
@@ -28,14 +28,14 @@ Player_Bullet.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets/base
 Enemy_Type_2.gd::GDScript::-1::1679419139::0::1::::<>CharacterBody2D<>::
 Enemy_Type_2.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets/Temp_frames/weapon_knife.png<>res://Assets/Enemys/Test_Enemy/Enemy_Type_2.gd<>res://Assets/Temp_frames/goblin_idle_anim_f0.png<>res://Assets/baseball/script/Player_Bullet.tscn
 ::res://Assets/Levels/::1670005377
-::res://Assets/Levels/Level_Models/::1679419116
+::res://Assets/Levels/Level_Models/::1679419154
 background 1.png::CompressedTexture2D::420671047409932831::1673459351::1679419154::1::::<><>::
 backround2.png::CompressedTexture2D::7033859641666063423::1673459351::1679419154::1::::<><>::
 TileMapDungeontileset.tres::TileSet::-1::1679419139::0::1::::<><>::res://Assets/Levels/Level_Models/TileMap/0x72_DungeonTilesetII_v1.4-1.png.png<>res://Assets/Levels/Level_Models/TileMap/New Piskel-1.png.png<>res://Assets/Levels/Level_Models/TileMap/dungeon top tiles.png
-::res://Assets/Levels/Level_Models/Light/::1679419116
+::res://Assets/Levels/Level_Models/Light/::1679419154
 light.png::CompressedTexture2D::5466079771617353716::1665425449::1679419154::1::::<><>::
 torch.png::CompressedTexture2D::6683933650041188748::1670522509::1679419154::1::::<><>::
-::res://Assets/Levels/Level_Models/TileMap/::1679419116
+::res://Assets/Levels/Level_Models/TileMap/::1679419154
 0x72_DungeonTilesetII_v1.4-1.png.png::CompressedTexture2D::3167464363829880651::1669657755::1679419154::1::::<><>::
 0x72_DungeonTilesetII_v1.4.png::CompressedTexture2D::9078171678909720863::1662137979::1679419154::1::::<><>::
 2dtileset.png::CompressedTexture2D::2483132681401248142::1673459351::1679419154::1::::<><>::
@@ -50,7 +50,7 @@ ParallaxBackground.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets
 Room1.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets/Levels/Level_Script/2dTileMap.tscn
 ::res://Assets/Player/::1679419116
 Player_Hitter.tscn::PackedScene::-1::1679419138::0::1::::<><>::res://Assets/Player/Player_Script/Base_Player.tscn<>res://Assets/Player/Player_Script/Hitter/Hitter_Animation.tscn<>res://Assets/Player/Player_Script/Hitter/Player_Hitter_AniPlayer.tscn<>res://Assets/Player/Player_Script/Hitter/Player_Hitter.gd<>res://Assets/Player/Player_Script/Hitter/Player_Weapon.tscn<>res://Assets/Player/Player_Weapons/Bat/Cross_Hair.png<>res://Assets/Player/Player_Models/necromancer_idle_anim_f0.png
-::res://Assets/Player/Player_Models/::1679419116
+::res://Assets/Player/Player_Models/::1679419154
 healthbarinner.png::CompressedTexture2D::6821021143440733821::1665425449::1679419154::1::::<><>::
 healthbaroutline.png::CompressedTexture2D::7023435784637456651::1665425449::1679419154::1::::<><>::
 idle_north_0.png::CompressedTexture2D::1688986088874425674::1666719896::1679419154::1::::<><>::
@@ -65,7 +65,7 @@ necromancer_idle_anim_f0.png::CompressedTexture2D::3521701864513748448::16667198
 necromancer_idle_anim_f1.png::CompressedTexture2D::6743750400362497789::1666719896::1679419154::1::::<><>::
 necromancer_idle_anim_f2.png::CompressedTexture2D::3626316106341118070::1666719896::1679419154::1::::<><>::
 necromancer_idle_anim_f3.png::CompressedTexture2D::8526777687485561826::1666719896::1679419154::1::::<><>::
-::res://Assets/Player/Player_Models/ok/::1679419116
+::res://Assets/Player/Player_Models/ok/::1679419154
 sprite_04.png::CompressedTexture2D::8984478014013883384::1666719896::1679419154::1::::<><>::
 sprite_05.png::CompressedTexture2D::5177577266047323675::1666719896::1679419154::1::::<><>::
 sprite_06.png::CompressedTexture2D::2133759385080233287::1666719896::1679419154::1::::<><>::
@@ -91,20 +91,20 @@ Player_Weapon.gd::GDScript::-1::1679419138::0::1::::<>Node2D<>::
 Player_Weapon.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets/Player/Player_Weapons/Bat/Weapon_Bat.png<>res://Assets/Player/Player_Script/Hitter/Player_Weapon_Sprite.gd<>res://Assets/Player/Player_Script/Hitter/Player_Weapon.gd<>res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/Bat_Mad.png<>res://Assets/Player/Player_Weapons/Bat/Bat_Swing-2.png.png<>res://Assets/Player/Player_Weapons/Bat/Bat_Swing-opp.png
 Player_Weapon_Sprite.gd::GDScript::-1::1679419139::0::1::::<>Sprite2D<>::
 ::res://Assets/Player/Player_Weapons/::1669657755
-::res://Assets/Player/Player_Weapons/Bat/::1679419116
+::res://Assets/Player/Player_Weapons/Bat/::1679419154
 Bat_Swing-2.png.png::CompressedTexture2D::173520696254589435::1669658182::1679419154::1::::<><>::
 Bat_Swing-opp.png::CompressedTexture2D::3264377490698688945::1669658182::1679419154::1::::<><>::
 Bat_Swing.png::CompressedTexture2D::7639534061397714864::1668623453::1679419154::1::::<><>::
 Bat_Swing_Opp.png::CompressedTexture2D::2283214455082483695::1669657755::1679419154::1::::<><>::
 Cross_Hair.png::CompressedTexture2D::8857739863642426182::1666719896::1679419154::1::::<><>::
 Weapon_Bat.png::CompressedTexture2D::8149142890980045539::1668620648::1679419154::1::::<><>::
-::res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/::1679419116
+::res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/::1679419154
 Bat_Mad.png::CompressedTexture2D::5478351396115184006::1668620648::1679419154::1::::<><>::
 bat_talk_2.png::CompressedTexture2D::5804732420879492894::1668620648::1679419154::1::::<><>::
 bat_talk_3.png::CompressedTexture2D::4438344710300942046::1668620648::1679419154::1::::<><>::
 bat_talk_4.png::CompressedTexture2D::7205204258720382060::1668620648::1679419154::1::::<><>::
 bat_talk_5.png::CompressedTexture2D::7567907636084408530::1668620648::1679419154::1::::<><>::
-::res://Assets/Temp_frames/::1679419116
+::res://Assets/Temp_frames/::1679419154
 big_demon_idle_anim_f0.png::CompressedTexture2D::3865328786259297812::1665423443::1679419154::1::::<><>::
 big_demon_idle_anim_f1.png::CompressedTexture2D::724830061159215834::1665423443::1679419154::1::::<><>::
 big_demon_idle_anim_f2.png::CompressedTexture2D::4833113032377778190::1665423443::1679419154::1::::<><>::
