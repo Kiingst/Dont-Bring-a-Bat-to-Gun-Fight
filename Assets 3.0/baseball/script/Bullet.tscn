@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/baseball/script/Bullet.gd" type="Script" id=1]
+
+[sub_resource type="PhysicsMaterial" id=3]
+bounce = 1.0
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 3
+physics_material_override = SubResource( 3 )
+script = ExtResource( 1 )
+Bullet_lifetime = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Hit_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
+position = Vector2( 0.5, 0 )
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
+[connection signal="area_entered" from="Hit_Area" to="." method="_on_Hit_Area_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
