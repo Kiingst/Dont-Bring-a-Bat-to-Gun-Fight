@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Assets 4.0/Player/Catcher/Player_Catcher.gd" id="1_btowt"]
+[ext_resource type="Texture2D" uid="uid://dvldgcu6ig20" path="res://Assets 4.0/Misc/HealthBar_Under.png" id="2_kjcsu"]
+[ext_resource type="Texture2D" uid="uid://bw4gtng0iadmv" path="res://Assets 4.0/Misc/HealthBar_Progress.png" id="3_86um0"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_btowt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Player_Model" type="Sprite2D" parent="."]
+
+[node name="Player" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+
+[node name="offset" type="Sprite2D" parent="."]
+
+[node name="Catch_Area" type="Area2D" parent="offset"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="offset/Catch_Area"]
+
+[node name="Cross_Hair" type="Sprite2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Cross_Hair"]
+
+[node name="catch_cooldown" type="Timer" parent="."]
+
+[node name="throw_cooldwon" type="Timer" parent="."]
+
+[node name="charge_bar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("2_kjcsu")
+texture_progress = ExtResource("3_86um0")

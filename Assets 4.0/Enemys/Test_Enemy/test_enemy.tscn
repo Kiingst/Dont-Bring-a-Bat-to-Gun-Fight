@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw18qoq4ovypy"]
+
+[ext_resource type="Script" path="res://Assets 4.0/Enemys/Test_Enemy/test_enemy.gd" id="1_d0wqu"]
+[ext_resource type="Texture2D" uid="uid://dvldgcu6ig20" path="res://Assets 4.0/Misc/HealthBar_Under.png" id="2_hf45p"]
+[ext_resource type="Texture2D" uid="uid://bw4gtng0iadmv" path="res://Assets 4.0/Misc/HealthBar_Progress.png" id="3_0w3yt"]
+
+[node name="Test_Enemy" type="CharacterBody2D"]
+script = ExtResource("1_d0wqu")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Shooting_Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooting_Range"]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("2_hf45p")
+texture_progress = ExtResource("3_0w3yt")
+
+[node name="Shoot_cooldown" type="Timer" parent="."]
+
+[node name="pos" type="Marker2D" parent="."]
+
+[node name="Enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+
+[node name="gun" type="Sprite2D" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="gun"]
+
+[node name="Death_timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="area_entered" from="Shooting_Range" to="." method="_on_Shooting_Range_area_entered"]
+[connection signal="area_exited" from="Shooting_Range" to="." method="_on_Shooting_Range_area_exited"]

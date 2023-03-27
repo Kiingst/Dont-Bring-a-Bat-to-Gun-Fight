@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3o81vafmjlt0"]
+
+[ext_resource type="PackedScene" path="res://Assets 4.0/Player/Catcher/Player_Catcher.tscn" id="1_o8ahi"]
+[ext_resource type="PackedScene" uid="uid://dw18qoq4ovypy" path="res://Assets 4.0/Enemys/Test_Enemy/test_enemy.tscn" id="2_wnyv5"]
+
+[node name="Base_level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_o8ahi")]
+
+[node name="Test_Enemy" parent="." instance=ExtResource("2_wnyv5")]
