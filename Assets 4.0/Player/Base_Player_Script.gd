@@ -11,9 +11,9 @@ var floor_normal = Vector2(0, -1)
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-@export var jump_height : float
-@export var jump_time_to_peak : float
-@export var jump_time_to_descent : float
+@export var jump_height : float = 300
+@export var jump_time_to_peak : float = 0.3
+@export var jump_time_to_descent : float = 0.3
 @export var do_multi_jump = true
 @export var jumps_available = 2
 var jump_counter = 0
@@ -32,10 +32,10 @@ func Player_Control(delta):
 		jump_counter = 0
 	
 	if do_multi_jump == false:
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			jump()
 	else:
-		if Input.is_action_just_pressed("jump") and jump_counter != jumps_available:
+		if Input.is_action_just_pressed("Jump") and jump_counter != jumps_available:
 			jump()
 			jump_counter += 1
 	
@@ -47,7 +47,9 @@ func Player_Control(delta):
 func _physics_process(delta):
 	if alive == false:
 		return
+		
 	else:
+		#Player_Control_Catch(delta)
 		Player_Control(delta)
 	
 	if health <= 0:
@@ -56,6 +58,8 @@ func _physics_process(delta):
 
 func get_gravity() -> float:
 	return jump_gravity if move_vec.y < 0.0 else fall_gravity
+	
+
 func get_input_velocity() -> float:
 	var horizontal := 0.0
 	

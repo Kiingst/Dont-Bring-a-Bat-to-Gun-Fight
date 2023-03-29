@@ -15,6 +15,7 @@ signal fire
 @export var charge_increment : int
 var currently_taking_damage = false
 
+
 func Player_Control_Catch(delta):
 	#print($offset/Catch_Area.get_overlapping_areas())
 	
@@ -42,6 +43,7 @@ func _physics_process(delta):
 	if alive == false:
 		return
 	else:
+		Player_Control(delta)
 		Player_Control_Catch(delta)
 
 func _input(event):

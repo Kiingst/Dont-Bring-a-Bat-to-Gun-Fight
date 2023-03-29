@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0lxt3jj80bqr"]
+
+[ext_resource type="Texture2D" uid="uid://dypwjg0vhppjs" path="res://Assets 4.0/Levels/Level_Tiles/2dtileset.png" id="1_0hgpg"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_hug2g"]
+tile_data = PackedInt32Array(0, 65537, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1j8sb"]
+texture = ExtResource("1_0hgpg")
+texture_region_size = Vector2i(32, 32)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -1, 16, -1, 16, 16, -16, 15.5)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 15.5)
+1:0/0/physics_layer_0/polygon_0/one_way = true
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -1, 16, -1, 16, 3.5, -16, 4)
+0:1/0/physics_layer_0/polygon_0/one_way = true
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -1, 16, -1, 16, 16, 0, 16)
+1:1/0/physics_layer_0/polygon_0/one_way = true
+
+[sub_resource type="TileSet" id="TileSet_oho4w"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_1j8sb")
+pattern_0 = SubResource("TileMapPattern_hug2g")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_oho4w")
+cell_quadrant_size = 32
+format = 2

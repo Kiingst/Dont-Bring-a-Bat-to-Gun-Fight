@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvldgcu6ig20"
-path="res://.godot/imported/HealthBar_Under.png-a643c0ca058853623afd34e15d24057f.ctex"
+uid="uid://dai1jwuagn5hk"
+path="res://.godot/imported/necromancer_idle_anim_f2.png-e423021712161a8520ce3edc8b62af28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets 4.0/Misc/HealthBar_Under.png"
-dest_files=["res://.godot/imported/HealthBar_Under.png-a643c0ca058853623afd34e15d24057f.ctex"]
+source_file="res://Assets 4.0/Player/Player_Art/necromancer_idle_anim_f2.png"
+dest_files=["res://.godot/imported/necromancer_idle_anim_f2.png-e423021712161a8520ce3edc8b62af28.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
