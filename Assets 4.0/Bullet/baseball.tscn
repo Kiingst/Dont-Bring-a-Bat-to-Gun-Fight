@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd8xgoe0m5e4n"]
+
+[ext_resource type="Script" path="res://Assets 4.0/Bullet/baseball.gd" id="1_3ah2h"]
+[ext_resource type="Texture2D" uid="uid://bx3gpl4r12f2m" path="res://Assets 4.0/Bullet/ball.png" id="2_kk8xq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2yjj"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npy2l"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tomlg"]
+
+[node name="Baseball" type="RigidBody2D"]
+script = ExtResource("1_3ah2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kk8xq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u2yjj")
+
+[node name="Catch_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catch_Area"]
+shape = SubResource("CircleShape2D_npy2l")
+
+[node name="Baseball_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Baseball_Area"]
+shape = SubResource("CircleShape2D_tomlg")
+
+[node name="Lifetime" type="Timer" parent="."]
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

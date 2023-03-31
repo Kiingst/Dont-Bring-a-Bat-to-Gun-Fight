@@ -10,8 +10,8 @@ extends Node2D
 func _ready():
 	if get_node_or_null("Player") != null:
 		get_node("Player").connect("fire",Callable(self,"fire"))
-		get_node("Player").connect("catch",Callable(self,"_on_Player_Catcher_catch"))
-	get_node_or_null("Enemy_Type_2").connect("fire",Callable(self,"enemy_fire"))
+		get_node("Player").connect("caught",Callable(self,"_on_Player_Catcher_caught"))
+	get_node_or_null("Test_Enemy").connect("fire",Callable(self,"enemy_fire"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -21,25 +21,18 @@ func _ready():
 func fire(bullet, _position, _direction, _speed, _damage):
 	var b = bullet.instantiate()
 	add_child(b)
-	b.start(Callable(_position,_direction).bind(_speed),_damage)
-	
-	
-func fire2(bullet, _position, _direction, _speed, _damage):
-	var b = bullet.instantiate()
-	add_child(b)
-	_direction *= -1
-	b.start(Callable(_position,_direction).bind(_speed),_damage)
+	b.start(_position,_direction, _speed,_damage)
 
 
 func enemy_fire(bullet, _position, _direction, _speed, _damage):
 	var b = bullet.instantiate()
 	add_child(b)
-	b.start(Callable(_position,_direction).bind(_speed),_damage)
+	b.start(_position,_direction,_speed,_damage)
 	b.connect("fire",Callable(self,"fire2"))
 
 
 
-func _on_Player_Catcher_catch(area):
+func _on_Player_Catcher_caught(area):
 	area.get_parent().queue_free()
 
 func _on_Level_Win():

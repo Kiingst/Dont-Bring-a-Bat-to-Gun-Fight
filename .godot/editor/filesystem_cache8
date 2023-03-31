@@ -1,11 +1,11 @@
 2a60927148abd1d33b818b535e306557
-::res://::1680110252
+::res://::1680283904
+CharacterBody2D.gd::GDScript::-1::1680112328::0::1::::<>CharacterBody2D<>::
 icon.svg::CompressedTexture2D::8237219450273796714::1679936129::1679936134::1::::<><>::
 ::res://Assets 3.0/::1677174379
 ::res://Assets 3.0/baseball/::1680111630
 ::res://Assets 3.0/baseball/model/::1680111648
-::res://Assets 3.0/baseball/script/::1679419116
-Bullet.gd::GDScript::-1::1679419139::0::1::::<>RigidBody2D<>::
+::res://Assets 3.0/baseball/script/::1680283357
 Bullet.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets/baseball/script/Bullet.gd
 Enemy_Bullet.gd::GDScript::-1::1679419139::0::1::::<><>::
 Enemy_Bullet.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets/baseball/script/Bullet.tscn<>res://Assets/baseball/model/ball.png<>res://Assets/baseball/script/Enemy_Bullet.gd<>res://Assets/baseball/script/Player_Bullet.tscn
@@ -76,7 +76,7 @@ Player_Weapon.gd::GDScript::-1::1679419138::0::1::::<>Node2D<>::
 Player_Weapon.tscn::PackedScene::-1::1679419139::0::1::::<><>::res://Assets/Player/Player_Weapons/Bat/Weapon_Bat.png<>res://Assets/Player/Player_Script/Hitter/Player_Weapon_Sprite.gd<>res://Assets/Player/Player_Script/Hitter/Player_Weapon.gd<>res://Assets/Player/Player_Weapons/Bat/Baseball_Bat Faces/Bat_Mad.png<>res://Assets/Player/Player_Weapons/Bat/Bat_Swing-2.png.png<>res://Assets/Player/Player_Weapons/Bat/Bat_Swing-opp.png
 Player_Weapon_Sprite.gd::GDScript::-1::1679419139::0::1::::<>Sprite2D<>::
 ::res://Assets 3.0/Player/Player_Weapons/::1669657755
-::res://Assets 3.0/Player/Player_Weapons/Bat/::1680111768
+::res://Assets 3.0/Player/Player_Weapons/Bat/::1680111773
 Bat_Swing-2.png.png::CompressedTexture2D::173520696254589435::1669658182::1679936230::1::::<><>::
 Bat_Swing-opp.png::CompressedTexture2D::3264377490698688945::1669658182::1679936230::1::::<><>::
 Bat_Swing.png::CompressedTexture2D::7639534061397714864::1668623453::1679936230::1::::<><>::
@@ -412,29 +412,33 @@ zombie_run_anim_f0.png::CompressedTexture2D::836765427207876800::1665423443::167
 zombie_run_anim_f1.png::CompressedTexture2D::3101801347189478595::1665423443::1679936229::1::::<><>::
 zombie_run_anim_f2.png::CompressedTexture2D::8248340622812455877::1665423443::1679936229::1::::<><>::
 zombie_run_anim_f3.png::CompressedTexture2D::3975410434632126035::1665423443::1679936229::1::::<><>::
-::res://Assets 4.0/::1679939543
+::res://Assets 4.0/::1680283265
+::res://Assets 4.0/Bullet/::1680284330
+ball.png::CompressedTexture2D::4058958376711086350::1674064171::1680283904::1::::<><>::
+baseball.gd::GDScript::-1::1680284330::0::1::::<>RigidBody2D<>::
+baseball.tscn::PackedScene::7439360996133657031::1680284330::0::1::::<><>::res://Assets 4.0/Bullet/baseball.gd<>uid://bx3gpl4r12f2m
 ::res://Assets 4.0/Enemys/::1679939562
-::res://Assets 4.0/Enemys/Test_Enemy/::1679940118
+::res://Assets 4.0/Enemys/Test_Enemy/::1680282864
 test_enemy.gd::GDScript::-1::1679940118::0::1::::<>CharacterBody2D<>::
-test_enemy.tscn::PackedScene::8759123427566303774::1679940118::0::1::::<><>::res://Assets 4.0/Enemys/Test_Enemy/test_enemy.gd<>uid://dvldgcu6ig20<>uid://bw4gtng0iadmv
+test_enemy.tscn::PackedScene::8759123427566303774::1680282864::0::1::::<><>::res://Assets 4.0/Enemys/Test_Enemy/test_enemy.gd<>uid://dvldgcu6ig20<>uid://bw4gtng0iadmv
 ::res://Assets 4.0/Levels/::1679939198
-::res://Assets 4.0/Levels/Base_level/::1680111269
-base_level.tscn::PackedScene::6769081472444699635::1680111269::0::1::::<><>::uid://d0lxt3jj80bqr<>res://Assets 4.0/Player/Catcher/Player_Catcher.tscn<>uid://dw18qoq4ovypy
-::res://Assets 4.0/Levels/Level_Tiles/::1680111265
+::res://Assets 4.0/Levels/Base_level/::1680284363
+base_level.tscn::PackedScene::6769081472444699635::1680282864::0::1::::<><>::uid://d0lxt3jj80bqr<>uid://5a3b58dl3hff<>uid://dw18qoq4ovypy
+base_level.gd::GDScript::-1::1680284363::0::1::::<>Node2D<>::
+::res://Assets 4.0/Levels/Level_Tiles/::1680282864
 2dtileset.png::CompressedTexture2D::8876112165413300040::1673459351::1680109648::1::::<><>::
-tile_map.tscn::PackedScene::8938123203253637997::1680111265::0::1::::<><>::uid://dypwjg0vhppjs
-::res://Assets 4.0/Misc/::1680111768
-ball.png::CompressedTexture2D::4058958376711086350::1674064171::1680111750::1::::<><>::
+tile_map.tscn::PackedScene::8938123203253637997::1680282864::0::1::::<><>::uid://dypwjg0vhppjs
+::res://Assets 4.0/Misc/::1680283904
 Cross_Hair.png::CompressedTexture2D::8621985030314329794::1666719896::1680111772::1::::<><>::
 HealthBar_Progress.png::CompressedTexture2D::3990841123857297369::1665425449::1680109540::1::::<><>::
 HealthBar_Under.png::CompressedTexture2D::254592027231665143::1665425449::1680109540::1::::<><>::
-::res://Assets 4.0/Player/::1679938868
-base_player.tscn::PackedScene::-1::1679938840::0::1::::<><>::res://Assets 4.0/Player/Base_Player_Script.gd
-Base_Player_Script.gd::GDScript::-1::1679938868::0::1::::<>CharacterBody2D<>::
+::res://Assets 4.0/Player/::1680113476
+base_player.tscn::PackedScene::82476273327332286::1680113476::0::1::::<><>::res://Assets 4.0/Player/Base_Player_Script.gd
+Base_Player_Script.gd::GDScript::-1::1680113392::0::1::::<>CharacterBody2D<>::
 ::res://Assets 4.0/Player/Batter/::1679937817
-::res://Assets 4.0/Player/Catcher/::1680111545
-Player_Catcher.gd::GDScript::-1::1679938897::0::1::::<>CharacterBody2D<>::
-Player_Catcher.tscn::PackedScene::2107368797563502203::1680111545::0::1::::<><>::res://Assets 4.0/Player/Catcher/Player_Catcher.gd<>uid://dvldgcu6ig20<>uid://dai1jwuagn5hk<>uid://bw4gtng0iadmv
+::res://Assets 4.0/Player/Catcher/::1680282864
+Player_Catcher.gd::GDScript::-1::1680113223::0::1::::<>CharacterBody2D<>::
+Player_Catcher.tscn::PackedScene::2107368797563502203::1680282864::0::1::::<><>::res://Assets 4.0/Player/Catcher/Player_Catcher.gd<>uid://dvldgcu6ig20<>uid://dai1jwuagn5hk<>uid://bw4gtng0iadmv<>uid://du3s3l3frhw87
 ::res://Assets 4.0/Player/Player_Art/::1680111370
 necromancer_idle_anim_f2.png::CompressedTexture2D::7177372973487208888::1666719896::1680111370::1::::<><>::
 ::res://piskel_files/::1668620648

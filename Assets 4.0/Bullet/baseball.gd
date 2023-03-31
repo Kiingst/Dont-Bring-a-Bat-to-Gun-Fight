@@ -4,7 +4,7 @@ var Bullet_Speed
 var Bullet_Damage
 var dir 
 var kill = true
-
+var Player_Owned = false
 
 func _ready():
 	add_to_group("Bullets")
@@ -30,9 +30,10 @@ func start(_position, _direction, _speed, _damage):
 	apply_central_impulse(Bullet_velocity)
 
 func _process(delta):
-	pass
-	#position += Bullet_velocity * delta
-	#$Sprite2D.rotation_degrees += Bullet_Speed/20
+	if Player_Owned == true:
+		$Sprite2D.modulate = Color(0,185,0,255)
+	else:
+		$Sprite2D.modulate = Color(255,255,255,255)
 
 
 

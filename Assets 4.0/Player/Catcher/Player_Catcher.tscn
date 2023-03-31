@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://5a3b58dl3hff"]
+[gd_scene load_steps=9 format=3 uid="uid://5a3b58dl3hff"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Player/Catcher/Player_Catcher.gd" id="1_btowt"]
+[ext_resource type="PackedScene" uid="uid://dd8xgoe0m5e4n" path="res://Assets 4.0/Bullet/baseball.tscn" id="2_6o6lk"]
 [ext_resource type="Texture2D" uid="uid://dvldgcu6ig20" path="res://Assets 4.0/Misc/HealthBar_Under.png" id="2_kjcsu"]
 [ext_resource type="Texture2D" uid="uid://dai1jwuagn5hk" path="res://Assets 4.0/Player/Player_Art/necromancer_idle_anim_f2.png" id="2_mgwx3"]
 [ext_resource type="Texture2D" uid="uid://bw4gtng0iadmv" path="res://Assets 4.0/Misc/HealthBar_Progress.png" id="3_86um0"]
@@ -14,6 +15,12 @@ size = Vector2(44, 53)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_btowt")
+balls_in_inventory = 5
+ball = ExtResource("2_6o6lk")
+Bullet_Damage = 1
+max_Bullet_Speed = 1000
+base_Bullet_Speed = 200
+charge_increment = 0.1
 jump_height = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -37,7 +44,7 @@ offset = Vector2(30, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="offset/Catch_Area"]
 position = Vector2(11, -1)
-polygon = PackedVector2Array(22, 26, 75, 15, 64, -21, 21, -17)
+polygon = PackedVector2Array(10, 27, 75, 15, 64, -21, 10, -17)
 
 [node name="Cross_Hair" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -48,13 +55,19 @@ offset = Vector2(250, 0)
 position = Vector2(252, 0)
 
 [node name="catch_cooldown" type="Timer" parent="."]
+wait_time = 0.1
 
-[node name="throw_cooldwon" type="Timer" parent="."]
+[node name="throw_cooldown" type="Timer" parent="."]
 
 [node name="charge_bar" type="TextureProgressBar" parent="."]
 offset_left = -17.0
 offset_top = 22.0
 offset_right = 23.0
 offset_bottom = 62.0
+max_value = 1.0
+step = 0.01
 texture_under = ExtResource("2_kjcsu")
 texture_progress = ExtResource("3_86um0")
+
+[connection signal="timeout" from="catch_cooldown" to="." method="_on_catch_cooldown_timeout"]
+[connection signal="timeout" from="throw_cooldown" to="." method="_on_throw_cooldown_timeout"]

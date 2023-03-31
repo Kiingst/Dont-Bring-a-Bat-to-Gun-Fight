@@ -12,8 +12,9 @@ signal fire
 @export var Bullet_Damage : int
 @export var max_Bullet_Speed : int
 @export var base_Bullet_Speed : int
-@export var charge_increment : int
+@export var charge_increment : float
 var currently_taking_damage = false
+var charge: float
 
 
 func Player_Control_Catch(delta):
@@ -24,6 +25,8 @@ func Player_Control_Catch(delta):
 	var look_ang = rad_to_deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	$offset.global_rotation = atan2(look_vec.y, look_vec.x)
+	
+	$charge_bar.value = charge
 	
 	#if currently_taking_damage == false:
 	#	if move_vec.x == 0:
@@ -36,8 +39,10 @@ func Player_Control_Catch(delta):
 	
 	
 	if Input.is_action_pressed("Charge"):
-		$charge_bar.value += charge_increment
-		print($charge_bar.value)
+		if charge < 1:
+			charge += charge_increment
+			print(charge)
+			
 
 func _physics_process(delta):
 	if alive == false:
@@ -47,19 +52,19 @@ func _physics_process(delta):
 		Player_Control_Catch(delta)
 
 func _input(event):
-	if event.is_action_pressed("Parry"):
+	if event.is_action_pressed("Secondary_Action"):
 		if catch_on_cooldown == false:
 			catch()
 			catch_on_cooldown = true
 			$catch_cooldown.start()
-	if event.is_action_pressed("Action"):
+	if event.is_action_pressed("Primary_Action"):
 		if throw_on_cooldown == false:
 			throw()
 			throw_on_cooldown = true
 			$throw_cooldown.start()
-	if event.is_action_pressed("reset_scene"):
+	if event.is_action_pressed("Pause"):
 		get_tree().reload_current_scene()
-	if event.is_action_pressed("dash"):
+	if event.is_action_pressed("Dash"):
 		dash()
 
 func take_damage(damage):
@@ -72,7 +77,7 @@ func take_damage(damage):
 
 func catch():
 	for index in $offset/Catch_Area.get_overlapping_areas():
-		if "catch_area" in index.name:
+		if "Catch_Area" in index.name:
 			print("caught ", index.get_parent())
 			emit_signal("caught", index)
 			balls_in_inventory += 1
@@ -81,8 +86,8 @@ func throw():
 	if balls_in_inventory > 0:
 		print("throwing")
 		var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
-		emit_signal('fire', ball, $Cross_Hair/Marker2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * $charge_bar.value, Bullet_Damage)
-		$charge_bar.value = 0
+		emit_signal('fire', ball, $Cross_Hair/Marker2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * charge, Bullet_Damage)
+		charge = 0
 		balls_in_inventory -= 1
 		
 
