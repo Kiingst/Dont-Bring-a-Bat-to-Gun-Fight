@@ -11,7 +11,7 @@ func _ready():
 	if get_node_or_null("Player") != null:
 		get_node("Player").connect("fire",Callable(self,"fire"))
 		get_node("Player").connect("caught",Callable(self,"_on_Player_Catcher_caught"))
-	get_node_or_null("Test_Enemy").connect("fire",Callable(self,"enemy_fire"))
+	get_node_or_null("Test_Enemy").connect("fire",Callable(self,"fire"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

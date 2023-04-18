@@ -5,7 +5,6 @@ var Bullet_Damage
 var dir 
 var kill = true
 var Player_Owned = false
-
 func _ready():
 	add_to_group("Bullets")
 	
@@ -28,8 +27,13 @@ func start(_position, _direction, _speed, _damage):
 	dir = _direction
 	Bullet_velocity = _direction * _speed
 	apply_central_impulse(Bullet_velocity)
+	print("bullet firing at ", _speed, "speed")
 
 func _process(delta):
+	print($CollisionShape2D.disabled)
+	print(linear_velocity)
+	if (linear_velocity.x >= -10 && linear_velocity.x < 10):
+		$CollisionShape2D.disabled = true
 	if Player_Owned == true:
 		$Sprite2D.modulate = Color(0,185,0,255)
 	else:

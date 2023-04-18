@@ -41,6 +41,8 @@ func Player_Control_Catch(delta):
 	if Input.is_action_pressed("Charge"):
 		if charge < 1:
 			charge += charge_increment
+			if charge > 1:
+				charge = 1
 			print(charge)
 			
 

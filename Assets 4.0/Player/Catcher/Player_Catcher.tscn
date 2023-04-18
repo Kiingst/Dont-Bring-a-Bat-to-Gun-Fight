@@ -18,13 +18,13 @@ script = ExtResource("1_btowt")
 balls_in_inventory = 5
 ball = ExtResource("2_6o6lk")
 Bullet_Damage = 1
-max_Bullet_Speed = 1000
-base_Bullet_Speed = 200
+max_Bullet_Speed = 500
+base_Bullet_Speed = 400
 charge_increment = 0.1
 jump_height = 100.0
+jumps_available = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-4, 4)
 shape = SubResource("RectangleShape2D_6gsvf")
 

@@ -1,5 +1,4 @@
 extends CharacterBody2D
-var bullet_speed = 100
 var waittimer = Timer.new()
 @export var health : int
 @export var MOVE_SPEED : int
@@ -12,8 +11,16 @@ var alive = true
 #@onready var animation_mode = animation_tree.get("parameters/playback")
 @export var Bullet_Damage : int
 @export var Bullet_Speed : int
+@onready var player = get_parent().get_node("Player")
+
+var Current_Frame = 0
+
+
+var Locked_On = false
+var x = 0
 
 func _ready():
+	
 	#bullet.Bullet_Damage = Bullet_Damage
 	#bullet.Bullet_Speed = Bullet_Speed
 #	if get_node_or_null("Player_Catcher") != null:
@@ -22,10 +29,10 @@ func _ready():
 #		player = get_parent().get_node("Player_Hitter")
 	$HealthBar.max_value = health
 
-@onready var player = get_parent().get_node("Player")
+
+
 
 func _physics_process(delta):
-	#print($Enemy.get_overlapping_areas())
 	if alive == true:
 		control(delta)
 
@@ -41,11 +48,6 @@ func kill():
 	queue_free()
 	#emit_signal("kill", $pos.global_position)
 
-var Current_Frame = 0
-
-
-var Locked_On = false
-var x = 0
 
 
 func control(delta):
@@ -55,12 +57,13 @@ func control(delta):
 	
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
-	$gun.global_rotation = atan2(vec_to_player.y, vec_to_player.x)
+	
 	
 	if Locked_On == false : 
 			#move_to_player(delta)
 			pass
 	elif Locked_On == true :
+			$gun.global_rotation = atan2(vec_to_player.y, vec_to_player.x)
 			dofire()
 
 	if health <= 0:
@@ -79,7 +82,7 @@ func take_damage(damage):
 func dofire():
 	if On_Cooldown == false :
 		On_Cooldown = true
-		$Shoot_Cooldown.start()
+		$Shoot_cooldown.start()
 		var direction = Vector2(1,0).rotated($gun.global_rotation)
 		emit_signal('fire', bullet, $gun/Muzzle.global_position, direction, Bullet_Speed, Bullet_Damage)
 		#print("gun muzzle position", $gun/Muzzle.global_position)

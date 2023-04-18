@@ -1,39 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw18qoq4ovypy"]
+[gd_scene load_steps=10 format=3 uid="uid://dw18qoq4ovypy"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Enemys/Test_Enemy/test_enemy.gd" id="1_d0wqu"]
+[ext_resource type="PackedScene" uid="uid://dd8xgoe0m5e4n" path="res://Assets 4.0/Bullet/baseball.tscn" id="2_clfsa"]
 [ext_resource type="Texture2D" uid="uid://dvldgcu6ig20" path="res://Assets 4.0/Misc/HealthBar_Under.png" id="2_hf45p"]
+[ext_resource type="Texture2D" uid="uid://bs3swncsmby3e" path="res://Assets 4.0/Enemys/Test_Enemy/goblin_idle_anim_f0.png" id="2_wfcm5"]
 [ext_resource type="Texture2D" uid="uid://bw4gtng0iadmv" path="res://Assets 4.0/Misc/HealthBar_Progress.png" id="3_0w3yt"]
+[ext_resource type="Texture2D" uid="uid://bx3gpl4r12f2m" path="res://Assets 4.0/Bullet/ball.png" id="6_3inqk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2qr8"]
+radius = 249.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3e16"]
+size = Vector2(17, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhrtv"]
+size = Vector2(19, 20)
 
 [node name="Test_Enemy" type="CharacterBody2D"]
 script = ExtResource("1_d0wqu")
+health = 3
+MOVE_SPEED = 300
+bullet = ExtResource("2_clfsa")
+Bullet_Damage = 1
+Bullet_Speed = 400
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-1, -9)
+scale = Vector2(2, 2)
+texture = ExtResource("2_wfcm5")
 
-[node name="Shooting_Range" type="Area2D" parent="."]
+[node name="Alert_Range" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shooting_Range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alert_Range"]
+shape = SubResource("CircleShape2D_y2qr8")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+offset_left = -15.0
+offset_top = -2.0
+offset_right = 17.0
+offset_bottom = 30.0
 texture_under = ExtResource("2_hf45p")
 texture_progress = ExtResource("3_0w3yt")
 
 [node name="Shoot_cooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="pos" type="Marker2D" parent="."]
 
 [node name="Enemy" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_t3e16")
 
 [node name="gun" type="Sprite2D" parent="."]
+texture = ExtResource("6_3inqk")
+offset = Vector2(30, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="gun"]
+target_position = Vector2(246, -1)
 
 [node name="Muzzle" type="Marker2D" parent="gun"]
+position = Vector2(30, 0)
 
 [node name="Death_timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_uhrtv")
 
-[connection signal="area_entered" from="Shooting_Range" to="." method="_on_Shooting_Range_area_entered"]
-[connection signal="area_exited" from="Shooting_Range" to="." method="_on_Shooting_Range_area_exited"]
+[connection signal="area_entered" from="Alert_Range" to="." method="_on_Shooting_Range_area_entered"]
+[connection signal="area_exited" from="Alert_Range" to="." method="_on_Shooting_Range_area_exited"]
+[connection signal="timeout" from="Shoot_cooldown" to="." method="_on_Shoot_Cooldown_timeout"]
