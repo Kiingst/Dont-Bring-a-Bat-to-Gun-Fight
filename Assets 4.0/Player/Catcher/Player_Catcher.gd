@@ -19,6 +19,7 @@ var charge: float
 
 func Player_Control_Catch(delta):
 	#print($offset/Catch_Area.get_overlapping_areas())
+	print(balls_in_inventory)
 	
 	
 	look_vec = get_global_mouse_position() - global_position

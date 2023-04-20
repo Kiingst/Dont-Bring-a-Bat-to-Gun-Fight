@@ -15,8 +15,9 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_tomlg"]
 
 [node name="Baseball" type="RigidBody2D"]
+position = Vector2(5, 0)
 mass = 0.5
-inertia = 51.77
+inertia = 50.0
 physics_material_override = SubResource("PhysicsMaterial_sjahp")
 gravity_scale = 0.5
 script = ExtResource("1_3ah2h")
