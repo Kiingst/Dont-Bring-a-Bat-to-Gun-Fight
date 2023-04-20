@@ -38,5 +38,11 @@ shape = SubResource("CircleShape2D_npy2l")
 shape = SubResource("CircleShape2D_tomlg")
 
 [node name="Lifetime" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="Stoped_Time" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
+[connection signal="timeout" from="Stoped_Time" to="." method="_on_stoped_time_timeout"]

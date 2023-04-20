@@ -3,8 +3,11 @@ extends RigidBody2D
 var Bullet_Speed
 var Bullet_Damage
 var dir 
-var kill = true
 var Player_Owned = false
+var dead_ball = preload("res://Assets 4.0/Bullet/dead_baseball.tscn").instantiate()
+var moving = true
+var timerisrunning = false
+signal dead
 func _ready():
 	add_to_group("Bullets")
 	
@@ -14,10 +17,7 @@ var Bullet_velocity = Vector2()
 
 
 func _on_Lifetime_timeout():
-	if kill ==  true:
-		queue_free()
-	else :
-		$Lifetime.start()
+	kill_ball()
 
 func start(_position, _direction, _speed, _damage):
 	Bullet_Damage = _damage
@@ -30,16 +30,25 @@ func start(_position, _direction, _speed, _damage):
 	print("bullet firing at ", _speed, "speed")
 
 func _process(delta):
-	print($CollisionShape2D.disabled)
-	print(linear_velocity)
-	if (linear_velocity.x >= -10 && linear_velocity.x < 10):
-		$CollisionShape2D.disabled = true
+	if moving == false:
+		kill_ball()
+
+
+	if linear_velocity.length() < 20:
+		if timerisrunning == false:
+			$Stoped_Time.start()
+			timerisrunning = true
 	if Player_Owned == true:
-		$Sprite2D.modulate = Color(0,185,0,255)
+		#$Sprite2D.modulate = Color(0,185,0,255)
+		pass
 	else:
-		$Sprite2D.modulate = Color(255,255,255,255)
+		#$Sprite2D.modulate = Color(255,255,255,255)
+		pass
 
-
+func kill_ball():
+	print("ball died")
+	emit_signal("dead", dead_ball, position)
+	queue_free()
 
 func _on_invincibility_timeout():
 	$CollisionShape2D.disabled = false 
@@ -49,3 +58,9 @@ func _on_Bullet_body_entered(body):
 	print(body.get_parent().name)
 	if "Tilemap" in body.get_parent().name: 
 		apply_central_impulse(Bullet_velocity)
+
+
+func _on_stoped_time_timeout():
+	timerisrunning = false
+	if linear_velocity.length() < 20:
+		moving = false

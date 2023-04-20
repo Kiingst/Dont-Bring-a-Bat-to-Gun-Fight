@@ -22,6 +22,7 @@ func fire(bullet, _position, _direction, _speed, _damage):
 	var b = bullet.instantiate()
 	add_child(b)
 	b.start(_position,_direction, _speed,_damage)
+	b.connect("dead", Callable(self,"dead_ball"))
 
 
 func enemy_fire(bullet, _position, _direction, _speed, _damage):
@@ -30,6 +31,10 @@ func enemy_fire(bullet, _position, _direction, _speed, _damage):
 	b.start(_position,_direction,_speed,_damage)
 	b.connect("fire",Callable(self,"fire2"))
 
+func dead_ball(ball, _position):
+	var ball2 = ball
+	add_child(ball2)
+	ball2.position = _position
 
 
 func _on_Player_Catcher_caught(area):

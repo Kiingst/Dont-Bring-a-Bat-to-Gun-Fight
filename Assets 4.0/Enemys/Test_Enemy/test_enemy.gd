@@ -64,7 +64,8 @@ func control(delta):
 			pass
 	elif Locked_On == true :
 			$gun.global_rotation = atan2(vec_to_player.y, vec_to_player.x)
-			dofire()
+			if $gun/RayCast2D.is_colliding() :
+				dofire()
 
 	if health <= 0:
 		kill()

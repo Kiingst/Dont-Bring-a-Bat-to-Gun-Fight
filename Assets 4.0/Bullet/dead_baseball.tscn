@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bur56sbas8eox"]
+
+[ext_resource type="Texture2D" uid="uid://bx3gpl4r12f2m" path="res://Assets 4.0/Bullet/ball.png" id="1_5thsm"]
+[ext_resource type="Script" path="res://Assets 4.0/Bullet/dead_baseball.gd" id="1_nqogu"]
+
+[sub_resource type="Animation" id="Animation_w8dxd"]
+resource_name = "Create"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.45, 0.5, 0.6, 0.75, 0.8, 0.85, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(0, 0), Vector2(0, -50), Vector2(0, -55), Vector2(0, -50), Vector2(0, 0), Vector2(0, -30), Vector2(0, -35), Vector2(0, -30), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pxu3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u1g2y"]
+resource_name = "explosion"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_45vyu"]
+_data = {
+"Create": SubResource("Animation_w8dxd"),
+"RESET": SubResource("Animation_pxu3d"),
+"explosion": SubResource("Animation_u1g2y")
+}
+
+[node name="dead_baseball" type="Node2D"]
+script = ExtResource("1_nqogu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5thsm")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_45vyu")
+}
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
