@@ -24,11 +24,13 @@ physics_material_override = SubResource("PhysicsMaterial_sl7rx")
 texture = ExtResource("1_5thsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visible = false
 shape = SubResource("CircleShape2D_xpvj3")
 
 [node name="Area2D" type="Area2D" parent="RigidBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_5b4vj")
 
 [connection signal="area_entered" from="RigidBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
