@@ -73,10 +73,7 @@ func get_input_velocity() -> float:
 func jump():
 	move_vec.y = jump_velocity
 
-func dash():
-	move_speed += 1000
-	await get_tree().create_timer(0.15).timeout
-	move_speed -= 1000
+
 	
 func take_damage(damage):
 	health -= damage

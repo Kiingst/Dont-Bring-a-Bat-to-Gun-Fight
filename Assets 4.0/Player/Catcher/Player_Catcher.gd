@@ -15,14 +15,15 @@ signal fire
 @export var charge_increment : float
 var currently_taking_damage = false
 var charge: float
+var invulnerable = false
 
 
 func Player_Control_Catch(delta):
 	#print($offset/Catch_Area.get_overlapping_areas())
-	print(balls_in_inventory)
+	#print(balls_in_inventory)
 	
-	
-	look_vec = get_global_mouse_position() - global_position
+	look_vec = Input.get_vector("Left_stick_left", "Left_stick_right", "Left_stick_up", "Left_stick_down")
+	#look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad_to_deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	$offset.global_rotation = atan2(look_vec.y, look_vec.x)
@@ -71,10 +72,13 @@ func _input(event):
 		dash()
 
 func take_damage(damage):
-	currently_taking_damage = true
-	print("doing damage animation")
-	#animation_mode.travel("Damage")
-	health -= damage
+	
+	if invulnerable == false :
+		print("player took damage")
+		#animation_mode.travel("Damage")
+		health -= damage
+	else :
+		print("player is invulnerable")
 	
 
 
@@ -84,6 +88,11 @@ func catch():
 			print("caught ", index.get_parent())
 			emit_signal("caught", index)
 			balls_in_inventory += 1
+			
+
+func dash():
+	pass
+	
 
 func throw():
 	if balls_in_inventory > 0:
@@ -102,3 +111,7 @@ func _on_throw_cooldown_timeout():
 func _on_catch_cooldown_timeout():
 	catch_on_cooldown = false
 
+
+
+func _on_invulnerability_timeout():
+	pass # Replace with function body.

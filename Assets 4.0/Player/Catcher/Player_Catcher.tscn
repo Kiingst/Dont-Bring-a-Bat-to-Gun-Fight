@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5a3b58dl3hff"]
+[gd_scene load_steps=11 format=3 uid="uid://5a3b58dl3hff"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Player/Catcher/Player_Catcher.gd" id="1_btowt"]
 [ext_resource type="PackedScene" uid="uid://dd8xgoe0m5e4n" path="res://Assets 4.0/Bullet/baseball.tscn" id="2_6o6lk"]
@@ -12,6 +12,14 @@ size = Vector2(28, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ow46"]
 size = Vector2(44, 53)
+
+[sub_resource type="Animation" id="Animation_t6o0h"]
+resource_name = "dash"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_purtg"]
+_data = {
+"dash": SubResource("Animation_t6o0h")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_btowt")
@@ -69,5 +77,16 @@ step = 0.01
 texture_under = ExtResource("2_kjcsu")
 texture_progress = ExtResource("3_86um0")
 
+[node name="invulnerability" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../invulnerability")
+libraries = {
+"": SubResource("AnimationLibrary_purtg")
+}
+
 [connection signal="timeout" from="catch_cooldown" to="." method="_on_catch_cooldown_timeout"]
 [connection signal="timeout" from="throw_cooldown" to="." method="_on_throw_cooldown_timeout"]
+[connection signal="timeout" from="invulnerability" to="." method="_on_invulnerability_timeout"]
