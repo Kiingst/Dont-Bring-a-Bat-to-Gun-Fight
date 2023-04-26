@@ -11,12 +11,13 @@
 radius = 249.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3e16"]
-size = Vector2(17, 14)
+size = Vector2(23, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhrtv"]
 size = Vector2(19, 20)
 
 [node name="Test_Enemy" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_d0wqu")
 health = 3
 MOVE_SPEED = 300
@@ -32,6 +33,7 @@ texture = ExtResource("2_wfcm5")
 [node name="Alert_Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Alert_Range"]
+visible = false
 shape = SubResource("CircleShape2D_y2qr8")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
@@ -49,10 +51,10 @@ one_shot = true
 
 [node name="pos" type="Marker2D" parent="."]
 
-[node name="Enemy" type="Area2D" parent="."]
-visible = false
+[node name="enemy" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_t3e16")
 
 [node name="gun" type="Sprite2D" parent="."]

@@ -3,8 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$RigidBody2D.position.y -= 100
-	$RigidBody2D/Sprite2D.modulate = Color(0,200,0,255)
+	#$RigidBody2D.position.y -= 100
+	$RigidBody2D/Sprite2D.modulate = Color(0, 1, 0)
+	#pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

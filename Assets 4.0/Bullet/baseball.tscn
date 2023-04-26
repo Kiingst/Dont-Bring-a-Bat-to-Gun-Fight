@@ -7,7 +7,7 @@
 bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u2yjj"]
-radius = 7.0
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npy2l"]
 radius = 16.0
@@ -16,6 +16,8 @@ radius = 16.0
 
 [node name="Baseball" type="RigidBody2D"]
 position = Vector2(5, 0)
+collision_layer = 8
+collision_mask = 9
 mass = 0.5
 inertia = 50.0
 physics_material_override = SubResource("PhysicsMaterial_sjahp")
@@ -29,6 +31,8 @@ texture = ExtResource("2_kk8xq")
 shape = SubResource("CircleShape2D_u2yjj")
 
 [node name="Catch_Area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Catch_Area"]
 shape = SubResource("CircleShape2D_npy2l")
@@ -43,7 +47,10 @@ wait_time = 8.0
 autostart = true
 
 [node name="Stoped_Time" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Baseball_Area" to="." method="_on_baseball_area_area_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
 [connection signal="timeout" from="Stoped_Time" to="." method="_on_stoped_time_timeout"]

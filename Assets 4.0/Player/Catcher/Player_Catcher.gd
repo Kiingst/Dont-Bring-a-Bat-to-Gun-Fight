@@ -16,6 +16,7 @@ signal fire
 var currently_taking_damage = false
 var charge: float
 var invulnerable = false
+var charging = false
 
 
 func Player_Control_Catch(delta):
@@ -40,13 +41,24 @@ func Player_Control_Catch(delta):
 			
 	
 	
-	if Input.is_action_pressed("Charge"):
+	#if Input.is_action_pressed("Charge"):
+	#	if charge < 1:
+	#		charge += charge_increment
+	#		if charge > 1:
+	#			charge = 1
+	#		print(charge)
+	
+	
+	if charging == true:
 		if charge < 1:
 			charge += charge_increment
-			if charge > 1:
-				charge = 1
-			print(charge)
-			
+		if charge > 1:
+			charge = 1
+		print(charge)
+		
+		if Input.is_action_pressed("Pause"):
+			get_tree().reload_current_scene()
+
 
 func _physics_process(delta):
 	if alive == false:
@@ -63,11 +75,17 @@ func _input(event):
 			$catch_cooldown.start()
 	if event.is_action_pressed("Primary_Action"):
 		if throw_on_cooldown == false:
+			charging = true
+	if event.is_action_released("Primary_Action"):
+		print("Primart Action released")
+		if throw_on_cooldown == false:
+			charging = false
 			throw()
 			throw_on_cooldown = true
 			$throw_cooldown.start()
 	if event.is_action_pressed("Pause"):
-		get_tree().reload_current_scene()
+		#get_tree().reload_current_scene()
+		pass
 	if event.is_action_pressed("Dash"):
 		dash()
 

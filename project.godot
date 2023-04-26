@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=600
+window/size/viewport_width=2560
+window/size/viewport_height=1440
 window/stretch/mode="viewport"
 
 [input]
@@ -102,6 +102,14 @@ Left_stick_down={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="walls"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemys"
+2d_physics/layer_4="ball"
+2d_physics/layer_5="other"
 
 [rendering]
 

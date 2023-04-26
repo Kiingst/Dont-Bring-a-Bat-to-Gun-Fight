@@ -8,13 +8,12 @@ var dead_ball = preload("res://Assets 4.0/Bullet/dead_baseball.tscn").instantiat
 var moving = true
 var timerisrunning = false
 signal dead
+
 func _ready():
 	add_to_group("Bullets")
 	
 
 var Bullet_velocity = Vector2()
-
-
 
 func _on_Lifetime_timeout():
 	kill_ball()
@@ -64,3 +63,13 @@ func _on_stoped_time_timeout():
 	timerisrunning = false
 	if linear_velocity.length() < 20:
 		moving = false
+
+
+func _on_body_entered(body):
+	print(body)
+
+
+func _on_baseball_area_area_entered(area):
+	if "enemy" in area.name:
+		area.get_parent().take_damage(Bullet_Damage)
+		queue_free()
