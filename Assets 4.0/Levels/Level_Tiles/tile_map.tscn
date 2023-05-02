@@ -34,6 +34,7 @@ sources/1 = SubResource("TileSetAtlasSource_1j8sb")
 pattern_0 = SubResource("TileMapPattern_hug2g")
 
 [node name="TileMap" type="TileMap"]
+z_index = -5
 tile_set = SubResource("TileSet_oho4w")
 cell_quadrant_size = 32
 format = 2

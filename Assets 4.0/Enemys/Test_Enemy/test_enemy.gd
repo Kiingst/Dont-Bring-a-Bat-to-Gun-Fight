@@ -20,7 +20,7 @@ var Locked_On = false
 var x = 0
 
 func _ready():
-	
+	add_to_group("Enemys")
 	#bullet.Bullet_Damage = Bullet_Damage
 	#bullet.Bullet_Speed = Bullet_Speed
 #	if get_node_or_null("Player_Catcher") != null:

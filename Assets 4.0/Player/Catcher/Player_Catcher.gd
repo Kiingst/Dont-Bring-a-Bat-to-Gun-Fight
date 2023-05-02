@@ -106,8 +106,6 @@ func catch():
 			balls_in_inventory += 1
 			
 
-func dash():
-	pass
 	
 
 func throw():

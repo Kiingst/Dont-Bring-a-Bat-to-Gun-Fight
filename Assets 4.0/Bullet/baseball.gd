@@ -10,8 +10,8 @@ var timerisrunning = false
 signal dead
 
 func _ready():
-	add_to_group("Bullets")
-	set_angular_velocity(200)
+	add_to_group("Baseballs")
+	set_angular_velocity(50)
 
 var Bullet_velocity = Vector2()
 

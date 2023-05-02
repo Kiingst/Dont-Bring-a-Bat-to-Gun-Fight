@@ -7,6 +7,8 @@ var move_vec = Vector2.ZERO
 signal took_damage
 var alive = true
 var floor_normal = Vector2(0, -1)
+var trueifleft : bool
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -23,6 +25,11 @@ var jump_counter = 0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
+func _ready():
+	add_to_group("Player")
+
 
 func Player_Control(delta):
 	move_vec.y += get_gravity() * delta
@@ -65,15 +72,21 @@ func get_input_velocity() -> float:
 	
 	if Input.is_action_pressed("Move_Left"):
 		horizontal -= 1.0
+		trueifleft = true
 	if Input.is_action_pressed("Move_Right"):
 		horizontal += 1.0
+		trueifleft= false
 	
 	return horizontal
 
 func jump():
 	move_vec.y = jump_velocity
 
-
+func dash():
+	if trueifleft == true:
+		move_vec.x += -1.0 * 100.0
+		print("did dash")
+	
 	
 func take_damage(damage):
 	health -= damage
