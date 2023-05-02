@@ -11,7 +11,7 @@ signal dead
 
 func _ready():
 	add_to_group("Bullets")
-	
+	set_angular_velocity(200)
 
 var Bullet_velocity = Vector2()
 
@@ -22,7 +22,7 @@ func start(_position, _direction, _speed, _damage):
 	Bullet_Damage = _damage
 	Bullet_Speed = _speed
 	position = _position
-	rotation = _direction.angle()
+	#rotation = _direction.angle()
 	dir = _direction
 	Bullet_velocity = _direction * _speed
 	apply_central_impulse(Bullet_velocity)

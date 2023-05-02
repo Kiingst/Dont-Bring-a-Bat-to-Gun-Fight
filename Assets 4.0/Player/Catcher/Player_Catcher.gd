@@ -23,8 +23,8 @@ func Player_Control_Catch(delta):
 	#print($offset/Catch_Area.get_overlapping_areas())
 	#print(balls_in_inventory)
 	
-	look_vec = Input.get_vector("Left_stick_left", "Left_stick_right", "Left_stick_up", "Left_stick_down")
-	#look_vec = get_global_mouse_position() - global_position
+	#look_vec = Input.get_vector("Left_stick_left", "Left_stick_right", "Left_stick_up", "Left_stick_down")
+	look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad_to_deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	$offset.global_rotation = atan2(look_vec.y, look_vec.x)
@@ -56,8 +56,7 @@ func Player_Control_Catch(delta):
 			charge = 1
 		print(charge)
 		
-		if Input.is_action_pressed("Pause"):
-			get_tree().reload_current_scene()
+
 
 
 func _physics_process(delta):
@@ -84,8 +83,7 @@ func _input(event):
 			throw_on_cooldown = true
 			$throw_cooldown.start()
 	if event.is_action_pressed("Pause"):
-		#get_tree().reload_current_scene()
-		pass
+		get_tree().reload_current_scene()
 	if event.is_action_pressed("Dash"):
 		dash()
 

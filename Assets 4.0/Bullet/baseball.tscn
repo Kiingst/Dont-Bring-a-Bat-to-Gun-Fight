@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd8xgoe0m5e4n"]
+[gd_scene load_steps=8 format=3 uid="uid://dd8xgoe0m5e4n"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Bullet/baseball.gd" id="1_3ah2h"]
 [ext_resource type="Texture2D" uid="uid://bx3gpl4r12f2m" path="res://Assets 4.0/Bullet/ball.png" id="2_kk8xq"]
+[ext_resource type="Texture2D" uid="uid://be4y6gyqdj5yr" path="res://Assets 3.0/Temp_frames/chest_empty_open_anim_f0.png" id="3_d2c8s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjahp"]
 bounce = 0.5
@@ -26,6 +27,10 @@ script = ExtResource("1_3ah2h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_kk8xq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(2.08165e-12, 20)
+texture = ExtResource("3_d2c8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u2yjj")
