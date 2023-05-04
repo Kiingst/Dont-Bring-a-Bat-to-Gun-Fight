@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Assets 4.0/Levels/Base_level/base_level.gd" id="1_60tls"]
 [ext_resource type="PackedScene" uid="uid://5a3b58dl3hff" path="res://Assets 4.0/Player/Catcher/Player_Catcher.tscn" id="1_o8ahi"]
-[ext_resource type="PackedScene" uid="uid://dw18qoq4ovypy" path="res://Assets 4.0/Enemys/Test_Enemy/test_enemy.tscn" id="2_wnyv5"]
-[ext_resource type="PackedScene" uid="uid://5ak6jg70x36q" path="res://Assets 4.0/Levels/room_1.tscn" id="4_oa3ck"]
+[ext_resource type="PackedScene" uid="uid://bwgfgogc42k5f" path="res://Assets 4.0/Levels/starting_room.tscn" id="3_mijgx"]
+[ext_resource type="PackedScene" uid="uid://bwrf4wr5hib8j" path="res://Assets 4.0/Levels/door.tscn" id="4_etco7"]
 
 [node name="Base_level" type="Node2D"]
 script = ExtResource("1_60tls")
@@ -12,12 +12,9 @@ script = ExtResource("1_60tls")
 zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("1_o8ahi")]
-position = Vector2(-179, -77)
+position = Vector2(-224, 128)
 
-[node name="Test_Enemy" parent="." instance=ExtResource("2_wnyv5")]
-position = Vector2(281, 45)
+[node name="Starting_room" parent="." instance=ExtResource("3_mijgx")]
 
-[node name="Test_Enemy2" parent="." instance=ExtResource("2_wnyv5")]
-position = Vector2(339, -98)
-
-[node name="Room1" parent="." instance=ExtResource("4_oa3ck")]
+[node name="Door" parent="Starting_room" instance=ExtResource("4_etco7")]
+position = Vector2(0, 128)

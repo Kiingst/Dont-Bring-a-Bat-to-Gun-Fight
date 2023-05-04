@@ -86,6 +86,9 @@ func _input(event):
 		get_tree().reload_current_scene()
 	if event.is_action_pressed("Dash"):
 		dash()
+	if event.is_action_pressed("interact"):
+		$interact/CollisionShape2D.disabled = false
+		$interact/Time.start()
 
 func take_damage(damage):
 	
@@ -129,3 +132,7 @@ func _on_catch_cooldown_timeout():
 
 func _on_invulnerability_timeout():
 	pass # Replace with function body.
+
+
+func _on_time_timeout():
+	$interact/CollisionShape2D.disabled = true
