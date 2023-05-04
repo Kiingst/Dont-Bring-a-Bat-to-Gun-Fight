@@ -54,7 +54,7 @@ func Player_Control_Catch(delta):
 			charge += charge_increment
 		if charge > 1:
 			charge = 1
-		print(charge)
+		#print(charge)
 		
 
 

@@ -11,14 +11,13 @@ func _ready():
 		get_node("Player").connect("caught",Callable(self,"_on_Player_Catcher_caught"))
 	#get_node_or_null("Test_Enemy").connect("fire",Callable(self,"fire"))
 	
-	start()
+	start(starting_level)
 	
 
 
-func start():
-	add_child(starting_level)
-	starting_level.connect("spawn_enemy", Callable(self,"spawn_enemy"))
-	$Player.position = starting_level.get_node("Player").position
+func start(level):
+	addlevel(level)
+	$Player.position = level.get_node("Player").position
 	
 	
 
@@ -27,6 +26,18 @@ func _process(delta):
 	pass
 	#print(get_tree().get_nodes_in_group("Enemys").size())
 
+func nextLevel():
+	print("going to lext level")
+
+func addlevel(level):
+	add_child(level)
+	level.connect("spawn_enemy", Callable(self,"spawn_enemy"))
+	level.connect("level_clear", Callable(self,"level_clear"))
+	level.get_node("Door").connect("next_level", Callable(self,"next_level"))
+
+func level_clear():
+	print("add reward")
+	get_tree().call_group("Doors", "activate")
 
 func fire(bullet, _position, _direction, _speed, _damage):
 	var b = bullet.instantiate()
@@ -52,9 +63,6 @@ func dead_ball(ball, _position):
 	add_child(ball2)
 	ball2.position = _position
 
-
 func _on_Player_Catcher_caught(area):
 	area.get_parent().queue_free()
 
-func _on_Level_Win():
-	get_tree().call_group("enemy", "queue_free")

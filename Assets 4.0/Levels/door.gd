@@ -1,6 +1,6 @@
 extends Node2D
 var activated = false
-signal Player_enter_door
+signal next_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,5 +20,5 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	if activated == true:
 		if "interact" in area.name:
-			emit_signal("Player_enter_door")
+			next_level.emit()
 			print("player entered door")
