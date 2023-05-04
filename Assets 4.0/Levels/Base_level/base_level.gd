@@ -12,10 +12,13 @@ func _ready():
 		get_node("Player").connect("fire",Callable(self,"fire"))
 		get_node("Player").connect("caught",Callable(self,"_on_Player_Catcher_caught"))
 	get_node_or_null("Test_Enemy").connect("fire",Callable(self,"fire"))
+	
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	print(get_tree().get_nodes_in_group("Enemys").size())
 
 
 func fire(bullet, _position, _direction, _speed, _damage):

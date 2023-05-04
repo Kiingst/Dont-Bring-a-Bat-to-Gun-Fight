@@ -45,7 +45,6 @@ func _process(delta):
 		pass
 
 func kill_ball():
-	print("ball died")
 	emit_signal("dead", dead_ball, position)
 	queue_free()
 

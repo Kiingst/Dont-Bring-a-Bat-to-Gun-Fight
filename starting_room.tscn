@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwgfgogc42k5f"]
+
+[ext_resource type="PackedScene" uid="uid://d0lxt3jj80bqr" path="res://Assets 4.0/Levels/Level_Tiles/tile_map.tscn" id="1_6awio"]
+
+[node name="Starting_room" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_6awio")]
