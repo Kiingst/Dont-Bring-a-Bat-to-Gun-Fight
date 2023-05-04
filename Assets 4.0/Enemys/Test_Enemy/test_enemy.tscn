@@ -19,11 +19,7 @@ size = Vector2(19, 20)
 [node name="Test_Enemy" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_d0wqu")
-health = 3
-MOVE_SPEED = 300
 bullet = ExtResource("2_clfsa")
-Bullet_Damage = 1
-Bullet_Speed = 400
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-1, -9)

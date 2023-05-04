@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var waittimer = Timer.new()
-@export var health : int
-@export var MOVE_SPEED : int
+@export var health : int = 3
+@export var MOVE_SPEED : int = 300
 var On_Cooldown = false
 signal fire 
 signal death
@@ -9,8 +9,8 @@ var alive = true
 @export var bullet : PackedScene
 #@onready var animation_tree = get_node("AnimationTree")
 #@onready var animation_mode = animation_tree.get("parameters/playback")
-@export var Bullet_Damage : int
-@export var Bullet_Speed : int
+@export var Bullet_Damage : int = 1
+@export var Bullet_Speed : int = 400
 @onready var player = get_parent().get_node("Player")
 
 var Current_Frame = 0
