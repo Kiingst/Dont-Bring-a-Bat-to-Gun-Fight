@@ -10,4 +10,4 @@ script = ExtResource("1_60tls")
 zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("1_o8ahi")]
-position = Vector2(104, -296)
+position = Vector2(96, -168)
