@@ -1,6 +1,7 @@
 extends Node2D
 
-var starting_level = preload("res://Assets 4.0/Levels/starting_room.tscn").instantiate()
+var starting_level = preload("res://Assets 4.0/Levels/starting_room.tscn")
+var room1 = preload("res://Assets 4.0/Levels/room1.tscn")
 var islevelactive = true
 
 
@@ -17,7 +18,6 @@ func _ready():
 
 func start(level):
 	addlevel(level)
-	$Player.position = level.get_node("Player").position
 	
 	
 
@@ -26,14 +26,18 @@ func _process(delta):
 	pass
 	#print(get_tree().get_nodes_in_group("Enemys").size())
 
-func nextLevel():
+func next_level():
 	print("going to lext level")
+	get_node("Room").queue_free()
+	start(room1)
 
-func addlevel(level):
+func addlevel(level1):
+	var level = level1.instantiate()
 	add_child(level)
+	$Player.position = level.get_node("Player").position
 	level.connect("spawn_enemy", Callable(self,"spawn_enemy"))
 	level.connect("level_clear", Callable(self,"level_clear"))
-	level.get_node("Door").connect("next_level", Callable(self,"next_level"))
+	level.connect("next_level", Callable(self,"next_level"))
 
 func level_clear():
 	print("add reward")

@@ -21,4 +21,3 @@ func _on_area_2d_area_entered(area):
 	if activated == true:
 		if "interact" in area.name:
 			next_level.emit()
-			print("player entered door")

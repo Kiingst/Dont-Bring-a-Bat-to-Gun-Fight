@@ -1,7 +1,9 @@
 extends CharacterBody2D
 var waittimer = Timer.new()
 @export var health : int = 3
-@export var MOVE_SPEED : int = 300
+
+
+
 var On_Cooldown = false
 signal fire 
 signal death
@@ -18,6 +20,10 @@ var Current_Frame = 0
 
 var Locked_On = false
 var x = 0
+
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var MOVE_SPEED : int = 50
+
 
 func _ready():
 	add_to_group("Enemys")
@@ -38,10 +44,10 @@ func _physics_process(delta):
 
 
 func move_to_player(delta):
-	var vec_to_player = player.global_position - global_position
-	vec_to_player = vec_to_player.normalized()
-	move_and_collide(vec_to_player * MOVE_SPEED * delta)
+	velocity.y += gravity * delta
+	velocity.x = -MOVE_SPEED
 	
+	move_and_slide()
 
 func kill():
 	#animation_mode.travel("Death")
@@ -60,17 +66,18 @@ func control(delta):
 	
 	
 	if Locked_On == false : 
-			#move_to_player(delta)
+			move_to_player(delta)
 			pass
 	elif Locked_On == true :
 			$gun.global_rotation = atan2(vec_to_player.y, vec_to_player.x)
-			if $gun/RayCast2D.is_colliding() :
+			if $gun/Line_of_sight.is_colliding() :
 				dofire()
-
+	
 	if health <= 0:
 		kill()
 		alive = false
 		
+
 
 func take_damage(damage):
 	if damage != null:
