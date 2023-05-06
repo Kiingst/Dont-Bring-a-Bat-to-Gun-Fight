@@ -70,3 +70,8 @@ func dead_ball(ball, _position):
 func _on_Player_Catcher_caught(area):
 	area.get_parent().queue_free()
 
+
+
+func _on_player_do_dash():
+	
+	$Player.position.x += 50

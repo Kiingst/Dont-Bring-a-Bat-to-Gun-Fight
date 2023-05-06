@@ -76,7 +76,7 @@ func _input(event):
 		if throw_on_cooldown == false:
 			charging = true
 	if event.is_action_released("Primary_Action"):
-		print("Primart Action released")
+		#print("Primart Action released")
 		if throw_on_cooldown == false:
 			charging = false
 			throw()

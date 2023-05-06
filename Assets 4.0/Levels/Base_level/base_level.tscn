@@ -11,3 +11,5 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("1_o8ahi")]
 position = Vector2(96, -168)
+
+[connection signal="do_dash" from="Player" to="." method="_on_player_do_dash"]

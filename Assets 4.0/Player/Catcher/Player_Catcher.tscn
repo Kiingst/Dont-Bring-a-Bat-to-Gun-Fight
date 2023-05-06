@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5a3b58dl3hff"]
+[gd_scene load_steps=12 format=3 uid="uid://5a3b58dl3hff"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Player/Catcher/Player_Catcher.gd" id="1_btowt"]
 [ext_resource type="PackedScene" uid="uid://dd8xgoe0m5e4n" path="res://Assets 4.0/Bullet/baseball.tscn" id="2_6o6lk"]
@@ -13,11 +13,17 @@ size = Vector2(38, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ow46"]
 size = Vector2(44, 53)
 
+[sub_resource type="Animation" id="Animation_racj5"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_t6o0h"]
 resource_name = "dash"
+length = 0.25
+step = 0.05
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_purtg"]
 _data = {
+"RESET": SubResource("Animation_racj5"),
 "dash": SubResource("Animation_t6o0h")
 }
 
@@ -90,6 +96,7 @@ libraries = {
 }
 
 [node name="interact" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
 position = Vector2(-2, 3.5)
