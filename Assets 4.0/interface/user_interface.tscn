@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh6cb3ecv6u8s"]
 
 [ext_resource type="Script" path="res://Assets 4.0/interface/user_interface.gd" id="1_aohgb"]
-[ext_resource type="Texture2D" uid="uid://bx3gpl4r12f2m" path="res://Assets 4.0/Bullet/ball.png" id="1_kl6s0"]
+[ext_resource type="PackedScene" uid="uid://b8minfyfgiuy8" path="res://Assets 4.0/interface/UIBall.tscn" id="2_rpi51"]
 
 [node name="User_Interface" type="Control"]
 layout_mode = 3
@@ -23,8 +23,42 @@ layout_mode = 2
 [node name="balls_in_inventory" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Ball" type="TextureRect" parent="MarginContainer/VBoxContainer/balls_in_inventory"]
-custom_minimum_size = Vector2(60, 60)
+[node name="Ball1" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
 layout_mode = 2
-size_flags_vertical = 8
-texture = ExtResource("1_kl6s0")
+
+[node name="Ball2" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball3" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball4" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball5" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball6" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball7" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball8" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball9" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2
+
+[node name="Ball10" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+visible = false
+layout_mode = 2

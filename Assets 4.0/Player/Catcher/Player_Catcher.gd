@@ -18,6 +18,7 @@ var charge: float
 var invulnerable = false
 var charging = false
 var can_throw_ball = true
+@export var max_balls_in_inventory = 10
 
 
 
@@ -114,10 +115,17 @@ func catch():
 		if "Catch_Area" in index.name:
 			print("caught ", index.get_parent())
 			emit_signal("caught", index)
-			balls_in_inventory += 1
+			
+			add_ball_to_inventory(1)
+			#balls_in_inventory += 1
 			
 
-
+func add_ball_to_inventory(value):
+	if max_balls_in_inventory == balls_in_inventory and value > 0:
+		#balls_in_inventory += value
+		pass
+	else:
+		balls_in_inventory += value
 
 func throw():
 	if throw_on_cooldown == false:
@@ -128,7 +136,7 @@ func throw():
 			var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
 			emit_signal('fire', ball, $Cross_Hair/Marker2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * charge, Bullet_Damage)
 			charge = 0
-			balls_in_inventory -= 1
+			add_ball_to_inventory(-1)
 		
 
 func Dodge():
