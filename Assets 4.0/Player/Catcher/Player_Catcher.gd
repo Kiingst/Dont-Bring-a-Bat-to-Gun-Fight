@@ -20,6 +20,12 @@ var charging = false
 var can_throw_ball = true
 @export var max_balls_in_inventory = 10
 
+#behaviors
+#patrol
+#attack attacking and doging
+
+#death
+
 
 
 func Player_Control_Catch(delta):
@@ -103,7 +109,7 @@ func take_damage(damage):
 	if invulnerable == false :
 		print("player took damage")
 		#animation_mode.travel("Damage")
-		health -= damage
+		#health -= damage
 		print(health)
 	else :
 		print("player is invulnerable")
@@ -115,7 +121,6 @@ func catch():
 		if "Catch_Area" in index.name:
 			print("caught ", index.get_parent())
 			emit_signal("caught", index)
-			
 			add_ball_to_inventory(1)
 			#balls_in_inventory += 1
 			
@@ -126,6 +131,7 @@ func add_ball_to_inventory(value):
 		pass
 	else:
 		balls_in_inventory += value
+	print(balls_in_inventory)
 
 func throw():
 	if throw_on_cooldown == false:

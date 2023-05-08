@@ -15,24 +15,24 @@ radius = 10.0499
 [node name="dead_baseball" type="Node2D"]
 script = ExtResource("1_nqogu")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="dead_baseball" type="RigidBody2D" parent="."]
 collision_layer = 8
 collision_mask = 9
 mass = 0.5
 inertia = 50.0
 physics_material_override = SubResource("PhysicsMaterial_sl7rx")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="dead_baseball"]
 texture = ExtResource("1_5thsm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dead_baseball"]
 visible = false
 shape = SubResource("CircleShape2D_xpvj3")
 
-[node name="Catch_Area" type="Area2D" parent="RigidBody2D"]
+[node name="Catch_Area" type="Area2D" parent="dead_baseball"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Catch_Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dead_baseball/Catch_Area"]
 visible = false
 shape = SubResource("CircleShape2D_5b4vj")
 
-[connection signal="area_entered" from="RigidBody2D/Catch_Area" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="dead_baseball/Catch_Area" to="." method="_on_area_2d_area_entered"]
