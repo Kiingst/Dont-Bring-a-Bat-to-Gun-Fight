@@ -22,6 +22,8 @@ mass = 0.5
 inertia = 50.0
 physics_material_override = SubResource("PhysicsMaterial_sjahp")
 gravity_scale = 0.5
+max_contacts_reported = 5
+contact_monitor = true
 script = ExtResource("1_3ah2h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

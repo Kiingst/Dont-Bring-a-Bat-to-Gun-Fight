@@ -61,6 +61,7 @@ func control(delta):
 		return
 	$HealthBar.value = health
 	
+	#print($gun/Line_of_sight.get_collider())
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
 	
@@ -70,8 +71,9 @@ func control(delta):
 			pass
 	elif Locked_On == true :
 			$gun.global_rotation = atan2(vec_to_player.y, vec_to_player.x)
-			if $gun/Line_of_sight.is_colliding() :
-				dofire()
+			if $gun/Line_of_sight.is_colliding():
+				if "Player" in $gun/Line_of_sight.get_collider().name:
+					dofire()
 	
 	if health <= 0:
 		kill()

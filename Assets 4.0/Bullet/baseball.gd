@@ -8,6 +8,7 @@ var dead_ball = preload("res://Assets 4.0/Bullet/dead_baseball.tscn").instantiat
 var moving = true
 var timerisrunning = false
 signal dead
+var collsion_counter = 0
 
 func _ready():
 	add_to_group("Baseballs")
@@ -26,10 +27,10 @@ func start(_position, _direction, _speed, _damage):
 	dir = _direction
 	Bullet_velocity = _direction * _speed
 	apply_central_impulse(Bullet_velocity)
-	print("bullet firing at ", _speed, "speed")
+	print("bullet firing at ", _speed, "speed doing ",Bullet_Damage," damage")
 
 func _process(delta):
-	if moving == false:
+	if moving == false || collsion_counter == 5:
 		kill_ball()
 
 
@@ -60,15 +61,22 @@ func _on_Bullet_body_entered(body):
 
 func _on_stoped_time_timeout():
 	timerisrunning = false
-	if linear_velocity.length() < 20:
+	if linear_velocity.length() < 50:
 		moving = false
 
 
 func _on_body_entered(body):
-	print(body)
+	collsion_counter += 1
 
 
 func _on_baseball_area_area_entered(area):
 	if "enemy" in area.name:
+		
 		area.get_parent().take_damage(Bullet_Damage)
-		queue_free()
+		kill_ball()
+	if "Player" in area.name:
+		if area.get_parent().invulnerable == true:
+			pass
+		else:
+			area.get_parent().take_damage(Bullet_Damage)
+			kill_ball()

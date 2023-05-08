@@ -16,6 +16,6 @@ func _process(delta):
 
 func _on_area_2d_area_entered(area):
 	if "Player" in area.name:
-		area.get_parent().balls_in_inventory += 1
-		queue_free()
-		
+		#area.get_parent().balls_in_inventory += 1
+		#queue_free()
+		pass

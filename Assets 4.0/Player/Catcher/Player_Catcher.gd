@@ -17,11 +17,13 @@ var currently_taking_damage = false
 var charge: float
 var invulnerable = false
 var charging = false
+var can_throw_ball = true
+
 
 
 func Player_Control_Catch(delta):
-	#print($offset/Catch_Area.get_overlapping_areas())
-	#print(balls_in_inventory)
+	if health <= 0:
+		alive = false
 	
 	#look_vec = Input.get_vector("Left_stick_left", "Left_stick_right", "Left_stick_up", "Left_stick_down")
 	look_vec = get_global_mouse_position() - global_position
@@ -45,15 +47,20 @@ func Player_Control_Catch(delta):
 	#	if charge < 1:
 	#		charge += charge_increment
 	#		if charge > 1:
-	#			charge = 1
+	#			charge = 1 
 	#		print(charge)
-	
+	if balls_in_inventory <= 0 || throw_on_cooldown == true:
+		can_throw_ball = false
+	else:
+		can_throw_ball = true
 	
 	if charging == true:
 		if charge < 1:
 			charge += charge_increment
 		if charge > 1:
 			charge = 1
+			throw()
+			charging = false
 		#print(charge)
 		
 
@@ -61,6 +68,7 @@ func Player_Control_Catch(delta):
 
 func _physics_process(delta):
 	if alive == false:
+		print("kill player")
 		return
 	else:
 		Player_Control(delta)
@@ -73,19 +81,18 @@ func _input(event):
 			catch_on_cooldown = true
 			$catch_cooldown.start()
 	if event.is_action_pressed("Primary_Action"):
-		if throw_on_cooldown == false:
-			charging = true
-	if event.is_action_released("Primary_Action"):
-		#print("Primart Action released")
-		if throw_on_cooldown == false:
-			charging = false
-			throw()
-			throw_on_cooldown = true
-			$throw_cooldown.start()
+		if can_throw_ball == true:
+			if charging == false:
+				charging = true
+			elif charging == true:
+				throw()
+				charging = false
+	#if event.is_action_released("Primary_Action"):
+	#		throw()
 	if event.is_action_pressed("Pause"):
 		get_tree().reload_current_scene()
-	if event.is_action_pressed("Dash"):
-		dash()
+	if event.is_action_pressed("Dodge"):
+		Dodge()
 	if event.is_action_pressed("interact"):
 		$interact/CollisionShape2D.disabled = false
 		$interact/Time.start()
@@ -96,6 +103,7 @@ func take_damage(damage):
 		print("player took damage")
 		#animation_mode.travel("Damage")
 		health -= damage
+		print(health)
 	else :
 		print("player is invulnerable")
 	
@@ -109,17 +117,24 @@ func catch():
 			balls_in_inventory += 1
 			
 
-	
+
 
 func throw():
-	if balls_in_inventory > 0:
-		print("throwing")
-		var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
-		emit_signal('fire', ball, $Cross_Hair/Marker2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * charge, Bullet_Damage)
-		charge = 0
-		balls_in_inventory -= 1
+	if throw_on_cooldown == false:
+		throw_on_cooldown = true
+		$throw_cooldown.start()
+		if balls_in_inventory > 0:
+			#print("throwing")
+			var direction = Vector2(1,0).rotated($Cross_Hair.global_rotation)
+			emit_signal('fire', ball, $Cross_Hair/Marker2D.global_position, direction, base_Bullet_Speed + max_Bullet_Speed * charge, Bullet_Damage)
+			charge = 0
+			balls_in_inventory -= 1
 		
 
+func Dodge():
+	invulnerable = true
+	$Player_Model.modulate = Color(1,1,1,0.5)
+	$invulnerability.start()
 
 func _on_throw_cooldown_timeout():
 	throw_on_cooldown = false
@@ -131,7 +146,8 @@ func _on_catch_cooldown_timeout():
 
 
 func _on_invulnerability_timeout():
-	pass # Replace with function body.
+	$Player_Model.modulate = Color(1,1,1,1)
+	invulnerable = false
 
 
 func _on_time_timeout():

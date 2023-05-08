@@ -21,6 +21,7 @@ const JUMP_VELOCITY = -400.0
 var jump_counter = 0
 var iswall_sliding = false
 signal do_dash
+var can_wall_jump = true
 
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -34,6 +35,8 @@ func _ready():
 
 
 func Player_Control(delta):
+	#print(jump_counter)
+	#print(can_wall_jump)
 	velocity.y += get_gravity() * delta
 	velocity.x = get_input_velocity() * move_speed
 		
@@ -42,8 +45,13 @@ func Player_Control(delta):
 	else:
 		iswall_sliding = true
 	
+	if iswall_sliding == true and can_wall_jump == true:
+		jump_counter -= 1
+		can_wall_jump = false
+	
 	if is_on_floor() == true:
 		jump_counter = 0
+		can_wall_jump = true
 	
 	if do_multi_jump == false:
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -99,5 +107,4 @@ func dash():
 	print("signaled dash")
 	
 	
-func take_damage(damage):
-	health -= damage
+
