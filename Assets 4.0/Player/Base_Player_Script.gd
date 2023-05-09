@@ -7,7 +7,6 @@ extends CharacterBody2D
 signal took_damage
 var alive = true
 var floor_normal = Vector2(0, -1)
-var trueifleft : bool
 
 
 const SPEED = 300.0
@@ -22,6 +21,8 @@ var jump_counter = 0
 var iswall_sliding = false
 signal do_dash
 var can_wall_jump = true
+var last_input_right: bool
+var is_Jumping: bool
 
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -50,6 +51,7 @@ func Player_Control(delta):
 		can_wall_jump = false
 	
 	if is_on_floor() == true:
+		is_Jumping = false
 		jump_counter = 0
 		can_wall_jump = true
 	
@@ -92,14 +94,15 @@ func get_input_velocity() -> float:
 	
 	if Input.is_action_pressed("Move_Left"):
 		horizontal -= 1.0
-		trueifleft = true
+		last_input_right = false
 	if Input.is_action_pressed("Move_Right"):
 		horizontal += 1.0
-		trueifleft= false
+		last_input_right = true
 	
 	return horizontal
 
 func jump():
+	is_Jumping = true
 	velocity.y = jump_velocity
 
 func dash():

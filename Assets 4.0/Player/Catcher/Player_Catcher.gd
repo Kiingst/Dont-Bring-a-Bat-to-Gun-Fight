@@ -19,6 +19,10 @@ var invulnerable = false
 var charging = false
 var can_throw_ball = true
 @export var max_balls_in_inventory = 10
+@onready var Animation_tree = $AnimationTree
+@onready var Animation_mode = Animation_tree.get("parameters/playback")
+
+
 
 #behaviors
 #patrol
@@ -40,22 +44,16 @@ func Player_Control_Catch(delta):
 	
 	$charge_bar.value = charge
 	
-	#if currently_taking_damage == false:
-	#	if move_vec.x == 0:
-	#		animation_mode.travel("Idle")
-	#	else:
-	#		animation_mode.travel("Walking")
-	#		animation_tree.set("parameters/Walking/blend_position", look_vec.normalized() )
-	#		animation_tree.set("parameters/Idle/blend_position", look_vec.normalized())
-			
+	#Animation_mode.travel("idle_right")
+	if velocity.length() == 0:
+		change_animation_based_on_dir("idle")
+	else:
+		if is_Jumping == false:
+			change_animation_based_on_dir("Run")
+		else:
+			change_animation_based_on_dir("Jump")
 	
 	
-	#if Input.is_action_pressed("Charge"):
-	#	if charge < 1:
-	#		charge += charge_increment
-	#		if charge > 1:
-	#			charge = 1 
-	#		print(charge)
 	if balls_in_inventory <= 0 || throw_on_cooldown == true:
 		can_throw_ball = false
 	else:
@@ -72,7 +70,12 @@ func Player_Control_Catch(delta):
 		
 
 
-
+func change_animation_based_on_dir(animation_string):
+	if last_input_right == true:
+		Animation_mode.travel(animation_string + "_right")
+	else:
+		Animation_mode.travel(animation_string + "_left")
+	
 func _physics_process(delta):
 	if alive == false:
 		print("kill player")
