@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://e1nypcnvd22s" path="res://Assets 4.0/interface/heartUI.tscn" id="3_ervcy"]
 
 [node name="User_Interface" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +16,7 @@ script = ExtResource("1_aohgb")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 1320.0
+offset_right = 1281.0
 offset_bottom = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -28,53 +29,60 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Ball2" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball3" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball4" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball5" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball6" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball7" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball8" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball9" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="Ball10" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 590)
 layout_mode = 2
 
-[node name="Health" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Vbox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Health"]
+[node name="Heath" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Vbox"]
 layout_mode = 2
 
-[node name="Heart" parent="MarginContainer/VBoxContainer/Health/HBoxContainer" instance=ExtResource("3_ervcy")]
+[node name="Heart" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart2" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart3" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart4" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart5" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 

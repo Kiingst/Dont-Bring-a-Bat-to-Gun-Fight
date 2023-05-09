@@ -3,12 +3,15 @@ var ball = preload("res://Assets 4.0/interface/UIBall.tscn").instantiate()
 var player
 var ball_count
 @onready var ball_array = $MarginContainer/VBoxContainer/balls_in_inventory.get_children()
+@onready var health_array = $MarginContainer/VBoxContainer/Vbox/Heath.get_children()
+
 @onready var ball2 = $MarginContainer/VBoxContainer/balls_in_inventory/Ball
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	var array = get_tree().get_nodes_in_group("Player")
 	player = array.pick_random()
-	inital_ball_visibility()
+
 	
 
 
@@ -18,18 +21,17 @@ func _process(delta):
 	#print(player.balls_in_inventory, ball_count)
 	#ball_array = $MarginContainer/VBoxContainer/balls_in_inventory.get_children()
 	
-	
-	inital_ball_visibility()
+	visibility(health_array, player.health)
+	visibility(ball_array, player.balls_in_inventory)
 
 
-func inital_ball_visibility():
-	if player.balls_in_inventory > 0:
-		for i in ball_array.size():
-			#var ball_number = "Ball" + str(i)
-			if player.balls_in_inventory >= i + 1:
-				ball_array[i].visible = true
+func visibility(array, value):
+	if value > 0:
+		for i in array.size():
+			if value >= i + 1:
+				array[i].visible = true
 			else:
-				ball_array[i].visible = false
+				array[i].visible = false
 			
 			
 
