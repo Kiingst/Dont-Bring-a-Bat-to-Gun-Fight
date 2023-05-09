@@ -78,7 +78,7 @@ func change_animation_based_on_dir(animation_string):
 	
 func _physics_process(delta):
 	if alive == false:
-		print("kill player")
+		Animation_mode.travel("death")
 		return
 	else:
 		Player_Control(delta)
@@ -112,7 +112,7 @@ func take_damage(damage):
 	if invulnerable == false :
 		print("player took damage")
 		#animation_mode.travel("Damage")
-		#health -= damage
+		health -= damage
 		print(health)
 	else :
 		print("player is invulnerable")
