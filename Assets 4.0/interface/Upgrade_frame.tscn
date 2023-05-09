@@ -110,6 +110,7 @@ layout_mode = 2
 texture = ExtResource("3_kvin5")
 
 [node name="Item_Image2" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 0
 offset_left = 34.0
 offset_top = 40.0
 offset_right = 74.0
@@ -165,6 +166,7 @@ layout_mode = 2
 texture = ExtResource("3_kvin5")
 
 [node name="Item_Image3" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 0
 offset_left = 34.0
 offset_top = 40.0
 offset_right = 74.0

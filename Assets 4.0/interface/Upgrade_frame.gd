@@ -43,3 +43,4 @@ func _on_button_1_button_down():
 
 func _on_button_1_mouse_entered():
 	print("mouse entered")
+	Selected_Upgrade.emit(1)
