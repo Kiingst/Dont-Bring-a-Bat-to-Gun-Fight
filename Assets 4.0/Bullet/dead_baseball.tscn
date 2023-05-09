@@ -16,8 +16,7 @@ radius = 10.0499
 script = ExtResource("1_nqogu")
 
 [node name="dead_baseball" type="RigidBody2D" parent="."]
-collision_layer = 8
-collision_mask = 9
+collision_layer = 0
 mass = 0.5
 inertia = 50.0
 physics_material_override = SubResource("PhysicsMaterial_sl7rx")
