@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh6cb3ecv6u8s"]
+[gd_scene load_steps=5 format=3 uid="uid://bh6cb3ecv6u8s"]
 
 [ext_resource type="Script" path="res://Assets 4.0/interface/user_interface.gd" id="1_aohgb"]
 [ext_resource type="PackedScene" uid="uid://b8minfyfgiuy8" path="res://Assets 4.0/interface/UIBall.tscn" id="2_rpi51"]
 [ext_resource type="PackedScene" uid="uid://e1nypcnvd22s" path="res://Assets 4.0/interface/heartUI.tscn" id="3_ervcy"]
+[ext_resource type="PackedScene" uid="uid://cnfwlv0s2v4vs" path="res://Assets 4.0/interface/Upgrade_frame.tscn" id="3_grkrn"]
 
 [node name="User_Interface" type="Control"]
-z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,6 +57,20 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 590)
+layout_mode = 2
+
+[node name="Frame" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Frame"]
+custom_minimum_size = Vector2(440, 2.08165e-12)
+layout_mode = 2
+
+[node name="Main_Frame" parent="MarginContainer/VBoxContainer/MarginContainer/Frame" instance=ExtResource("3_grkrn")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Frame"]
+custom_minimum_size = Vector2(440, 2.08165e-12)
 layout_mode = 2
 
 [node name="Vbox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]

@@ -13,7 +13,10 @@ script = ExtResource("1_60tls")
 zoom = Vector2(1.5, 1.5)
 
 [node name="User_Interface" parent="." instance=ExtResource("2_tntnn")]
+z_index = 5
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
+
+[connection signal="Selected_Upgrade" from="User_Interface" to="." method="_on_user_interface_selected_upgrade"]

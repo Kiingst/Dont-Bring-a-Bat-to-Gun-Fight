@@ -18,6 +18,7 @@ var charge: float
 var invulnerable = false
 var charging = false
 var can_throw_ball = true
+var did_play_death_animation = false
 @export var max_balls_in_inventory = 10
 @onready var Animation_tree = $AnimationTree
 @onready var Animation_mode = Animation_tree.get("parameters/playback")
@@ -51,7 +52,10 @@ func Player_Control_Catch(delta):
 		if is_Jumping == false:
 			change_animation_based_on_dir("Run")
 		else:
-			change_animation_based_on_dir("Jump")
+			if iswall_sliding == false:
+				change_animation_based_on_dir("Jump")
+			else:
+				change_animation_based_on_dir("wall_slide")
 	
 	
 	if balls_in_inventory <= 0 || throw_on_cooldown == true:
@@ -78,8 +82,11 @@ func change_animation_based_on_dir(animation_string):
 	
 func _physics_process(delta):
 	if alive == false:
-		Animation_mode.travel("death")
-		return
+		if did_play_death_animation == false:
+			Animation_mode.travel("death")
+			did_play_death_animation == true
+		else:
+			Animation_mode.travel("End")
 	else:
 		Player_Control(delta)
 		Player_Control_Catch(delta)

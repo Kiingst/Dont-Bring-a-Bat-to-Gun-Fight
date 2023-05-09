@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1tw5qcolwqd5"]
+
+[ext_resource type="PackedScene" uid="uid://cnfwlv0s2v4vs" path="res://Assets 4.0/interface/Upgrade_frame.tscn" id="1_obqsr"]
+
+[node name="Frame" type="HBoxContainer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(440, 2.08165e-12)
+layout_mode = 2
+
+[node name="Main_Frame" parent="." instance=ExtResource("1_obqsr")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(440, 2.08165e-12)
+layout_mode = 2

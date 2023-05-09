@@ -18,8 +18,6 @@ func _ready():
 
 func start(level):
 	addlevel(level)
-	
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -75,3 +73,7 @@ func _on_Player_Catcher_caught(area):
 func _on_player_do_dash():
 	
 	$Player.position.x += 50
+
+
+func _on_user_interface_selected_upgrade(amount):
+	print("Upgrade ",amount," was selected")

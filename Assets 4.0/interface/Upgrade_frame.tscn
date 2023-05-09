@@ -1,0 +1,192 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnfwlv0s2v4vs"]
+
+[ext_resource type="Texture2D" uid="uid://dl1qsb2inepl8" path="res://Assets 4.0/interface/upgrade_interface/upgrade_gui0.png" id="1_ub65c"]
+[ext_resource type="Script" path="res://Assets 4.0/interface/Upgrade_frame.gd" id="2_wabr0"]
+[ext_resource type="Texture2D" uid="uid://bw4t1j21b30w" path="res://Assets 4.0/interface/upgrade_interface/ui_inner_frame.png" id="2_yvwpv"]
+[ext_resource type="Texture2D" uid="uid://cw4b2hfm7a3fb" path="res://Assets 4.0/interface/upgrade_interface/Weapon_Frame.png" id="3_kvin5"]
+
+[node name="Main_Frame" type="TextureRect"]
+texture = ExtResource("1_ub65c")
+script = ExtResource("2_wabr0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(400, 580)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 584.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="Inner_Box" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box"]
+custom_minimum_size = Vector2(12, 2.08165e-12)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box"]
+layout_mode = 2
+texture = ExtResource("2_yvwpv")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 366.0
+offset_bottom = 144.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_kvin5")
+
+[node name="Item_Image1" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="Label1" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "This is Upgrade Number 1"
+
+[node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Select this upgrade"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Inner_Box2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box2"]
+custom_minimum_size = Vector2(12, 2.08165e-12)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box2"]
+layout_mode = 2
+texture = ExtResource("2_yvwpv")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 366.0
+offset_bottom = 144.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_kvin5")
+
+[node name="Item_Image2" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "This is Upgrade Number 2"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Select this upgrade"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Inner_Box3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box3"]
+custom_minimum_size = Vector2(12, 2.08165e-12)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box3"]
+layout_mode = 2
+texture = ExtResource("2_yvwpv")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 366.0
+offset_bottom = 144.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_kvin5")
+
+[node name="Item_Image3" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "This is Upgrade Number 3"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Select this upgrade"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
