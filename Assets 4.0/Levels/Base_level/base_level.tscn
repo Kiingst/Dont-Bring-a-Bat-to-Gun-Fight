@@ -7,16 +7,13 @@
 [node name="Base_level" type="Node2D"]
 script = ExtResource("1_60tls")
 
+[node name="Player" parent="." instance=ExtResource("1_o8ahi")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
-
-[node name="Player" parent="." instance=ExtResource("1_o8ahi")]
-position = Vector2(96, -168)
 
 [node name="User_Interface" parent="." instance=ExtResource("2_tntnn")]
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
-
-[connection signal="do_dash" from="Player" to="." method="_on_player_do_dash"]

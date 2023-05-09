@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5a3b58dl3hff"]
+[gd_scene load_steps=36 format=3 uid="uid://5a3b58dl3hff"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Player/Catcher/Player_Catcher.gd" id="1_btowt"]
 [ext_resource type="PackedScene" uid="uid://dd8xgoe0m5e4n" path="res://Assets 4.0/Bullet/baseball.tscn" id="2_6o6lk"]
@@ -6,19 +6,186 @@
 [ext_resource type="Texture2D" uid="uid://dai1jwuagn5hk" path="res://Assets 4.0/Player/Player_Art/necromancer_idle_anim_f2.png" id="2_mgwx3"]
 [ext_resource type="Texture2D" uid="uid://bw4gtng0iadmv" path="res://Assets 4.0/Misc/HealthBar_Progress.png" id="3_86um0"]
 [ext_resource type="Texture2D" uid="uid://du3s3l3frhw87" path="res://Assets 4.0/Misc/Cross_Hair.png" id="3_c8pug"]
+[ext_resource type="Texture2D" uid="uid://bq2ts8uv7voi7" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_0.png" id="7_tdjpl"]
+[ext_resource type="Texture2D" uid="uid://duakpyvdk0oi" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_1.png" id="8_e82v0"]
+[ext_resource type="Texture2D" uid="uid://berslxsmoon1r" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_2.png" id="9_m48wj"]
+[ext_resource type="Texture2D" uid="uid://cjgvksddrbxi0" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_3.png" id="10_1wtas"]
+[ext_resource type="Texture2D" uid="uid://peqoermogua0" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_4.png" id="11_1swep"]
+[ext_resource type="Texture2D" uid="uid://cld0wppxe2qnd" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_5.png" id="12_tmjm8"]
+[ext_resource type="Texture2D" uid="uid://dsjb64vregq5t" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_6.png" id="13_03v54"]
+[ext_resource type="Texture2D" uid="uid://chccwx5u8u1xs" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_7.png" id="14_yowjg"]
+[ext_resource type="Texture2D" uid="uid://cdwo6lmfb5kao" path="res://Assets 4.0/Player/Player_Art/run_cycle/run_8.png" id="15_o6p0c"]
+[ext_resource type="Texture2D" uid="uid://s5ewhxewbfeg" path="res://Assets 4.0/Player/Player_Art/idle/idle_00.png" id="16_wsmi1"]
+[ext_resource type="Texture2D" uid="uid://dcb7tpss61mrj" path="res://Assets 4.0/Player/Player_Art/idle/idle_01.png" id="17_g78io"]
+[ext_resource type="Texture2D" uid="uid://dcwhsqb1nxoxa" path="res://Assets 4.0/Player/Player_Art/idle/idle_02.png" id="18_hpmwi"]
+[ext_resource type="Texture2D" uid="uid://c05opkfqvixcb" path="res://Assets 4.0/Player/Player_Art/idle/idle_03.png" id="19_qjhg1"]
+[ext_resource type="Texture2D" uid="uid://q10a5rgu4s43" path="res://Assets 4.0/Player/Player_Art/idle/idle_04.png" id="20_y0cdy"]
+[ext_resource type="Texture2D" uid="uid://dg65w1cgvmvy1" path="res://Assets 4.0/Player/Player_Art/idle/idle_05.png" id="21_ktfdg"]
+[ext_resource type="Texture2D" uid="uid://bbyc6xeyfvinw" path="res://Assets 4.0/Player/Player_Art/idle/idle_06.png" id="22_nlufe"]
+[ext_resource type="Texture2D" uid="uid://csq2eket3fmrk" path="res://Assets 4.0/Player/Player_Art/idle/idle_07.png" id="23_js1tt"]
+[ext_resource type="Texture2D" uid="uid://cnsggs3jqtaig" path="res://Assets 4.0/Player/Player_Art/idle/idle_08.png" id="24_r5352"]
+[ext_resource type="Texture2D" uid="uid://p8br1d6ao3bx" path="res://Assets 4.0/Player/Player_Art/idle/idle_09.png" id="25_tp563"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gsvf"]
-size = Vector2(38, 48)
+size = Vector2(30, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ow46"]
 size = Vector2(44, 53)
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qd23s"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_6b3t7"]
+
 [sub_resource type="Animation" id="Animation_racj5"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Model:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_mgwx3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Model:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ux0gk"]
+resource_name = "Run_left"
+length = 0.75
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Model:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_tdjpl"), ExtResource("8_e82v0"), ExtResource("9_m48wj"), ExtResource("10_1wtas"), ExtResource("11_1swep"), ExtResource("12_tmjm8"), ExtResource("13_03v54"), ExtResource("14_yowjg"), ExtResource("15_o6p0c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Model:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_ptiq4"]
+resource_name = "Run_right"
+length = 0.75
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Model:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_tdjpl"), ExtResource("8_e82v0"), ExtResource("9_m48wj"), ExtResource("10_1wtas"), ExtResource("11_1swep"), ExtResource("12_tmjm8"), ExtResource("13_03v54"), ExtResource("14_yowjg"), ExtResource("15_o6p0c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Model:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_5xctw"]
+resource_name = "idle_left"
+length = 0.95
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Model:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.095, 0.19, 0.285, 0.38, 0.475, 0.57, 0.665, 0.76, 0.855, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_wsmi1"), ExtResource("17_g78io"), ExtResource("18_hpmwi"), ExtResource("19_qjhg1"), ExtResource("20_y0cdy"), ExtResource("21_ktfdg"), ExtResource("22_nlufe"), ExtResource("23_js1tt"), ExtResource("24_r5352"), ExtResource("25_tp563")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Model:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_2g85e"]
+resource_name = "idle_right"
+length = 0.95
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player_Model:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.095, 0.19, 0.285, 0.38, 0.475, 0.57, 0.665, 0.76, 0.855, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_wsmi1"), ExtResource("17_g78io"), ExtResource("18_hpmwi"), ExtResource("19_qjhg1"), ExtResource("20_y0cdy"), ExtResource("21_ktfdg"), ExtResource("22_nlufe"), ExtResource("23_js1tt"), ExtResource("24_r5352"), ExtResource("25_tp563")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player_Model:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_purtg"]
 _data = {
-"RESET": SubResource("Animation_racj5")
+"RESET": SubResource("Animation_racj5"),
+"Run_left": SubResource("Animation_ux0gk"),
+"Run_right": SubResource("Animation_ptiq4"),
+"idle_left": SubResource("Animation_5xctw"),
+"idle_right": SubResource("Animation_2g85e")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -33,7 +200,7 @@ charge_increment = 0.05
 jump_height = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 6)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6gsvf")
 
 [node name="Player_Model" type="Sprite2D" parent="."]
@@ -82,6 +249,11 @@ texture_progress = ExtResource("3_86um0")
 [node name="invulnerability" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_qd23s")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_6b3t7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../invulnerability")
