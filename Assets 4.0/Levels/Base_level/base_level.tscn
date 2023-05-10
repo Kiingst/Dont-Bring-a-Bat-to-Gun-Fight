@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3o81vafmjlt0"]
+[gd_scene load_steps=5 format=3 uid="uid://c3o81vafmjlt0"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Levels/Base_level/base_level.gd" id="1_60tls"]
 [ext_resource type="PackedScene" uid="uid://5a3b58dl3hff" path="res://Assets 4.0/Player/Catcher/Player_Catcher.tscn" id="1_o8ahi"]
 [ext_resource type="PackedScene" uid="uid://bh6cb3ecv6u8s" path="res://Assets 4.0/interface/user_interface.tscn" id="2_tntnn"]
+[ext_resource type="Script" path="res://Assets 4.0/Upgrades/Upgrade_Data.gd" id="4_42edf"]
 
 [node name="Base_level" type="Node2D"]
 script = ExtResource("1_60tls")
@@ -12,10 +13,48 @@ script = ExtResource("1_60tls")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
 
-[node name="User_Interface" parent="." instance=ExtResource("2_tntnn")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+follow_viewport_enabled = true
+
+[node name="User_Interface" parent="CanvasLayer" instance=ExtResource("2_tntnn")]
+process_mode = 3
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
-[connection signal="Selected_Upgrade" from="User_Interface" to="." method="_on_user_interface_selected_upgrade"]
+[node name="Upgrade_Data" type="Node" parent="."]
+script = ExtResource("4_42edf")
+
+[node name="Weapons" type="Node" parent="Upgrade_Data"]
+
+[node name="Ball" type="Node" parent="Upgrade_Data/Weapons"]
+
+[node name="Weapon_Upgrades" type="Node" parent="Upgrade_Data"]
+
+[node name="Ball" type="Node" parent="Upgrade_Data/Weapon_Upgrades"]
+
+[node name="Ball_Speed" type="Node" parent="Upgrade_Data/Weapon_Upgrades/Ball"]
+
+[node name="Ball_Damage" type="Node" parent="Upgrade_Data/Weapon_Upgrades/Ball"]
+
+[node name="Balls_Thrown_Dont_Damage_Player" type="Node" parent="Upgrade_Data/Weapon_Upgrades/Ball"]
+
+[node name="Player_Upgrades" type="Node" parent="Upgrade_Data"]
+
+[node name="Speed" type="Node" parent="Upgrade_Data/Player_Upgrades"]
+
+[node name="Jump_Height" type="Node" parent="Upgrade_Data/Player_Upgrades"]
+
+[node name="Dodge_Time" type="Node" parent="Upgrade_Data/Player_Upgrades"]
+
+[node name="Health" type="Node" parent="Upgrade_Data/Player_Upgrades"]
+
+[node name="Multi_Jump" type="Node" parent="Upgrade_Data/Player_Upgrades"]
+
+[node name="Auto_Ball_Pickup" type="Node" parent="Upgrade_Data/Player_Upgrades"]
+
+[node name="Dodged_ball_enter_inventory" type="Node" parent="Upgrade_Data/Player_Upgrades"]
+
+[connection signal="Selected_Upgrade" from="CanvasLayer/User_Interface" to="." method="_on_user_interface_selected_upgrade"]

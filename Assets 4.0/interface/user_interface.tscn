@@ -58,11 +58,63 @@ layout_mode = 2
 [node name="Ball10" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
 layout_mode = 2
 
+[node name="Ball11" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball12" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball13" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball14" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball15" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball16" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball17" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball18" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball19" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball20" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball21" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball22" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball23" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball24" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball25" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball26" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
+[node name="Ball27" parent="MarginContainer/VBoxContainer/balls_in_inventory" instance=ExtResource("2_rpi51")]
+layout_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 590)
 layout_mode = 2
 
 [node name="Frame" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Frame"]
@@ -100,5 +152,85 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Heart5" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart6" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart7" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart8" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart9" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart10" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart11" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart12" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart13" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart14" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart15" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart16" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart17" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart18" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart19" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart20" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart21" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart22" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart23" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart24" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Heart25" parent="MarginContainer/VBoxContainer/Vbox/Heath" instance=ExtResource("3_ervcy")]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2

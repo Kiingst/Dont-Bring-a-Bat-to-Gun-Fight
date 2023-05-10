@@ -6,8 +6,7 @@ extends "res://Assets 4.0/Levels/base_room.gd"
 #use a array with mutiple packed scenes in it and randomly chose an enemy to spawn
 
 func add_values():
-	enemy = preload("res://Assets 4.0/Enemys/Test_Enemy/test_enemy.tscn")
-	waves = 2
+	waves = 1
 	wavesize = 3
 	Time_between_waves = 30
 	enemy1 = preload("res://Assets 4.0/Enemys/Test_Enemy/test_enemy.tscn")

@@ -22,14 +22,14 @@ var did_play_death_animation = false
 @export var max_balls_in_inventory = 10
 @onready var Animation_tree = $AnimationTree
 @onready var Animation_mode = Animation_tree.get("parameters/playback")
+var expression = Expression.new()
+
+#upgrades
+var Auto_Pickup = false
+var Take_Own_Ball_damage = false
+var dodge_into_inventory = false
 
 
-
-#behaviors
-#patrol
-#attack attacking and doging
-
-#death
 
 
 
@@ -113,6 +113,8 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		$interact/CollisionShape2D.disabled = false
 		$interact/Time.start()
+	if event.is_action_pressed("Move_Down") :
+		position.y += 1
 
 func take_damage(damage):
 	
@@ -144,6 +146,9 @@ func add_ball_to_inventory(value):
 	print(balls_in_inventory)
 
 func throw():
+	expression.parse("jumps_available += 1")
+	var result = expression.execute()
+	print(result)
 	if throw_on_cooldown == false:
 		throw_on_cooldown = true
 		$throw_cooldown.start()

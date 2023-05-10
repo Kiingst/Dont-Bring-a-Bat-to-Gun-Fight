@@ -14,7 +14,7 @@ var alive = true
 @export var Bullet_Damage : int = 1
 @export var Bullet_Speed : int = 400
 @onready var player = get_parent().get_node("Player")
-
+var moving_left = true
 var Current_Frame = 0
 
 
@@ -45,7 +45,25 @@ func _physics_process(delta):
 
 func move_to_player(delta):
 	velocity.y += gravity * delta
-	velocity.x = -MOVE_SPEED
+	
+	if $wall_left.is_colliding():
+		if "Static" in $wall_left.get_collider().name:
+			moving_left = false
+	
+	if $wall_right.is_colliding():
+		if "Static" in $wall_right.get_collider().name:
+			moving_left = true
+	
+	if $floor_left.is_colliding() == false:
+		moving_left = false
+		
+	if $floor_right.is_colliding() == false:
+		moving_left = true
+	
+	if moving_left == true:
+		velocity.x = -MOVE_SPEED
+	else:
+		velocity.x = MOVE_SPEED
 	
 	move_and_slide()
 

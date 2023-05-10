@@ -55,12 +55,14 @@ texture = ExtResource("3_kvin5")
 
 [node name="Item_Image1" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 40.0
-offset_right = 74.0
-offset_bottom = 80.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 110.0
+offset_bottom = 121.0
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -69,11 +71,20 @@ layout_mode = 2
 
 [node name="Label1" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "This is Upgrade Number 1"
+text = "This is Upgrade Number 1 "
+autowrap_mode = 1
 
 [node name="Button1" type="Button" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Select this upgrade"
+
+[node name="Selector" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 52.0
+offset_bottom = 30.0
+text = ">"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -111,12 +122,14 @@ texture = ExtResource("3_kvin5")
 
 [node name="Item_Image2" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 40.0
-offset_right = 74.0
-offset_bottom = 80.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 109.0
+offset_bottom = 121.0
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -126,10 +139,18 @@ layout_mode = 2
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "This is Upgrade Number 2"
+autowrap_mode = 2
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Select this upgrade"
+
+[node name="Selector" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button2"]
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 52.0
+offset_bottom = 30.0
+text = ">"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -167,12 +188,14 @@ texture = ExtResource("3_kvin5")
 
 [node name="Item_Image3" type="TextureRect" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 40.0
-offset_right = 74.0
-offset_bottom = 80.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 110.0
+offset_bottom = 121.0
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -182,13 +205,15 @@ layout_mode = 2
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "This is Upgrade Number 3"
+autowrap_mode = 2
 
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Select this upgrade"
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_button_down"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Inner_Box/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Inner_Box2/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[node name="Selector" type="Label" parent="MarginContainer/VBoxContainer/Inner_Box3/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button3"]
+offset_left = 12.0
+offset_top = 4.0
+offset_right = 52.0
+offset_bottom = 30.0
+text = ">"

@@ -3,7 +3,9 @@ extends Node2D
 var starting_level = preload("res://Assets 4.0/Levels/starting_room.tscn")
 var room1 = preload("res://Assets 4.0/Levels/room1.tscn")
 var islevelactive = true
-
+var Upgrade1
+var Upgrade2
+var Upgrade3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +28,7 @@ func _process(delta):
 
 func next_level():
 	print("going to lext level")
+	get_tree().call_group("Baseballs", "queue_free")
 	get_node("Room").queue_free()
 	start(room1)
 
@@ -38,7 +41,9 @@ func addlevel(level1):
 	level.connect("next_level", Callable(self,"next_level"))
 
 func level_clear():
-	print("add reward")
+	#print("add reward")
+	set_upgrade_data()
+	get_tree().call_group("Ui", "add_reward")
 	get_tree().call_group("Doors", "activate")
 
 func fire(bullet, _position, _direction, _speed, _damage):
@@ -68,7 +73,15 @@ func dead_ball(ball, _position):
 func _on_Player_Catcher_caught(area):
 	area.get_parent().queue_free()
 
+func set_upgrade_data():
+	Upgrade1 = $Upgrade_Data.get_upgrade()
+	Upgrade2 = $Upgrade_Data.get_upgrade()
+	Upgrade3 = $Upgrade_Data.get_upgrade()
+	get_tree().call_group("Upgrades", "set_data", Upgrade1[0],Upgrade1[1],Upgrade2[0],Upgrade2[1],Upgrade3[0],Upgrade3[1])
 
+#func get_rand_upgrade():
+#	var array = $Upgrade_Data.get_upgrade()
+#	return array
 
 func _on_player_do_dash():
 	
@@ -77,3 +90,11 @@ func _on_player_do_dash():
 
 func _on_user_interface_selected_upgrade(amount):
 	print("Upgrade ",amount," was selected")
+	match amount:
+		1:
+			$Upgrade_Data.apply_Upgrade(Upgrade1)
+		2:
+			$Upgrade_Data.apply_Upgrade(Upgrade2)
+		3:
+			$Upgrade_Data.apply_Upgrade(Upgrade3)
+	

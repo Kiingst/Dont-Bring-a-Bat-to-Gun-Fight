@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0lxt3jj80bqr"]
+[gd_scene load_steps=14 format=3 uid="uid://d0lxt3jj80bqr"]
 
 [ext_resource type="Texture2D" uid="uid://dypwjg0vhppjs" path="res://Assets 4.0/Levels/Level_Tiles/2dtileset.png" id="1_0hgpg"]
+[ext_resource type="Texture2D" uid="uid://c7nslpp2lag4o" path="res://Assets 4.0/Levels/Level_Tiles/cavesofgallet_tiles.png" id="2_neage"]
+[ext_resource type="Texture2D" uid="uid://c5d3usnuh4tui" path="res://Assets 4.0/Levels/Level_Tiles/desert-ruins.png" id="3_np1sf"]
+[ext_resource type="Texture2D" uid="uid://33jkysg2a5uv" path="res://Assets 4.0/Levels/Level_Tiles/SR_Stone Ruins_TileSet 16x16.png" id="4_scgc2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hug2g"]
 tile_data = PackedInt32Array(0, 65537, 1)
@@ -32,10 +35,182 @@ use_texture_padding = false
 1:1/0 = 0
 1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ecsbq")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_holop"]
+texture = ExtResource("2_neage")
+texture_region_size = Vector2i(16, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uipwt"]
+texture = ExtResource("3_np1sf")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+5:3/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+6:3/0 = 0
+6:2/0 = 0
+5:2/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+4:5/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+7:5/0 = 0
+5:6/0 = 0
+5:5/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+3:9/0 = 0
+2:10/0 = 0
+1:10/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:10/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erfq6"]
+texture = ExtResource("4_scgc2")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+17:1/0 = 0
+19:1/0 = 0
+19:2/0 = 0
+18:1/0 = 0
+16:1/0 = 0
+10:1/0 = 0
+10:2/0 = 0
+10:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+12:2/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+19:4/0 = 0
+18:4/0 = 0
+17:4/0 = 0
+17:5/0 = 0
+16:4/0 = 0
+15:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+14:5/0 = 0
+14:6/0 = 0
+13:5/0 = 0
+13:6/0 = 0
+12:4/0 = 0
+12:5/0 = 0
+12:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+1:7/0 = 0
+1:8/0 = 0
+1:9/0 = 0
+1:10/0 = 0
+1:11/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+6:11/0 = 0
+6:10/0 = 0
+6:9/0 = 0
+6:8/0 = 0
+6:7/0 = 0
+5:7/0 = 0
+4:7/0 = 0
+3:7/0 = 0
+2:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+5:9/0 = 0
+5:10/0 = 0
+5:11/0 = 0
+4:11/0 = 0
+4:10/0 = 0
+4:9/0 = 0
+3:11/0 = 0
+3:10/0 = 0
+2:9/0 = 0
+2:10/0 = 0
+2:11/0 = 0
+3:9/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_oho4w"]
 tile_size = Vector2i(32, 32)
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_1j8sb")
+sources/3 = SubResource("TileSetAtlasSource_holop")
+sources/4 = SubResource("TileSetAtlasSource_uipwt")
+sources/5 = SubResource("TileSetAtlasSource_erfq6")
 pattern_0 = SubResource("TileMapPattern_hug2g")
 
 [node name="TileMap" type="TileMap"]
@@ -43,3 +218,4 @@ z_index = -5
 tile_set = SubResource("TileSet_oho4w")
 cell_quadrant_size = 32
 format = 2
+layer_0/tile_data = PackedInt32Array(0, 65541, 1, 1, 65541, 1, 65538, 65541, 1, 131074, 65541, 1)

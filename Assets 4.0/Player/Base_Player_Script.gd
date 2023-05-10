@@ -23,6 +23,7 @@ signal do_dash
 var can_wall_jump = true
 var last_input_right: bool
 var is_Jumping: bool
+@export var invulnerability_time = 0.5
 
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
@@ -33,6 +34,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	add_to_group("Player")
+	$invulnerability.wait_time = invulnerability_time
 
 
 func Player_Control(delta):

@@ -27,6 +27,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_wfcm5")
 
 [node name="Alert_Range" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Alert_Range"]
 shape = SubResource("CircleShape2D_y2qr8")
@@ -69,6 +70,20 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_uhrtv")
+
+[node name="wall_right" type="RayCast2D" parent="."]
+target_position = Vector2(30, 0)
+
+[node name="wall_left" type="RayCast2D" parent="."]
+target_position = Vector2(-30, 0)
+
+[node name="floor_right" type="RayCast2D" parent="."]
+position = Vector2(40, 0)
+target_position = Vector2(0, 30)
+
+[node name="floor_left" type="RayCast2D" parent="."]
+position = Vector2(-30, 0)
+target_position = Vector2(0, 30)
 
 [connection signal="area_entered" from="Alert_Range" to="." method="_on_Shooting_Range_area_entered"]
 [connection signal="area_exited" from="Alert_Range" to="." method="_on_Shooting_Range_area_exited"]

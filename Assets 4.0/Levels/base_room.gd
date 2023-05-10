@@ -4,7 +4,6 @@ extends Node2D
 #starting room has a place for the player
 #each room will signal when and where to spawn a enemy at
 #use a array with mutiple packed scenes in it and randomly chose an enemy to spawn
-var enemy : PackedScene 
 var waves : int  
 var wavesize: int 
 var Time_between_waves : int 
@@ -25,6 +24,7 @@ signal spawn_enemy
 signal next_level
 
 func _ready():
+	add_to_group("Room")
 	add_values()
 	enemys.append(enemy1)
 	enemys.append(enemy2)
