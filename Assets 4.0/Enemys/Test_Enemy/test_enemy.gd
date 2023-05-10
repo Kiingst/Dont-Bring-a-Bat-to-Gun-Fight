@@ -62,8 +62,10 @@ func move_to_player(delta):
 	
 	if moving_left == true:
 		velocity.x = -MOVE_SPEED
+		$Sprite.scale.x = -2
 	else:
 		velocity.x = MOVE_SPEED
+		$Sprite.scale.x = 2
 	
 	move_and_slide()
 
@@ -72,6 +74,7 @@ func kill():
 	queue_free()
 	#emit_signal("kill", $pos.global_position)
 
+	
 
 
 func control(delta):
@@ -92,6 +95,8 @@ func control(delta):
 			if $gun/Line_of_sight.is_colliding():
 				if "Player" in $gun/Line_of_sight.get_collider().name:
 					dofire()
+				else:
+					move_to_player(delta)
 	
 	if health <= 0:
 		kill()

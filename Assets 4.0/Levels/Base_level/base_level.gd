@@ -2,6 +2,11 @@ extends Node2D
 
 var starting_level = preload("res://Assets 4.0/Levels/starting_room.tscn")
 var room1 = preload("res://Assets 4.0/Levels/room1.tscn")
+var room2 = preload("res://Assets 4.0/Levels/room2.tscn")
+var room3 = preload("res://Assets 4.0/Levels/room3.tscn")
+var room_array = [starting_level, room1, room2, room3]
+var room_array_index = 0
+
 var islevelactive = true
 var Upgrade1
 var Upgrade2
@@ -14,12 +19,13 @@ func _ready():
 		get_node("Player").connect("caught",Callable(self,"_on_Player_Catcher_caught"))
 	#get_node_or_null("Test_Enemy").connect("fire",Callable(self,"fire"))
 	
-	start(starting_level)
+	start(room_array[room_array_index])
 	
 
 
 func start(level):
 	addlevel(level)
+	room_array_index += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,8 +35,8 @@ func _process(delta):
 func next_level():
 	print("going to lext level")
 	get_tree().call_group("Baseballs", "queue_free")
-	get_node("Room").queue_free()
-	start(room1)
+	get_tree().call_group("Room", "queue_free")
+	start(room_array[room_array_index])
 
 func addlevel(level1):
 	var level = level1.instantiate()
@@ -43,6 +49,7 @@ func addlevel(level1):
 func level_clear():
 	#print("add reward")
 	set_upgrade_data()
+	get_tree().call_group("Active_Baseballs", "queue_free")
 	get_tree().call_group("Ui", "add_reward")
 	get_tree().call_group("Doors", "activate")
 

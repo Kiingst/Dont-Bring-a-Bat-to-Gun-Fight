@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://dw18qoq4ovypy"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Enemys/Test_Enemy/test_enemy.gd" id="1_d0wqu"]
-[ext_resource type="PackedScene" uid="uid://dd8xgoe0m5e4n" path="res://Assets 4.0/Bullet/baseball.tscn" id="2_clfsa"]
+[ext_resource type="PackedScene" uid="uid://bgooj6kgps7fv" path="res://Assets 4.0/Enemys/enemy_baseball.tscn" id="2_eqv87"]
 [ext_resource type="Texture2D" uid="uid://dvldgcu6ig20" path="res://Assets 4.0/Misc/HealthBar_Under.png" id="2_hf45p"]
 [ext_resource type="Texture2D" uid="uid://bs3swncsmby3e" path="res://Assets 4.0/Enemys/Test_Enemy/goblin_idle_anim_f0.png" id="2_wfcm5"]
 [ext_resource type="Texture2D" uid="uid://bw4gtng0iadmv" path="res://Assets 4.0/Misc/HealthBar_Progress.png" id="3_0w3yt"]
 [ext_resource type="Texture2D" uid="uid://bx3gpl4r12f2m" path="res://Assets 4.0/Bullet/ball.png" id="6_3inqk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y2qr8"]
-radius = 249.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_167hk"]
+size = Vector2(548, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3e16"]
 size = Vector2(23, 22)
@@ -19,7 +19,7 @@ size = Vector2(19, 20)
 [node name="Test_Enemy" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_d0wqu")
-bullet = ExtResource("2_clfsa")
+bullet = ExtResource("2_eqv87")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-1, -9)
@@ -27,10 +27,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_wfcm5")
 
 [node name="Alert_Range" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Alert_Range"]
-shape = SubResource("CircleShape2D_y2qr8")
+position = Vector2(15, -102)
+shape = SubResource("RectangleShape2D_167hk")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 visible = false

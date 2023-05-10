@@ -4,7 +4,7 @@ var Bullet_Speed
 var Bullet_Damage
 var dir 
 var Player_Owned = false
-var dead_ball = preload("res://Assets 4.0/Bullet/dead_baseball.tscn").instantiate()
+#var dead_ball = preload("res://Assets 4.0/Bullet/dead_baseball.tscn").instantiate()
 var moving = true
 var timerisrunning = false
 signal dead
@@ -12,7 +12,7 @@ var collsion_counter = 0
 
 func _ready():
 	add_to_group("Baseballs")
-	#add_to_group("Active_Baseballs")
+	add_to_group("Active_Baseballs")
 	set_angular_velocity(50)
 
 var Bullet_velocity = Vector2()
@@ -47,7 +47,7 @@ func _process(delta):
 		pass
 
 func kill_ball():
-	emit_signal("dead", dead_ball, position)
+	#emit_signal("dead", dead_ball, position)
 	queue_free()
 
 func _on_invincibility_timeout():
@@ -76,11 +76,11 @@ func _on_baseball_area_area_entered(area):
 		area.get_parent().take_damage(Bullet_Damage)
 		kill_ball()
 	if "Player" in area.name:
-		if area.get_parent().Take_Own_Ball_damage == true:
-			if area.get_parent().invulnerable == true:
-				if area.get_parent().dodge_into_inventory == true:
-					area.get_parent().balls_in_inventory += 1
-					queue_free()
-			else:
-				area.get_parent().take_damage(Bullet_Damage)
-				kill_ball()
+		if area.get_parent().invulnerable == true:
+			if area.get_parent().dodge_into_inventory == true:
+				area.get_parent().balls_in_inventory += 1
+				queue_free()
+		else:
+			area.get_parent().take_damage(Bullet_Damage)
+			kill_ball()
+

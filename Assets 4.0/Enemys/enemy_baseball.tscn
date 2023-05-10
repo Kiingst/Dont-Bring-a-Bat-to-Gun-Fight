@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgooj6kgps7fv"]
+
+[ext_resource type="Script" path="res://Assets 4.0/Enemys/Enemy_Baseball.gd" id="1_t2s6w"]
+[ext_resource type="Texture2D" uid="uid://bx3gpl4r12f2m" path="res://Assets 4.0/Bullet/ball.png" id="2_6revg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sjahp"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2yjj"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npy2l"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tomlg"]
+
+[node name="Enemy_Baseball" type="RigidBody2D"]
+position = Vector2(5, 0)
+collision_layer = 8
+collision_mask = 9
+mass = 0.5
+inertia = 50.0
+physics_material_override = SubResource("PhysicsMaterial_sjahp")
+gravity_scale = 0.5
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_t2s6w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6revg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u2yjj")
+
+[node name="Catch_Area" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catch_Area"]
+shape = SubResource("CircleShape2D_npy2l")
+
+[node name="Baseball_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Baseball_Area"]
+shape = SubResource("CircleShape2D_tomlg")
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="Stoped_Time" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="area_entered" from="Baseball_Area" to="." method="_on_baseball_area_area_entered" flags=18]
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout" flags=18]
+[connection signal="timeout" from="Stoped_Time" to="." method="_on_stoped_time_timeout" flags=18]

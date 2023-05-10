@@ -26,7 +26,7 @@ var expression = Expression.new()
 
 #upgrades
 var Auto_Pickup = false
-var Take_Own_Ball_damage = false
+var Take_Own_Ball_damage = true
 var dodge_into_inventory = false
 
 

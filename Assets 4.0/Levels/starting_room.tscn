@@ -11,7 +11,7 @@ size = Vector2(187, 768)
 size = Vector2(1232, 158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_236a0"]
-size = Vector2(184, 664)
+size = Vector2(192, 664)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lk1c"]
 size = Vector2(1072, 160)
@@ -41,7 +41,7 @@ position = Vector2(56, -303)
 shape = SubResource("RectangleShape2D_nflm0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="TileMap/Collsion/StaticBody2D"]
-position = Vector2(572, 52)
+position = Vector2(576, 52)
 shape = SubResource("RectangleShape2D_236a0")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMap/Collsion/StaticBody2D"]
