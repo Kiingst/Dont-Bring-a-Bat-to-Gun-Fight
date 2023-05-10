@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bwrf4wr5hib8j" path="res://Assets 4.0/Levels/door.tscn" id="3_818ev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcvwo"]
-size = Vector2(187, 768)
+size = Vector2(190, 768)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nflm0"]
 size = Vector2(1232, 158)
@@ -33,7 +33,7 @@ layer_0/tile_data = PackedInt32Array(720876, 65537, 0, 786412, 65537, 0, 786413,
 [node name="StaticBody2D" type="StaticBody2D" parent="TileMap/Collsion"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Collsion/StaticBody2D"]
-position = Vector2(-576.5, 0)
+position = Vector2(-575, 0)
 shape = SubResource("RectangleShape2D_fcvwo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMap/Collsion/StaticBody2D"]

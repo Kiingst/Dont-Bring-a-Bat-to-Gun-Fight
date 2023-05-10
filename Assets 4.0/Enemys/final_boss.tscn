@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dre5eqodsfegp"]
+
+[ext_resource type="Script" path="res://Assets 4.0/Enemys/final_boss.gd" id="1_l1lve"]
+[ext_resource type="Texture2D" uid="uid://b75welcen20ra" path="res://Assets 3.0/Temp_frames/big_zombie_idle_anim_f0.png" id="1_nve6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oa2b"]
+size = Vector2(72, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ba4o"]
+size = Vector2(91, 120)
+
+[node name="Final_boss" type="Node2D"]
+script = ExtResource("1_l1lve")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-2, 13)
+shape = SubResource("RectangleShape2D_7oa2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-2, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("1_nve6c")
+
+[node name="Hurt_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_area"]
+position = Vector2(-0.5, 9)
+shape = SubResource("RectangleShape2D_7ba4o")

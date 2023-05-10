@@ -27,34 +27,6 @@ offset_bottom = -360.0
 [node name="Upgrade_Data" type="Node" parent="."]
 script = ExtResource("4_42edf")
 
-[node name="Weapons" type="Node" parent="Upgrade_Data"]
-
-[node name="Ball" type="Node" parent="Upgrade_Data/Weapons"]
-
 [node name="Weapon_Upgrades" type="Node" parent="Upgrade_Data"]
-
-[node name="Ball" type="Node" parent="Upgrade_Data/Weapon_Upgrades"]
-
-[node name="Ball_Speed" type="Node" parent="Upgrade_Data/Weapon_Upgrades/Ball"]
-
-[node name="Ball_Damage" type="Node" parent="Upgrade_Data/Weapon_Upgrades/Ball"]
-
-[node name="Balls_Thrown_Dont_Damage_Player" type="Node" parent="Upgrade_Data/Weapon_Upgrades/Ball"]
-
-[node name="Player_Upgrades" type="Node" parent="Upgrade_Data"]
-
-[node name="Speed" type="Node" parent="Upgrade_Data/Player_Upgrades"]
-
-[node name="Jump_Height" type="Node" parent="Upgrade_Data/Player_Upgrades"]
-
-[node name="Dodge_Time" type="Node" parent="Upgrade_Data/Player_Upgrades"]
-
-[node name="Health" type="Node" parent="Upgrade_Data/Player_Upgrades"]
-
-[node name="Multi_Jump" type="Node" parent="Upgrade_Data/Player_Upgrades"]
-
-[node name="Auto_Ball_Pickup" type="Node" parent="Upgrade_Data/Player_Upgrades"]
-
-[node name="Dodged_ball_enter_inventory" type="Node" parent="Upgrade_Data/Player_Upgrades"]
 
 [connection signal="Selected_Upgrade" from="CanvasLayer/User_Interface" to="." method="_on_user_interface_selected_upgrade"]

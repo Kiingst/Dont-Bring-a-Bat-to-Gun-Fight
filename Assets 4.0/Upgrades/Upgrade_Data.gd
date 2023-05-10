@@ -17,7 +17,7 @@ var Common_Upgrade_Dict = {
 	"Health" = ["res://Assets 4.0/interface/heart.png", " +1 HP" ,"player.health += 1" ,],
 	"Add_Jumps" = ["res://icon.svg", " +1 Jump" ,"player.jumps_available += 1"],
 	"Auto_Pickup" = ["res://icon.svg", "Automatically pick up balls on the ground." ,"player.Auto_Pickup = true"],
-	"Dodged_into_inventory" = ["res://icon.svg", "Dodged balls enter your inventory","[player.dodge_into_inventory = true]" ],
+	"Dodged_into_inventory" = ["res://icon.svg", "Dodged balls enter your inventory","player.dodge_into_inventory = true" ],
 	"Add_Balls" = ["res://icon.svg", "+1 BaseBall","player.balls_in_inventory += 1" ]
 	
 	}
@@ -31,7 +31,7 @@ var Rare_Upgrade_Dict = {
 	
 func get_dict_from_chance():
 	var random_num = rng.randi_range(0,100)
-	if random_num <= 60:
+	if random_num <= 89:
 		return Common_Upgrade_Dict
 	elif random_num <= 90:
 		return Rare_Upgrade_Dict
