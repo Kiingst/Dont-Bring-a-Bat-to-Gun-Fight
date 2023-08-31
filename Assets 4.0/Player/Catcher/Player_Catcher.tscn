@@ -479,10 +479,10 @@ tracks/0/path = NodePath("Player_Model:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("45_u2iuh"), ExtResource("46_xltf8"), ExtResource("47_m03ao"), ExtResource("48_k3ect"), ExtResource("49_1cnpx"), ExtResource("50_fa0ny")]
+"values": [ExtResource("45_u2iuh"), ExtResource("46_xltf8"), ExtResource("47_m03ao"), ExtResource("48_k3ect")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
