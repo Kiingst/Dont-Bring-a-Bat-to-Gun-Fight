@@ -1,5 +1,5 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1693494965
+::res://::1693959555
 CharacterBody2D.gd::GDScript::-1::1681920357::0::1::::<>CharacterBody2D<>::
 icon.svg::CompressedTexture2D::8237219450273796714::1681920357::1681935748::1::::<><>::
 testfile.gd::GDScript::-1::1692751502::0::1::::<>Node<>::
@@ -424,9 +424,9 @@ Enemy_Baseball.gd::GDScript::-1::1683734016::0::1::::<>RigidBody2D<>::
 enemy_baseball.tscn::PackedScene::2837322788087307647::1683734016::0::1::::<><>::res://Assets 4.0/Enemys/Enemy_Baseball.gd<>uid://bx3gpl4r12f2m
 final_boss.gd::GDScript::-1::1683739871::0::1::::<>Node2D<>::
 final_boss.tscn::PackedScene::8362559419062132115::1693323265::0::1::::<><>::res://Assets 4.0/Enemys/final_boss.gd<>uid://b75welcen20ra
-::res://Assets 4.0/Enemys/Basic_Enemy/::1693495298
-basic_enemy.tscn::PackedScene::8349365611053111272::1693495215::0::1::::<><>::res://Assets 4.0/Enemys/Basic_Enemy/basic_enemy.gd<>uid://dvldgcu6ig20<>uid://bw4gtng0iadmv
-basic_enemy.gd::GDScript::-1::1693495215::0::1::::<>CharacterBody2D<>::
+::res://Assets 4.0/Enemys/Basic_Enemy/::1693496038
+basic_enemy.gd::GDScript::-1::1693496038::0::1::::<>CharacterBody2D<>::
+basic_enemy.tscn::PackedScene::8349365611053111272::1693496038::0::1::::<><>::res://Assets 4.0/Enemys/Basic_Enemy/basic_enemy.gd<>uid://dvldgcu6ig20<>uid://cd3k3oohbckn3<>uid://bw4gtng0iadmv
 chort_idle_anim_f1.png::CompressedTexture2D::5041868404844613502::1681920357::1693495307::1::::<><>::
 ::res://Assets 4.0/Enemys/Test_Enemy/::1693323265
 goblin_idle_anim_f0.png::CompressedTexture2D::3708755326354164132::1681920357::1681935748::1::::<><>::

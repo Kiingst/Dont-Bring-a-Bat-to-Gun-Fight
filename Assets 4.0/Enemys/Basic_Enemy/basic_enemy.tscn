@@ -53,3 +53,9 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_7mb47")
+
+[node name="Direction_Switch_Cooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Direction_Switch_Cooldown" to="." method="_on_direction_switch_cooldown_timeout"]

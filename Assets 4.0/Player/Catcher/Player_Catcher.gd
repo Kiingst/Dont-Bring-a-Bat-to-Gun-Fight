@@ -37,13 +37,16 @@ func Player_Control_Catch(delta):
 	if health <= 0:
 		alive = false
 	
+	
 	#look_vec = Input.get_vector("Left_stick_left", "Left_stick_right", "Left_stick_up", "Left_stick_down")
+	#get mouse position and assign it to the cross hair
 	look_vec = get_global_mouse_position() - global_position
 	var look_ang = rad_to_deg(atan2(look_vec.y, look_vec.x))
 	$Cross_Hair.global_rotation = atan2(look_vec.y, look_vec.x)
 	$offset.global_rotation = atan2(look_vec.y, look_vec.x)
 	
-	$charge_bar.value = charge
+	
+	
 	
 	#Animation_mode.travel("idle_right")
 	if velocity.length() == 0:
@@ -58,11 +61,14 @@ func Player_Control_Catch(delta):
 				change_animation_based_on_dir("wall_slide")
 	
 	
+	
 	if balls_in_inventory <= 0 || throw_on_cooldown == true:
 		can_throw_ball = false
 	else:
 		can_throw_ball = true
 	
+	#setting the bar that indicates charge to the value
+	$charge_bar.value = charge
 	if charging == true:
 		if charge < 1:
 			charge += charge_increment

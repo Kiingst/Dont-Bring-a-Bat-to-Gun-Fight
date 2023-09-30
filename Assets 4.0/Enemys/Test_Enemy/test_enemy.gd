@@ -26,26 +26,33 @@ var MOVE_SPEED : int = 50
 
 
 func _ready():
+	# adding to group
 	add_to_group("Enemys")
+	
 	#bullet.Bullet_Damage = Bullet_Damage
 	#bullet.Bullet_Speed = Bullet_Speed
 #	if get_node_or_null("Player_Catcher") != null:
 #		player = get_parent().get_node("Player_Catcher")
 #	else:
 #		player = get_parent().get_node("Player_Hitter")
+	
+	#set healbar value
 	$HealthBar.max_value = health
 
 
 
 
 func _physics_process(delta):
+	#checking if dead for bugs
 	if alive == true:
 		control(delta)
 
 
 func move_to_player(delta):
+	#gravity
 	velocity.y += gravity * delta
 	
+	# checks for walls or clifs
 	if $wall_left.is_colliding():
 		if "Static" in $wall_left.get_collider().name:
 			moving_left = false
@@ -82,11 +89,11 @@ func control(delta):
 		return
 	$HealthBar.value = health
 	
-	#print($gun/Line_of_sight.get_collider())
+	# get line to player
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
 	
-	
+	# cheking if locked on to player if so fire at player
 	if Locked_On == false : 
 			move_to_player(delta)
 			pass
@@ -103,7 +110,6 @@ func control(delta):
 		alive = false
 		
 
-
 func take_damage(damage):
 	if damage != null:
 		#animation_mode.travel("damage_animation")
@@ -112,10 +118,12 @@ func take_damage(damage):
 		$HealthBar.visible = true
 	
 
+#Fireing func
 func dofire():
 	if On_Cooldown == false :
 		On_Cooldown = true
 		$Shoot_cooldown.start()
+		# setting direction to a point that is rotated to the player
 		var direction = Vector2(1,0).rotated($gun.global_rotation)
 		emit_signal('fire', bullet, $gun/Muzzle.global_position, direction, Bullet_Speed, Bullet_Damage)
 		#print("gun muzzle position", $gun/Muzzle.global_position)
@@ -124,11 +132,12 @@ func dofire():
 #funcs that link to certain nodes of node
 
 
+#checks for player in area
 func _on_Shooting_Range_area_entered(area):
 	if "Player" in area.name:
 		Locked_On = true
 
-
+#checks for player in area
 func _on_Shooting_Range_area_exited(area):
 	if "Player" in area.name:
 		Locked_On = false
