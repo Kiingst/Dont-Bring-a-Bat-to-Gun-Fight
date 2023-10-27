@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var alerted = false
-var health = 0
+var health = 1
 var alive = true
 var MOVE_SPEED : int = 50
 var going_left = randi() % 2 == 0
@@ -11,13 +11,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	if health == 0:
+		alive = false
 	#adding to group
 	add_to_group("Enemys")
 	#check if alive
 	if alive == true:
 		control(delta)
+	else:
+		Death()
 	
-	
+
 
 func control(delta):
 	velocity.y += gravity * delta
@@ -51,14 +55,17 @@ func wonder_Mode(delta):
 	#state where enemy wonders around untill alerted by player
 	
 	if going_left == true:
-		velocity.x = MOVE_SPEED
-	else:
+		print(going_left)
 		velocity.x = -MOVE_SPEED
+		#scale.x = -1
+	else:
+		velocity.x = MOVE_SPEED
+		#scale.x = 1
 	
 	#switching direction when hit by a wall timer for a bug i found
 	if Can_Switch_Direction == true:
 		if is_velocity_zero == true:
-			print("switching")
+			#print("switching")
 			if going_left == true:
 				going_left = false
 				Can_Switch_Direction = false

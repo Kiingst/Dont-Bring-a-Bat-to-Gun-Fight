@@ -20,7 +20,6 @@ follow_viewport_enabled = true
 
 [node name="User_Interface" parent="CanvasLayer" instance=ExtResource("2_tntnn")]
 process_mode = 3
-visible = false
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
