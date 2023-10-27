@@ -1,8 +1,8 @@
-2a60927148abd1d33b818b535e306557
-::res://::1696103047
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1698444325
 CharacterBody2D.gd::GDScript::-1::1680903881::0::1::::<>CharacterBody2D<>::
 icon.svg::CompressedTexture2D::8237219450273796714::1680903881::1680904017::1::::<><>::
-testfile.gd::GDScript::-1::1696103034::0::1::::<>Node<>::
+testfile.gd::GDScript::-1::1696103512::0::1::::<>Node<>::
 ::res://Assets 3.0/::1696103034
 ::res://Assets 3.0/baseball/::1680903881
 ::res://Assets 3.0/baseball/model/::1680903881
@@ -424,14 +424,14 @@ Enemy_Baseball.gd::GDScript::-1::1683766825::0::1::::<>RigidBody2D<>::
 enemy_baseball.tscn::PackedScene::2837322788087307647::1683766825::0::1::::<><>::res://Assets 4.0/Enemys/Enemy_Baseball.gd<>uid://bx3gpl4r12f2m
 final_boss.gd::GDScript::-1::1683766825::0::1::::<>Node2D<>::
 final_boss.tscn::PackedScene::8362559419062132115::1683766825::0::1::::<><>::res://Assets 4.0/Enemys/final_boss.gd<>uid://b75welcen20ra
-::res://Assets 4.0/Enemys/Basic_Enemy/::1696103034
-basic_enemy.gd::GDScript::-1::1696103034::0::1::::<>CharacterBody2D<>::
-basic_enemy.tscn::PackedScene::8349365611053111272::1696103034::0::1::::<><>::res://Assets 4.0/Enemys/Basic_Enemy/basic_enemy.gd<>uid://dvldgcu6ig20<>uid://cd3k3oohbckn3<>uid://bw4gtng0iadmv
+::res://Assets 4.0/Enemys/Basic_Enemy/::1696104508
+basic_enemy.gd::GDScript::-1::1696104508::0::1::::<>CharacterBody2D<>::
+basic_enemy.tscn::PackedScene::8349365611053111272::1696104457::0::1::::<><>::res://Assets 4.0/Enemys/Basic_Enemy/basic_enemy.gd<>uid://dvldgcu6ig20::::res://Assets 4.0/Misc/HealthBar_Under.png<>uid://cd3k3oohbckn3::::res://Assets 4.0/Enemys/Basic_Enemy/chort_idle_anim_f1.png<>uid://bw4gtng0iadmv::::res://Assets 4.0/Misc/HealthBar_Progress.png
 chort_idle_anim_f1.png::CompressedTexture2D::5041868404844613502::1696103034::1696103049::1::::<><>::
-::res://Assets 4.0/Enemys/Test_Enemy/::1696103034
+::res://Assets 4.0/Enemys/Test_Enemy/::1696104456
 goblin_idle_anim_f0.png::CompressedTexture2D::3708755326354164132::1682119180::1682119335::1::::<><>::
 test_enemy.gd::GDScript::-1::1696103034::0::1::::<>CharacterBody2D<>::
-test_enemy.tscn::PackedScene::8759123427566303774::1683766825::0::1::::<><>::res://Assets 4.0/Enemys/Test_Enemy/test_enemy.gd<>uid://bgooj6kgps7fv<>uid://dvldgcu6ig20<>uid://bs3swncsmby3e<>uid://bw4gtng0iadmv<>uid://bx3gpl4r12f2m
+test_enemy.tscn::PackedScene::8759123427566303774::1696104456::0::1::::<><>::res://Assets 4.0/Enemys/Test_Enemy/test_enemy.gd<>uid://bgooj6kgps7fv::::res://Assets 4.0/Enemys/enemy_baseball.tscn<>uid://dvldgcu6ig20::::res://Assets 4.0/Misc/HealthBar_Under.png<>uid://bs3swncsmby3e::::res://Assets 4.0/Enemys/Test_Enemy/goblin_idle_anim_f0.png<>uid://bw4gtng0iadmv::::res://Assets 4.0/Misc/HealthBar_Progress.png<>uid://bx3gpl4r12f2m::::res://Assets 4.0/Bullet/ball.png
 ::res://Assets 4.0/interface/::1683766826
 heart.png::CompressedTexture2D::4671105124659129945::1683581997::1683595346::1::::<><>::
 heartUI.tscn::PackedScene::335262167676099868::1683637993::0::1::::<><>::uid://b7syoiki2ljmv
@@ -449,22 +449,22 @@ upgrade_gui0.png::CompressedTexture2D::7986016863491865219::1683669592::16836696
 upgrade_gui1.png::CompressedTexture2D::5028481008271772759::1683669592::1683669613::1::::<><>::
 upgrade_gui2.png::CompressedTexture2D::5463945803618138372::1683669592::1683669613::1::::<><>::
 Weapon_Frame.png::CompressedTexture2D::6376972191694340187::1683669592::1683669613::1::::<><>::
-::res://Assets 4.0/Levels/::1683766826
+::res://Assets 4.0/Levels/::1696104456
 base_room.gd::GDScript::-1::1683697193::0::1::::<>Node2D<>::
 door.gd::GDScript::-1::1683245209::0::1::::<>Node2D<>::
 door.tscn::PackedScene::3966026221684016031::1683257854::0::1::::<><>::res://Assets 4.0/Levels/door.gd<>uid://dpmf2h2rw124u
 room1.gd::GDScript::-1::1683697045::0::1::::<>Node2D<>::
-room1.tscn::PackedScene::38149022067201189::1683766826::0::1::::<><>::uid://bwgfgogc42k5f<>res://Assets 4.0/Levels/room1.gd
+room1.tscn::PackedScene::38149022067201189::1696104456::0::1::::<><>::uid://bwgfgogc42k5f::::res://Assets 4.0/Levels/starting_room.tscn<>res://Assets 4.0/Levels/room1.gd
 room2.gd::GDScript::-1::1683697049::0::1::::<>Node2D<>::
-room2.tscn::PackedScene::8302919907580936214::1683766826::0::1::::<><>::uid://bwgfgogc42k5f<>res://Assets 4.0/Levels/room2.gd
+room2.tscn::PackedScene::8302919907580936214::1696104456::0::1::::<><>::uid://bwgfgogc42k5f::::res://Assets 4.0/Levels/starting_room.tscn<>res://Assets 4.0/Levels/room2.gd
 room3.gd::GDScript::-1::1683766826::0::1::::<>Node2D<>::
 room3.tscn::PackedScene::9107663159659638535::1683766826::0::1::::<><>::uid://bwgfgogc42k5f<>res://Assets 4.0/Levels/room3.gd
 room_1.tscn::PackedScene::2106328322146945126::1683697431::0::1::::<><>::uid://d0lxt3jj80bqr
 starting_room.gd::GDScript::-1::1683696787::0::1::::<>Node2D<>::
 starting_room.tscn::PackedScene::3943276554707860753::1683766826::0::1::::<><>::res://Assets 4.0/Levels/starting_room.gd<>uid://d0lxt3jj80bqr<>uid://bwrf4wr5hib8j
-::res://Assets 4.0/Levels/Base_level/::1696103034
+::res://Assets 4.0/Levels/Base_level/::1696104456
 base_level.gd::GDScript::-1::1683766825::0::1::::<>Node2D<>::
-base_level.tscn::PackedScene::6769081472444699635::1696103034::0::1::::<><>::res://Assets 4.0/Levels/Base_level/base_level.gd<>uid://5a3b58dl3hff<>uid://bh6cb3ecv6u8s<>res://Assets 4.0/Upgrades/Upgrade_Data.gd<>uid://dq7q3jrmdshrk
+base_level.tscn::PackedScene::6769081472444699635::1696104456::0::1::::<><>::res://Assets 4.0/Levels/Base_level/base_level.gd<>uid://5a3b58dl3hff::::res://Assets 4.0/Player/Catcher/Player_Catcher.tscn<>uid://bh6cb3ecv6u8s::::res://Assets 4.0/interface/user_interface.tscn<>res://Assets 4.0/Upgrades/Upgrade_Data.gd<>uid://dq7q3jrmdshrk::::res://Assets 4.0/Enemys/Basic_Enemy/basic_enemy.tscn
 ::res://Assets 4.0/Levels/Level_Tiles/::1683699936
 2dtileset.png::CompressedTexture2D::8876112165413300040::1683695970::1683695974::1::::<><>::
 cavesofgallet_tiles.png::CompressedTexture2D::7046834636472548176::1683691778::1683691795::1::::<><>::
@@ -477,9 +477,9 @@ HealthBar_Progress.png::CompressedTexture2D::3990841123857297369::1680903881::16
 HealthBar_Under.png::CompressedTexture2D::254592027231665143::1680903881::1680904017::1::::<><>::
 ::res://Assets 4.0/Player/::1683766826
 Base_Player_Script.gd::GDScript::-1::1683683408::0::1::::<>CharacterBody2D<>::
-::res://Assets 4.0/Player/Catcher/::1696103034
+::res://Assets 4.0/Player/Catcher/::1696104456
 Player_Catcher.gd::GDScript::-1::1696103034::0::1::::<>CharacterBody2D<>::
-Player_Catcher.tscn::PackedScene::2107368797563502203::1696103034::0::1::::<><>::res://Assets 4.0/Player/Catcher/Player_Catcher.gd<>uid://dd8xgoe0m5e4n<>uid://dvldgcu6ig20<>uid://bw4gtng0iadmv<>uid://du3s3l3frhw87<>uid://bq2ts8uv7voi7<>uid://duakpyvdk0oi<>uid://berslxsmoon1r<>uid://cjgvksddrbxi0<>uid://peqoermogua0<>uid://cld0wppxe2qnd<>uid://dsjb64vregq5t<>uid://chccwx5u8u1xs<>uid://cdwo6lmfb5kao<>uid://s5ewhxewbfeg<>uid://dcb7tpss61mrj<>uid://dcwhsqb1nxoxa<>uid://c05opkfqvixcb<>uid://q10a5rgu4s43<>uid://dg65w1cgvmvy1<>uid://bbyc6xeyfvinw<>uid://csq2eket3fmrk<>uid://cnsggs3jqtaig<>uid://p8br1d6ao3bx<>uid://ba8q88ggvw5ki<>uid://c6vdv5p65ftpx<>uid://c7231ncyhv6ac<>uid://b0bn1u0iydvhp<>uid://blr4gu8q5aejk<>uid://b4gcxvhmfij87<>uid://cvfihfu0nyi5d<>uid://ccrgcq6pu4sii<>uid://6saadmke5k0j<>uid://dbsqbyyp68imk<>uid://du0tiinec6noh<>uid://xybj0apgba4r<>uid://bl5bn2jd3lamk<>uid://drcv0uidoc144<>uid://dy7p4l3xas76h<>uid://bsoosv3kri1xe<>uid://efx0budl6coq<>uid://cxv30oonbtide<>uid://jnwxsdacm73w<>uid://bdjued6sipnsx<>uid://c3vdgen6oa7pp<>uid://brpyt186636x8<>uid://3nr63otskx5t<>uid://darpuylv7ekqw<>uid://dvg5jqiaqslvr<>uid://lpxwn1rarv5p
+Player_Catcher.tscn::PackedScene::2107368797563502203::1696104456::0::1::::<><>::res://Assets 4.0/Player/Catcher/Player_Catcher.gd<>uid://dd8xgoe0m5e4n::::res://Assets 4.0/Bullet/baseball.tscn<>uid://dvldgcu6ig20::::res://Assets 4.0/Misc/HealthBar_Under.png<>uid://bw4gtng0iadmv::::res://Assets 4.0/Misc/HealthBar_Progress.png<>uid://du3s3l3frhw87::::res://Assets 4.0/Misc/Cross_Hair.png<>uid://bq2ts8uv7voi7::::res://Assets 4.0/Player/Player_Art/run_cycle/run_0.png<>uid://duakpyvdk0oi::::res://Assets 4.0/Player/Player_Art/run_cycle/run_1.png<>uid://berslxsmoon1r::::res://Assets 4.0/Player/Player_Art/run_cycle/run_2.png<>uid://cjgvksddrbxi0::::res://Assets 4.0/Player/Player_Art/run_cycle/run_3.png<>uid://peqoermogua0::::res://Assets 4.0/Player/Player_Art/run_cycle/run_4.png<>uid://cld0wppxe2qnd::::res://Assets 4.0/Player/Player_Art/run_cycle/run_5.png<>uid://dsjb64vregq5t::::res://Assets 4.0/Player/Player_Art/run_cycle/run_6.png<>uid://chccwx5u8u1xs::::res://Assets 4.0/Player/Player_Art/run_cycle/run_7.png<>uid://cdwo6lmfb5kao::::res://Assets 4.0/Player/Player_Art/run_cycle/run_8.png<>uid://s5ewhxewbfeg::::res://Assets 4.0/Player/Player_Art/idle/idle_00.png<>uid://dcb7tpss61mrj::::res://Assets 4.0/Player/Player_Art/idle/idle_01.png<>uid://dcwhsqb1nxoxa::::res://Assets 4.0/Player/Player_Art/idle/idle_02.png<>uid://c05opkfqvixcb::::res://Assets 4.0/Player/Player_Art/idle/idle_03.png<>uid://q10a5rgu4s43::::res://Assets 4.0/Player/Player_Art/idle/idle_04.png<>uid://dg65w1cgvmvy1::::res://Assets 4.0/Player/Player_Art/idle/idle_05.png<>uid://bbyc6xeyfvinw::::res://Assets 4.0/Player/Player_Art/idle/idle_06.png<>uid://csq2eket3fmrk::::res://Assets 4.0/Player/Player_Art/idle/idle_07.png<>uid://cnsggs3jqtaig::::res://Assets 4.0/Player/Player_Art/idle/idle_08.png<>uid://p8br1d6ao3bx::::res://Assets 4.0/Player/Player_Art/idle/idle_09.png<>uid://ba8q88ggvw5ki::::res://Assets 4.0/Player/Player_Art/jump/jump_0.png<>uid://c6vdv5p65ftpx::::res://Assets 4.0/Player/Player_Art/jump/jump_1.png<>uid://c7231ncyhv6ac::::res://Assets 4.0/Player/Player_Art/jump/jump_2.png<>uid://b0bn1u0iydvhp::::res://Assets 4.0/Player/Player_Art/death/death_00.png<>uid://blr4gu8q5aejk::::res://Assets 4.0/Player/Player_Art/death/death_01.png<>uid://b4gcxvhmfij87::::res://Assets 4.0/Player/Player_Art/death/death_02.png<>uid://cvfihfu0nyi5d::::res://Assets 4.0/Player/Player_Art/death/death_03.png<>uid://ccrgcq6pu4sii::::res://Assets 4.0/Player/Player_Art/death/death_04.png<>uid://6saadmke5k0j::::res://Assets 4.0/Player/Player_Art/death/death_05.png<>uid://dbsqbyyp68imk::::res://Assets 4.0/Player/Player_Art/death/death_06.png<>uid://du0tiinec6noh::::res://Assets 4.0/Player/Player_Art/death/death_07.png<>uid://xybj0apgba4r::::res://Assets 4.0/Player/Player_Art/death/death_08.png<>uid://bl5bn2jd3lamk::::res://Assets 4.0/Player/Player_Art/death/death_09.png<>uid://drcv0uidoc144::::res://Assets 4.0/Player/Player_Art/land/land_0.png<>uid://dy7p4l3xas76h::::res://Assets 4.0/Player/Player_Art/land/land_1.png<>uid://bsoosv3kri1xe::::res://Assets 4.0/Player/Player_Art/land/land_2.png<>uid://efx0budl6coq::::res://Assets 4.0/Player/Player_Art/land/land_3.png<>uid://cxv30oonbtide::::res://Assets 4.0/Player/Player_Art/land/land_4.png<>uid://jnwxsdacm73w::::res://Assets 4.0/Player/Player_Art/land/land_5.png<>uid://bdjued6sipnsx::::res://Assets 4.0/Player/Player_Art/land/land_7.png<>uid://c3vdgen6oa7pp::::res://Assets 4.0/Player/Player_Art/wall_slide/wall_slide_0.png<>uid://brpyt186636x8::::res://Assets 4.0/Player/Player_Art/wall_slide/wall_slide_1.png<>uid://3nr63otskx5t::::res://Assets 4.0/Player/Player_Art/wall_slide/wall_slide_2.png<>uid://darpuylv7ekqw::::res://Assets 4.0/Player/Player_Art/wall_slide/wall_slide_3.png<>uid://dvg5jqiaqslvr::::res://Assets 4.0/Player/Player_Art/wall_slide/wall_slide_4.png<>uid://lpxwn1rarv5p::::res://Assets 4.0/Player/Player_Art/wall_slide/wall_slide_5.png
 ::res://Assets 4.0/Player/Player_Art/::1683766826
 land.png::CompressedTexture2D::4807003943257790505::1683593275::1683595648::1::::<><>::
 run cycle.png::CompressedTexture2D::5149771969019129864::1683589004::1683595648::1::::<><>::

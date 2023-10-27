@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://5a3b58dl3hff"]
+[gd_scene load_steps=103 format=3 uid="uid://5a3b58dl3hff"]
 
 [ext_resource type="Script" path="res://Assets 4.0/Player/Catcher/Player_Catcher.gd" id="1_btowt"]
 [ext_resource type="PackedScene" uid="uid://dd8xgoe0m5e4n" path="res://Assets 4.0/Bullet/baseball.tscn" id="2_6o6lk"]
@@ -170,8 +170,6 @@ states/wall_slide_right/node = SubResource("AnimationNodeAnimation_52bnc")
 states/wall_slide_right/position = Vector2(1008.31, 227.007)
 transitions = ["idle_left", "Run_left", SubResource("AnimationNodeStateMachineTransition_mh6ot"), "idle_right", "Run_right", SubResource("AnimationNodeStateMachineTransition_1ugw4"), "Run_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_47ijd"), "Run_left", "idle_left", SubResource("AnimationNodeStateMachineTransition_6bltq"), "Start", "idle_left", SubResource("AnimationNodeStateMachineTransition_hvogd"), "Start", "idle_right", SubResource("AnimationNodeStateMachineTransition_e6eju"), "Run_right", "Jump_right", SubResource("AnimationNodeStateMachineTransition_0wiin"), "Run_left", "Jump_right", SubResource("AnimationNodeStateMachineTransition_g30b1"), "Run_left", "Jump_left", SubResource("AnimationNodeStateMachineTransition_q8rjn"), "Run_right", "Jump_left", SubResource("AnimationNodeStateMachineTransition_f16ty"), "idle_left", "death", SubResource("AnimationNodeStateMachineTransition_c76ds"), "idle_right", "death", SubResource("AnimationNodeStateMachineTransition_wberc"), "death", "End", SubResource("AnimationNodeStateMachineTransition_q1fan"), "Jump_left", "land_left", SubResource("AnimationNodeStateMachineTransition_3gt3o"), "Jump_right", "land_right", SubResource("AnimationNodeStateMachineTransition_vfix3"), "idle_left", "idle_right", SubResource("AnimationNodeStateMachineTransition_e2332"), "land_left", "idle_left", SubResource("AnimationNodeStateMachineTransition_de3be"), "land_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_gre0o"), "idle_right", "idle_left", SubResource("AnimationNodeStateMachineTransition_nimxi"), "Run_left", "idle_right", SubResource("AnimationNodeStateMachineTransition_kds27"), "Run_right", "idle_left", SubResource("AnimationNodeStateMachineTransition_xlmdk"), "Jump_left", "wall_slide_left", SubResource("AnimationNodeStateMachineTransition_ytlcj"), "wall_slide_left", "land_left", SubResource("AnimationNodeStateMachineTransition_a27xp"), "Jump_right", "wall_slide_right", SubResource("AnimationNodeStateMachineTransition_cfo6h"), "wall_slide_right", "land_right", SubResource("AnimationNodeStateMachineTransition_xpepf")]
 graph_offset = Vector2(-79.8871, -48.4764)
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_6b3t7"]
 
 [sub_resource type="Animation" id="Animation_dxip2"]
 resource_name = "Jump_left"
@@ -609,7 +607,6 @@ one_shot = true
 tree_root = SubResource("AnimationNodeStateMachine_qd23s")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_6b3t7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
